@@ -1303,6 +1303,23 @@
 
     window.addEventListener("hashchange", route);
     route();
+
+    /* The “Return to the First Page” buttons are plain #/ links, but a tap on
+       one must always work — even when the address already ends in #/, where
+       the click changes nothing and no hashchange fires. Catch the tap
+       directly: go back to the directory and scroll to its very top. */
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      while (t && t !== document) {
+        if (t.classList && t.classList.contains("back-page1-btn")) {
+          e.preventDefault();
+          renderIndex();
+          window.scrollTo(0, 0);
+          return;
+        }
+        t = t.parentNode;
+      }
+    });
     </script>
 </body>
 </html>
