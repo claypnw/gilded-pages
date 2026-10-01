@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/jpeg" href="icon.jpg" />
+  <link rel="apple-touch-icon" href="icon.jpg" />
+    <title>The Gilded Pages of the Holds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --paper: #dfe5cb;
+        --paper-deep: #cdd7ae;
+        --paper-edge: #b9c695;
+        --card: #eef1dc;
+        --card-line: #9aa87c;
+        --ink: #2b331f;
+        --ink-soft: #525f3c;
+        --accent: #33604a;
+        --accent-deep: #224433;
+        --gold: #8f6d1f;
+        --quote-bg: #e4ebcd;
+        --shadow: rgba(43, 51, 31, 0.25);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #171f11;
+          --paper-deep: #111809;
+          --paper-edge: #0b1006;
+          --card: #202b17;
+          --card-line: #44562f;
+          --ink: #e4ebd0;
+          --ink-soft: #aabd8e;
+          --accent: #93c7a4;
+          --accent-deep: #b7dcc2;
+          --gold: #cda64e;
+          --quote-bg: #243118;
+          --shadow: rgba(0, 0, 0, 0.55);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        font-size: 17px;
+        line-height: 1.55;
+        background:
+          radial-gradient(ellipse 60% 40% at 12% 8%, rgba(120, 140, 80, 0.20), transparent 70%),
+          radial-gradient(ellipse 50% 35% at 88% 22%, rgba(90, 115, 60, 0.18), transparent 70%),
+          radial-gradient(ellipse 70% 50% at 50% 95%, rgba(100, 125, 70, 0.16), transparent 70%),
+          linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 55%, var(--paper) 100%);
+        background-color: var(--paper);
+        min-height: 100vh;
+      }
+      .fell { font-family: "IM Fell English", Georgia, serif; }
+      .fell-sc { font-family: "IM Fell English SC", "IM Fell English", Georgia, serif; }
+      a { color: var(--accent); }
+      a:hover { color: var(--accent-deep); }
+
+      .wrap { max-width: 1060px; margin: 0 auto; padding: 0 18px 56px; }
+
+      /* ---------- page header band ---------- */
+      .masthead {
+        border-bottom: 3px double var(--ink);
+        padding: 30px 0 18px;
+        margin-bottom: 8px;
+      }
+      .masthead .rule-top {
+        border-top: 1px solid var(--ink);
+        border-bottom: 1px solid var(--ink);
+        height: 4px;
+        margin-bottom: 20px;
+        opacity: 0.65;
+      }
+      .dir-title {
+        font-size: clamp(34px, 6.5vw, 58px);
+        line-height: 1.05;
+        margin: 0 0 6px;
+        letter-spacing: 0.01em;
+      }
+      .dir-sub {
+        font-family: "IM Fell English", Georgia, serif;
+        font-style: italic;
+        font-size: clamp(17px, 2.6vw, 21px);
+        color: var(--ink-soft);
+        margin: 0 0 14px;
+        max-width: 62ch;
+      }
+      .masthead-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .green-note {
+        border: 1px solid var(--card-line);
+        background: var(--card);
+        padding: 12px 16px 13px;
+        font-size: 15px;
+        box-shadow: 2px 3px 0 var(--shadow);
+      }
+      .green-note .gn-title {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        display: block;
+        margin-bottom: 4px;
+        color: var(--accent-deep);
+      }
+      .green-note p { margin: 0; }
+      .green-note.interlude { margin-top: 48px; }
+
+      /* ---------- category thumb tabs ---------- */
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 20px 0 6px;
+        padding: 0;
+        list-style: none;
+      }
+      .tabs a {
+        display: inline-block;
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 15px;
+        text-decoration: none;
+        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--card-line);
+        border-bottom: 3px solid var(--accent);
+        padding: 6px 12px 5px;
+      }
+      .tabs a:hover { background: var(--quote-bg); color: var(--accent-deep); }
+
+      /* ---------- category sections ---------- */
+      .cat-section { margin-top: 42px; scroll-margin-top: 18px; }
+      .cat-head {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 6px;
+        flex-wrap: wrap;
+      }
+      .cat-head h2 {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(24px, 4vw, 32px);
+        margin: 0;
+      }
+      .cat-gloss { font-style: italic; color: var(--ink-soft); font-size: 15.5px; }
+
+      .vendor-list { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 20px; }
+      @media (min-width: 760px) { .vendor-list { grid-template-columns: 1fr 1fr; } }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--card-line);
+        box-shadow: 2px 3px 0 var(--shadow);
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .card img.thumb {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-bottom: 1px solid var(--card-line);
+        filter: sepia(0.25) saturate(0.85);
+      }
+      .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .card h3 {
+        font-family: "IM Fell English", Georgia, serif;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 1.15;
+        margin: 0;
+      }
+      .card h3 a { color: var(--ink); text-decoration: none; }
+      .card h3 a:hover { color: var(--accent-deep); text-decoration: underline; }
+      .card .meta {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 14.5px;
+        letter-spacing: 0.03em;
+        color: var(--accent-deep);
+      }
+      .card .teaser { margin: 0; font-size: 15.5px; color: var(--ink); }
+      .card .card-foot {
+        margin-top: auto;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-top: 1px dotted var(--card-line);
+      }
+      .featured-line { font-size: 13.5px; color: var(--ink-soft); font-style: italic; }
+      .checked-line {
+        margin: 2px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+        background: var(--quote-bg);
+        border: 1px solid var(--card-line);
+        border-left: 3px solid var(--accent);
+        padding: 6px 10px;
+        flex: 0 0 auto;
+      }
+      .checked-line .cl-label {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 13.5px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+      }
+      .open-link {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 15px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .open-link:hover { text-decoration: underline; }
+
+      /* ---------- vendor page ---------- */
+      .crumbs {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+      .crumbs a { text-decoration: none; }
+      .crumbs a:hover { text-decoration: underline; }
+      .crumbs .sep { color: var(--ink-soft); }
+      .vendor-head { border-bottom: 3px double var(--ink); padding-bottom: 14px; margin-bottom: 24px; }
+      .vendor-head .dir-small {
+        font-family: "IM Fell English SC", Georgia, serif;
+        letter-spacing: 0.06em;
+        font-size: 14px;
+        color: var(--ink-soft);
+        margin: 0 0 8px;
+      }
+      .vendor-head h1 {
+        font-family: "IM Fell English", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(32px, 6vw, 50px);
+        line-height: 1.08;
+        margin: 0 0 8px;
+      }
+      .vendor-head .meta-line {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: clamp(16px, 2.6vw, 19px);
+        color: var(--accent-deep);
+        margin: 0;
+      }
+      .vendor-grid { display: grid; grid-template-columns: 1fr; gap: 26px; }
+      @media (min-width: 820px) {
+        .vendor-grid { grid-template-columns: 1.15fr 1fr; gap: 34px; align-items: start; }
+      }
+      figure.engraving { margin: 0 auto 26px; max-width: 880px; }
+      figure.engraving img {
+        width: 100%;
+        display: block;
+        border: 1px solid var(--card-line);
+        box-shadow: 3px 4px 0 var(--shadow);
+        filter: sepia(0.22) saturate(0.85);
+        background: var(--card);
+      }
+      figure.engraving figcaption {
+        font-style: italic;
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        margin-top: 9px;
+        text-align: center;
+      }
+      .blurb { font-size: 17.5px; }
+      .blurb p { margin: 0 0 14px; }
+
+      /* vendor page section labels: the scroll version & the fuller tale */
+      .sec-label {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 21px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+        margin: 0 0 3px;
+      }
+      .sec-cite {
+        font-size: 14.5px;
+        font-style: italic;
+        color: var(--ink-soft);
+        margin: 0 0 14px;
+      }
+      .sec-cite a { color: var(--accent-deep); }
+      .heraldry .hb-sub {
+        display: block;
+        font-size: 14.5px;
+        font-style: italic;
+        color: var(--ink-soft);
+        margin-bottom: 9px;
+      }
+      .blurb p:first-of-type::first-letter {
+        font-family: "IM Fell English", Georgia, serif;
+        font-size: 2.6em;
+        float: left;
+        line-height: 0.85;
+        padding: 4px 8px 0 0;
+        color: var(--accent-deep);
+      }
+      blockquote.review {
+        margin: 22px 0;
+        background: var(--quote-bg);
+        border: 1px solid var(--card-line);
+        padding: 16px 20px 14px;
+        box-shadow: 2px 3px 0 var(--shadow);
+      }
+      blockquote.review .rq {
+        font-family: "IM Fell English", Georgia, serif;
+        font-style: italic;
+        font-size: 19px;
+        line-height: 1.45;
+        margin: 0 0 8px;
+      }
+      blockquote.review .rs { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+
+      .why-box {
+        border: 1px solid var(--card-line);
+        border-top: 3px solid var(--gold);
+        background: var(--card);
+        padding: 15px 18px 13px;
+        margin: 22px 0;
+      }
+      .why-box .wb-title {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .why-box p { margin: 0; font-size: 16.5px; }
+
+      /* from their own heraldry */
+      .heraldry {
+        border: 1px solid var(--card-line);
+        border-top: 3px solid var(--accent);
+        background: var(--card);
+        padding: 15px 18px 13px;
+        margin: 22px 0;
+      }
+      .heraldry .hb-title {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .heraldry p { margin: 0 0 10px; font-size: 16.5px; }
+      .heraldry p:last-child { margin-bottom: 0; }
+      .heraldry .if-you-go { font-style: italic; }
+      .heraldry .if-you-go .iyg-label {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-style: normal;
+        color: var(--accent-deep);
+      }
+      .heraldry .src { font-size: 13.5px; color: var(--ink-soft); font-style: italic; }
+
+      /* the scroll confesses */
+      .confession {
+        border: 1px dashed var(--card-line);
+        background: var(--quote-bg);
+        padding: 11px 16px 10px;
+        margin: 18px 0 4px;
+        font-size: 15.5px;
+        font-style: italic;
+        box-shadow: 2px 3px 0 var(--shadow);
+      }
+      .confession .cf-label {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-style: normal;
+        font-size: 14.5px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+      }
+
+      /* ---------- mail order skyrim (pure jest) ---------- */
+      .fiction-section {
+        margin-top: 64px;
+        border-top: 3px double var(--ink);
+        padding-top: 26px;
+        scroll-margin-top: 18px;
+      }
+      .fiction-head { text-align: center; margin-bottom: 24px; }
+      .fiction-kicker {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 14px;
+        letter-spacing: 0.09em;
+        color: var(--gold);
+        display: block;
+      }
+      .fiction-head h2 {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(30px, 5.5vw, 46px);
+        margin: 4px 0 12px;
+      }
+      .jest-label {
+        display: inline-block;
+        border: 2px dashed var(--gold);
+        background: var(--quote-bg);
+        padding: 8px 18px;
+        font-style: italic;
+        font-size: 15.5px;
+        box-shadow: 2px 3px 0 var(--shadow);
+        max-width: 70ch;
+      }
+      .fiction-intro { max-width: 68ch; margin: 14px auto 0; font-size: 16px; text-align: left; }
+      .jest-banner {
+        border: 2px dashed var(--gold);
+        background: var(--quote-bg);
+        padding: 10px 18px;
+        text-align: center;
+        font-style: italic;
+        font-size: 16px;
+        box-shadow: 2px 3px 0 var(--shadow);
+        margin-bottom: 24px;
+      }
+      .jest-banner .jb-title {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-style: normal;
+        letter-spacing: 0.06em;
+        color: var(--gold);
+        display: block;
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+      .card.jest {
+        border: 1px dashed var(--gold);
+        background: var(--quote-bg);
+        position: relative;
+      }
+      .jest-ribbon {
+        position: absolute;
+        top: 20px;
+        right: -38px;
+        transform: rotate(38deg);
+        background: var(--card);
+        border-top: 1.5px solid var(--gold);
+        border-bottom: 1.5px solid var(--gold);
+        color: var(--gold);
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        padding: 4px 44px;
+        z-index: 2;
+        box-shadow: 0 2px 4px var(--shadow);
+      }
+      .card.jest .meta { color: var(--gold); }
+      .fiction-note {
+        margin-top: 20px;
+        font-size: 14.5px;
+        font-style: italic;
+        color: var(--ink-soft);
+        text-align: center;
+      }
+
+      /* sweetroll watch */
+      .sweetroll-watch {
+        margin: 18px 0 4px;
+        background: var(--quote-bg);
+        border: 1px solid var(--card-line);
+        border-left: 4px solid var(--gold);
+        padding: 12px 16px 11px;
+        font-size: 15.5px;
+        box-shadow: 2px 3px 0 var(--shadow);
+      }
+      .sweetroll-watch .sw-label {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 14.5px;
+        letter-spacing: 0.05em;
+        color: var(--accent-deep);
+        display: block;
+        margin-bottom: 3px;
+      }
+      .sweetroll-watch p { margin: 0; font-style: italic; }
+      .card .sw-line {
+        margin: 0;
+        font-size: 14px;
+        font-style: italic;
+        color: var(--ink-soft);
+        border-left: 3px solid var(--gold);
+        background: var(--quote-bg);
+        padding: 7px 10px;
+      }
+      .card .sw-line .sw-label {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-style: normal;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+      }
+
+      /* directory facts table */
+      .facts { margin: 6px 0 0; border-top: 1px solid var(--card-line); }
+      .facts .row {
+        display: grid;
+        grid-template-columns: 118px 1fr;
+        gap: 10px;
+        padding: 8px 2px;
+        border-bottom: 1px solid var(--card-line);
+        font-size: 15.5px;
+      }
+      .facts dt {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 14.5px;
+        letter-spacing: 0.03em;
+        color: var(--accent-deep);
+        padding-top: 1px;
+      }
+      .facts dd { margin: 0; }
+      .facts .row.wide { grid-template-columns: 198px 1fr; }
+      @media (max-width: 560px) { .facts .row.wide { grid-template-columns: 148px 1fr; } }
+
+      /* ---------- trailer / footer ---------- */
+      .trailer {
+        margin-top: 46px;
+        border-top: 3px double var(--ink);
+        padding-top: 18px;
+      }
+      .trailer .tr-title {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-size: 18px;
+        letter-spacing: 0.03em;
+        margin: 0 0 12px;
+        color: var(--accent-deep);
+      }
+      .trailer-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+      @media (min-width: 760px) { .trailer-grid { grid-template-columns: repeat(3, 1fr); } }
+      .trailer h4 {
+        font-family: "IM Fell English SC", Georgia, serif;
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: 0.05em;
+        color: var(--ink-soft);
+        margin: 0 0 6px;
+        border-bottom: 1px solid var(--card-line);
+        padding-bottom: 4px;
+      }
+      .trailer ul { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+      .trailer li { margin: 0 0 5px; }
+      .trailer p { font-size: 15px; margin: 0 0 10px; max-width: 78ch; }
+      .colophon {
+        margin-top: 22px;
+        text-align: center;
+        font-style: italic;
+        color: var(--ink-soft);
+        font-size: 14px;
+        border-top: 1px solid var(--card-line);
+        padding-top: 12px;
+      }
+      .back-top { display: inline-block; margin-top: 14px; font-family: "IM Fell English SC", Georgia, serif; font-size: 15px; text-decoration: none; }
+      .back-top:hover { text-decoration: underline; }
+      .back-page1-wrap { text-align: center; margin: 30px 0 12px; }
+      .back-page1-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; font-family: "IM Fell English SC", Georgia, serif; font-size: 19px; letter-spacing: 0.05em; color: var(--accent-deep); background:
+          radial-gradient(ellipse 70% 50% at 18% 20%, rgba(143, 109, 31, 0.10), transparent 60%),
+          radial-gradient(ellipse 60% 45% at 82% 80%, rgba(51, 96, 74, 0.10), transparent 65%),
+          linear-gradient(165deg, var(--card) 0%, var(--quote-bg) 55%, var(--card) 100%);
+        border: 2px solid var(--accent-deep); outline: 1px solid var(--card-line); outline-offset: 3px;
+        padding: 13px 34px; text-decoration: none; box-shadow: 2px 3px 0 var(--shadow), inset 0 0 0 1px rgba(143, 109, 31, 0.18); border-radius: 2px; }
+      .back-page1-btn::before, .back-page1-btn::after { content: "\2022"; position: absolute; top: 50%; transform: translateY(-52%); font-size: 13px; color: var(--gold); opacity: 0.85; }
+      .back-page1-btn::before { left: 11px; }
+      .back-page1-btn::after { right: 11px; }
+      .back-page1-btn:hover { color: var(--accent); background:
+          radial-gradient(ellipse 70% 50% at 18% 20%, rgba(143, 109, 31, 0.14), transparent 60%),
+          linear-gradient(165deg, var(--quote-bg) 0%, var(--card) 60%, var(--quote-bg) 100%); }
+      .back-page1-btn:active { transform: translateY(1px); box-shadow: 1px 2px 0 var(--shadow), inset 0 0 0 1px rgba(143, 109, 31, 0.18); }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap" id="app"></div>
+    <noscript><p style="padding:20px">The Gilded Pages needs JavaScript to open its leaves.</p></noscript>
+    <script>
+    var ARCHIVE_URL = "https://claypnw.github.io/morning-scroll/";
+    var LAST_CHECKED = "September 30, 2026";
+
+    var CATEGORIES = [
+      { id: "feasts",     name: "Feasts & Morning Boards",              gloss: "Diners, cafés & restaurants" },
+      { id: "wake",       name: "Wake-Potions & Coffee Houses",         gloss: "Coffee shops & espresso" },
+      { id: "sweetrolls", name: "Sweetrolls, Bakeries & Market Stalls", gloss: "Bakeries, donuts & food markets" },
+      { id: "meadhalls",  name: "Mead Halls, Ales & Pub Fare",          gloss: "Breweries & pubs" },
+      { id: "relics",     name: "Relics, Antiques & Secondhand Treasures", gloss: "Thrift & antique shops" },
+      { id: "smiths",     name: "Smiths, Hardware & Maker Supply",      gloss: "Hardware, tools & build supplies" },
+      { id: "outfitters", name: "Outfitters, Trail Gear & Rentals",     gloss: "Outdoor shops & gear rentals" }
+    ];
+
+    function catName(id) {
+      for (var i = 0; i < CATEGORIES.length; i++) if (CATEGORIES[i].id === id) return CATEGORIES[i].name;
+      return id;
+    }
+
+    var VENDORS = [
+      {
+        slug: "the-pinon-cafe",
+        name: "The Piñon Cafe",
+        category: "feasts",
+        town: "Payson",
+        date: "2026-09-24",
+        lastChecked: "September 30, 2026",
+        featured: "Thursday, September 24, 2026",
+        edition: "Vol. 1, No. 1",
+        img: "pinon-cafe.jpg",
+        alt: "Engraving of the Mogollon Monster Breakfast Burger and a giant frosted cinnamon roll on a pine-log café table",
+        caption: "The Mogollon Monster burger and the giant frosted cinnamon roll, as our court engraver imagines them.",
+        teaser: "A family-run Beeline Highway diner serving breakfast, brunch, and lunch — home of the Mogollon Monster Breakfast Burger.",
+        blurb: [
+          "A locally owned, family-run diner serving breakfast, brunch, and lunch daily. Southern-style comfort food done right: giant frosted cinnamon rolls, French toast, hearty breakfast plates — and the Mogollon Monster Breakfast Burger."
+        ],
+        offerings: "Breakfast, brunch, and lunch daily — Southern-style comfort food, French toast, and hearty breakfast plates",
+        sweetroll: "No need to steal this one — the giant frosted cinnamon roll is the closest thing in Rim Country to the real thing, and it arrives at your table fair and square.",
+        signature: "The Mogollon Monster Breakfast Burger, and the giant frosted cinnamon roll",
+        address: "1001 S Beeline Hwy, Payson",
+        phone: "(928) 474-2890",
+        hours: "Open daily 6:00 AM–2:00 PM",
+        price: "Moderate prices",
+        website: null,
+        review: { text: "Our favorite mountain town diner for breakfast.", source: "a Google review", url: null },
+        goodToKnow: "Breakfast is the main event — arrive early on weekends.",
+        why: "Bold enough to name a burger after the Mogollon Monster — the Hearth sends its hungriest guests here first.",
+        heraldry: [
+          "Their own banner reads \u201CMade From Scratch, For You,\u201D and the claim under it is the boldest in the Hold: \u201Cthe best Southern style food in Rim Country.\u201D The kitchen board backs the boast — alongside the Mogollon Monster sit corned beef hash, chicken fried steak, and a steaming bowl of cowboy chili, provisions sturdy enough to tempt a Whiterun guard off his post.",
+          "The house describes itself without flourish, as a locally owned, family-run diner serving breakfast, brunch, and lunch daily — and its own invitation runs to three plain words of counsel: come sit down, \u201Cfrom breakfast to burgers we have you covered.\u201D",
+          "Two dishes get their portraits hung on the menu page itself: the French toast, and the giant cinnamon roll the Scroll has already spied beneath its glass. Travelers who tarry find the board still sturdy past the breakfast rush — chicken and waffles the kitchen swears need no sides at all, a Cowboy Burger, a green chili cheeseburger with spicy chili mayo, and homemade meatloaf with mashed potatoes and a choice of soup or salad."
+        ],
+        ifYouGo: "Come hungry and come before two — the kitchen keeps feast hours, not tavern hours, and the cinnamon roll feeds a small crew.",
+        heraldrySrc: [
+          { label: "their own kitchen pages at pinoncafe.com", url: "https://www.pinoncafe.com/" },
+          { label: "their menu page at pinoncafe.com", url: "https://www.pinoncafe.com/menu" },
+          { label: "menu as listed by Restaurant Guru", url: "https://restaurantguru.com/Pinon-Cafe-Payson-3/menu" }
+        ]
+      },
+      {
+        slug: "explore-the-attic",
+        name: "Explore the Attic",
+        category: "relics",
+        town: "Payson",
+        date: "2026-09-25",
+        lastChecked: "September 30, 2026",
+        featured: "Friday, September 25, 2026",
+        edition: "Vol. 1, No. 2",
+        img: "explore-the-attic.jpg",
+        alt: "Engraving of a treasure-crowded Nordic antique shop — hold banners with dragon, wolf, and bear sigils on the walls — its keeper showing a glowing candelabra to two travelers",
+        caption: "Hold banners overhead, a dragon carved along the beam, and a candelabra worth the climb.",
+        teaser: "Thirty years on Highway 260: room after room of antiques, vinyl, and oddities from a small army of dealer booths.",
+        blurb: [
+          "A true treasure-hunt of an antique shop, 30 years on Highway 260 and room after room of wonders — vintage sewing machines, vinyl records, glassware, jewelry, garden décor, and the oddities of a small army of dealer booths. There is even a secret bar tucked in somewhere, and an outdoor yard of rusty garden art worth a wander all its own."
+        ],
+        offerings: "Antiques and vintage goods across many dealer booths — sewing machines, vinyl records, glassware, jewelry, and garden décor",
+        signature: "The secret bar tucked in somewhere inside, and the outdoor yard of rusty garden art",
+        address: "800 E State Highway 260, Payson",
+        phone: "(928) 474-2897",
+        hours: "Open daily 10 AM–5 PM",
+        price: "Moderate prices",
+        website: "https://exploretheattic.com/",
+        review: { text: "Nice antique shop with many rooms of interesting items. You can easily spend an hour here looking at items from the past. They have a good selection of vintage vinyl music albums.", source: "a TripAdvisor review (Jul 2026)", url: "https://www.tripadvisor.co.za/Attraction_Review-g31305-d18980201-Reviews-Explore_the_Attic-Payson_Arizona.html" },
+        goodToKnow: "Open Mondays, when many Payson shops take the day off.",
+        why: "Because the Hearth's guests deserve a proper rummage — a shop with a secret bar and thirty years of treasures is the Hold's kind of dungeon.",
+        heraldry: [
+          "Their own heraldry invites you to \u201Ctake a walk back in time\u2026 just like exploring your old family home to find hidden treasures from times past.\u201D The house answered to Granny\u2019s Attic before it took its present name, and more than forty dealers now keep booths beneath its roof — each a small, lovingly hoarded trove tended to its own era.",
+          "The keep takes its cataloguing seriously, the way a court mage sorts relics: true antiques of a hundred years and better, collectibles kept for nostalgia\u2019s sake, and gifts fit for the kin back home. Those who cannot make the climb may still plunder from afar — the attic keeps an online store, and a newsletter to herald new arrivals.",
+          "No two booths keep the same century: their own inventory names vintage sewing machines and vintage records, home décor and yard décor, jewelry, trinkets, gadgets, and glassware, each of the forty-plus dealers tending a collection cut to a different era and style. The keepers’ suggested quest is a gentle one — stop in after an active day of exploring the Rim Country, and let a rummage through somebody else’s family attic be the evening’s dungeon dive."
+        ],
+        ifYouGo: "Dealers mark wares down from time to time, and the house warns plainly: if you see something you like, do not wait — it will not keep that price for long.",
+        heraldrySrc: [
+          { label: "exploretheattic.com", url: "https://exploretheattic.com/" },
+          { label: "the online store at exploretheattic.com/shop", url: "https://exploretheattic.com/shop" }
+        ]
+      },
+      {
+        slug: "common-grounds-coffee-house",
+        name: "Common Grounds Coffee House",
+        category: "wake",
+        town: "Payson",
+        date: "2026-09-26",
+        lastChecked: "September 30, 2026",
+        featured: "Saturday, September 26, 2026",
+        edition: "Vol. 1, No. 3",
+        img: "common-grounds.jpg",
+        alt: "Common Grounds Coffee House, as our engraver imagines it",
+        caption: "The coffee house as our engraver imagines it — pastries, pines, and plenty of mugs.",
+        teaser: "A cozy Colcord Road coffee house under the pines — Lavender Bee Lattes, homemade bakes, and a pine-shaded back patio.",
+        blurb: [
+          "A cozy neighborhood coffee house on Colcord Road, tucked under the pines. The signature Lavender Bee Latte — made with lavender sugar from a Pine farm and local Boyd's honey — shares the menu with homemade cranberry bread, chocolate chip muffins, and fresh-baked treats. Indoor and patio seating, takeout, and prices that keep it an everyday stop."
+        ],
+        offerings: "Coffee and café drinks, homemade cranberry bread, chocolate chip muffins and fresh-baked treats, and shelves of local products from neighboring makers; indoor and patio seating, takeout",
+        sweetroll: "No stolen sweetroll here — Common Grounds answers with homemade cranberry bread, chocolate chip muffins, and fresh-baked treats beside the Lavender Bee Latte.",
+        signature: "The Lavender Bee Latte — lavender sugar from a Pine farm and local Boyd's honey",
+        address: "219 S Colcord Rd, Payson",
+        phone: "(928) 970-2540",
+        hours: "Open daily 6:30 AM–4 PM",
+        price: "Inexpensive",
+        website: "https://www.commongroundspayson.com/",
+        review: { text: "Regulars on Google call it their favorite coffee shop in Payson — cozy inside, a patio right under the pines, and shelves of local products from neighboring makers.", source: "a Google review", url: null },
+        goodToKnow: "The back patio sits right under the pines — the finest seat in the house on a sunny morning.",
+        why: "The Hearth sends its guests here for the coziest cup in the Hold — honest baking, a pine-shaded patio, and honey from just down the road.",
+        heraldry: [
+          "Their full style and title is Common Ground Neighborhood Coffee House, and their declared quest is a gentle one: \u201Cexceptional coffee in an environment of meaningful community\u201D — a place to win \u201Ca sense of belonging and rest from the hustle and bustle,\u201D and, they say, the best cup of coffee in Rim Country.",
+          "Beyond the Lavender Bee, the posted board runs to lavender lemonade for warm afternoons, a pumpkin pie latte when the season turns, an Adult Grilled Cheese Pesto for travelers who missed breakfast, and brownies striped like a zebra for sweet teeth that wake before their eyes do.",
+          "The house shops like a good neighbor, and guests in the listings tell that tale best: lavender sugar from the Pine Lavender Farm in the neighboring hold of Pine, honey from Boyd\u2019s farm \u2014 jams and honey from Boyd\u2019s farm stand ride home from the counter \u2014 and baked goods from local bakers. Regulars commend two more customs to newcomers: the Local Bee taken iced, and buying a mug to keep at the shop until your next visit, like a tankard hung over your home hearth."
+        ],
+        ifYouGo: "Free Wi-Fi and the pine-shaded patio make this the Hold\u2019s unofficial scribes\u2019 corner — bring a journal, leave with a chapter.",
+        heraldrySrc: [
+          { label: "their own house at commongroundspayson.com", url: "https://www.commongroundspayson.com/" },
+          { label: "the house\u2019s own story, as listed", url: "https://mapquest.com//us/arizona/common-grounds-378536309" },
+          { label: "menu as listed by Restaurantji", url: "https://www.restaurantji.com/az/payson/common-grounds-coffee-house-/menu/" }
+        ],
+        confession: "The \u201CWi-Fi\u201D remains beyond our scholars \u2014 some manner of household spirit that carries letters through the air to a scribe\u2019s tablet. We cannot explain it; we can only report that it is free, the patio is shaded, and the coffee is entirely real."
+      },
+      {
+        slug: "rim-country-recreation-rentals",
+        name: "Rim Country Recreation Rentals",
+        category: "outfitters",
+        town: "Payson",
+        date: "2026-09-27",
+        lastChecked: "September 30, 2026",
+        featured: "Sunday, September 27, 2026",
+        edition: "Vol. 1, No. 4",
+        img: "rim-country-rentals.jpg",
+        alt: "A traveler in tunic and cloak choosing a timber canoe at a pine-ringed lake",
+        caption: "Choosing a 'longship' at the water's edge — the outfitter's fleet awaits.",
+        teaser: "Payson's friendly outfitter for everything that floats or rolls — kayaks, paddleboards, bikes, and gear, every rental a full 24 hours.",
+        blurb: [
+          "Rim Country Recreation Rentals is Payson's friendly outfitter for everything that floats, rolls, or gets you to the water: single and double kayaks, paddleboards, canoes, pedal boats, mountain bikes, and camping and fishing gear. Every rental runs a full 24 hours — not a stingy few — and pickup in Payson is easy, so you can be skimming across Willow Springs Lake or Blue Ridge Reservoir by midday. Family-owned and run by Michelle, whom reviewers praise by name for her kindness, her local water wisdom, and her last-minute rescues — and her pup Meg greets the customers."
+        ],
+        offerings: "Single and double kayaks, paddleboards, canoes, pedal boats, mountain bikes, and camping and fishing gear — every rental runs a full 24 hours",
+        signature: "Full 24-hour rentals, and Michelle's local water wisdom (pup Meg greets the customers)",
+        address: "1400 W Red Baron Rd, Payson, AZ 85541",
+        phone: "(928) 978-2050",
+        hours: "Open daily 6:00 AM–9:00 PM",
+        price: "Fair prices, say the reviewers",
+        website: "https://rimcountryrentals.com/",
+        review: { text: "The entire rental process was simple, fast, and stress-free… This is definitely the go-to spot for kayak rentals near Payson. I'll absolutely be renting from her again for future Arizona trips.", source: "a TripAdvisor review", url: "https://www.TripAdvisor.ca/Attraction_Review-g31305-d7007052-Reviews-Rim_Country_Recreation_Kayaking_Canoeing_Stand_Up_Paddleboard_Rentals-Payson_Arizo.html" },
+        goodToKnow: "Reserve by text or call — directions to their location come with the booking — and gear rents for a full 24 hours; veteran- and women-owned.",
+        why: "The Rim's high lakes are the Hearth's true waterfront, and no one fits a traveler with a longship like Michelle does — paddle out, wayfarer!",
+        heraldry: [
+          "Their own heraldry is plain-spoken: \u201CWe are your one stop for lake rentals,\u201D and the muster is simple as a skald\u2019s verse — text or call to reserve, pick up in Payson, and make for the water. The guild names its own hunting grounds: Willow Springs Lake, Blue Ridge Reservoir, Bear Canyon, and Knoll Lake — \u201Cor anywhere you\u2019d like.\u201D",
+          "They fly a title worth embroidering, too: rated number one on TripAdvisor and Yelp, say the keepers, and their own customers add that the whole war-band fares cheaper for it — a group discount rides with the fleet.",
+          "It is a family holding, raised in Payson \u201Cto make outdoor adventures on the lake easy for you,\u201D and the keepers trade in local counsel as much as in boats \u2014 years on these waters, and word of where the quiet water lies. Valley Dwellers, take note: the shop reckons the run from the Phoenix heat at ninety minutes, close enough that a dawn decision can end with a paddle in hand before the morning is old."
+        ],
+        ifYouGo: "Reserve by text or call ahead of a fair weekend; every craft is yours a full 24 hours, so a sunset paddle costs no more than a morning one.",
+        heraldrySrc: [
+          { label: "rimcountryrentals.com", url: "https://rimcountryrentals.com/" }
+        ],
+        confession: "Our engravers have studied these kayaks and paddle boards most carefully and remain unsure whether they be boats, shields, or some manner of flat river-fish — yet Michelle swears they float, and every traveler who hires one comes back grinning and damp. So the Scroll faithfully prints her words exactly as given: single and double kayaks, paddle boards, canoes, pedal boats, and mountain bikes, each yours for a full 24 hours."
+      },
+      {
+        slug: "pauls-ace-hardware",
+        name: "Paul's Ace Hardware & Hearth Shoppe",
+        category: "smiths",
+        town: "Payson",
+        date: "2026-09-28",
+        lastChecked: "September 30, 2026",
+        featured: "Monday, September 28, 2026",
+        edition: "Vol. 1, No. 5",
+        img: "pauls-ace.jpg",
+        alt: "Engraving of a hardware store workshop with tools, lanterns, rope, and a busy counter",
+        caption: "The workshop counter at Paul's, where every tool has a tale.",
+        teaser: "Payson's locally owned hardware haven — STIHL service, cuts to size, honest repair advice, plus a Hearth Shoppe and nursery.",
+        blurb: [
+          "Payson's locally owned hardware haven — the closest thing to a blacksmith's forge in the holds. STIHL power equipment sales and service, small-engine repair, key cutting, glass and lumber cut to size, paint matching, lock servicing, and screen repair, plus a Hearth Shoppe and seasonal nursery out back. The signature move: the staff talk you through the repair instead of just selling you the part."
+        ],
+        offerings: "STIHL power equipment sales and service, small-engine repair, key cutting, glass and lumber cut to size, paint matching, lock servicing, and screen repair — plus a Hearth Shoppe and seasonal nursery out back",
+        signature: "The staff talk you through the repair instead of just selling you the part",
+        address: "507 N Beeline Hwy, Payson",
+        phone: "(928) 474-5238",
+        hours: "Mon–Sat 7 AM–7 PM, Sun 9 AM–5 PM",
+        price: "Moderate prices",
+        website: "http://www.paulsacehardware.com/",
+        review: { text: "Love this place. They have a great selection of items and the staff is very friendly and helpful.", source: "a Loc8NearMe review", url: "https://www.loc8nearme.com/arizona/payson/pauls-ace-hardware-and-nursery-payson/2951710/" },
+        goodToKnow: "Senior & military discounts, and they're open Sundays.",
+        why: "Because when a Hearth project needs a bolt, a blade, or a bit of honest advice, this is where the Hearth sends you.",
+        heraldry: [
+          "Their house words are an oath any smith would sign: \u201Ccommitted to being the Helpful Place\u2026 offering knowledgeable advice, helpful service and quality products.\u201D And the forge keeps a second trade under the same roof — the Hearth Shoppe — for travelers whose thoughts run to firesides rather than fences.",
+          "Should your wagon not wait for a browse, the smiths will meet you at the curb: order ahead through acehardware.com and they will gather your goods for pickup or curbside delivery. The guild also posts monthly bargains under a banner even a dragon would respect: Red Hot Buys.",
+          "The forge also flies fresh honors: for 2025 the house was named Arizona\u2019s entry among STIHL\u2019s Hardware Store All Stars \u2014 fifty stores, one from each state, honored for performance, customer care, and standing in their communities. And under the same roof the quieter trades thrive: paint matched to a chip of the old color, small engines coaxed back to life, and a nursery court out back where even garden furniture waits for inspection \u2014 proofs that \u2018the Helpful Place\u2019 is a working oath, not a painted sign."
+        ],
+        ifYouGo: "Hunt the clearance bin and the seasonal shelves — sleds, gloves, and other quiet treasures turn up there between the great campaigns of spring.",
+        heraldrySrc: [
+          { label: "paulsacehardware.com", url: "http://www.paulsacehardware.com/" },
+          { label: "STIHL\u2019s 2025 Hardware Store All Stars at hbsdealer.com", url: "https://hbsdealer.com/meet-2025-stihl-hardware-store-all-stars" },
+          { label: "the nursery court, per Garden Center Guide", url: "https://www.gardencenterguide.com/ace-hardware-nursery-payson/garden-furniture" },
+          { label: "visitor tips at Giftly", url: "https://www.giftly.com/gift-card/pauls-ace-hardware-and-hearth-shoppe-payson" }
+        ]
+      },
+      {
+        slug: "that-brewery-and-pub",
+        name: "THAT Brewery & Pub",
+        category: "meadhalls",
+        town: "Pine",
+        date: "2026-09-29",
+        lastChecked: "September 30, 2026",
+        featured: "Tuesday, September 29, 2026",
+        edition: "Vol. 1, No. 6",
+        img: "that-brewery.jpg",
+        alt: "Vintage engraving of THAT Brewery & Pub's roadside frontage on AZ-87 in Pine",
+        caption: "The drive-by view on AZ-87, as the engraver saw it — the painted sign and truck mural out front.",
+        teaser: "Pine's own craft brewery on AZ-87: house ales, hearty pub fare, the legendary elk burger, and a dog-friendly patio.",
+        blurb: [
+          "Pine's own craft brewery and pub sits right on AZ-87, pouring a lineup of house ales — the light Backwoods Blonde, the Strawberry Blonde, the fruity Clearly That's Hazy IPA, the grapefruity Roadrash IPA, and a crisp Mexican Lager — alongside hearty pub fare. The elk burger is the legend of the house, and a frost-rune keeps the casks at cellar-cold even in the September heat, so every pint lands at the table impossibly cold."
+        ],
+        offerings: "House ales — Backwoods Blonde, Strawberry Blonde, Clearly That's Hazy IPA, Roadrash IPA, and a Mexican Lager — alongside hearty pub fare; dog-friendly patio with live music",
+        signature: "The elk burger — the legend of the house",
+        address: "3270 Hwy 87, Pine, AZ 85544",
+        phone: "(928) 476-3349",
+        hours: "Mon/Tue/Fri/Sat 11 AM–8 PM, Sun 11 AM–7 PM, closed Wed & Thu",
+        price: "$$ (~$10–25/person)",
+        website: "http://thatbrewery.com/",
+        review: { text: "Great food, interesting beers, and a friendly vibe. Would recommend for anyone visiting Pine and looking to relax with a good brew!", source: "a TripAdvisor review", url: "https://www.tripadvisor.in/Restaurant_Review-g31313-d3587381-Reviews-THAT_Brewery_Pub-Pine_Arizona.html" },
+        goodToKnow: "Dog-friendly patio with live music; the porch tables go fast on fair afternoons.",
+        why: "The Hearth sends its guests to THAT Brewery — a brewhouse with the true mead-hall spirit, and ale cold enough to make a Frost Atronach shiver.",
+        heraldry: [
+          "Their own heraldry is sung at full voice: \u201Ca place for people who like beer! We like beer — like to drink it, brew it, tip it and sing songs about it.\u201D The hall has stood just off the Arizona Trail since June of 2012, a trail-side mead hall for hikers coming down from the Rim — and, their keepers add, good people who put their shoulders to local charity drives.",
+          "The brewer\u2019s board holds a curiosity for alchemists: a Nut Brown Ale brewed with locally sourced pinecones, where sarsaparilla and nuts say hello first and roasted cr\u00e8me br\u00fbl\u00e9e finishes — the very forest, tapped. Beside it pours a Mexican lager that takes lime and Taj\u00edn for riders coming in from the heat.",
+          "Their own tasting notes read like a skald\u2019s set list: the house IPA pours grapefruit and citrus zest over a bold hop finish that does not linger; the flagship ale tastes of fresh-baked whole wheat bread, giving way to stone fruit, rosehips, and black tea; and the strawberry blonde is defended by its own brewers in capital letters \u2014 \u201Ca beer with flavor, NOT a flavored beer.\u201D",
+          "The pub board, from their own menu cards, keeps pace with the taps: elk and buffalo chili ladled over nachos, soft pretzels with THAT Beer cheese or beer mustard, mac and cheese tossed in that same beer cheese, and a burger answering to the name Mogollon Monster \u2014 two patties buried under Swiss, cheddar, beer cheese, bacon, jalape\u00f1os, and chili. The Hearth notes the Monster\u2019s manners improve considerably with a pint beside it."
+        ],
+        ifYouGo: "Volleyball and horseshoes wait on the grounds, and travelers advise taking a growler back to the cabin for the evening watch.",
+        heraldrySrc: [
+          { label: "thatbrewery.com", url: "http://thatbrewery.com/" },
+          { label: "the pub\u2019s own menu card (PDF) at thatbrewery.com", url: "http://thatbrewery.com/wp-content/uploads/2019/05/that-brewery-menu-may-2019.pdf" }
+        ]
+      },
+      {
+        slug: "bosa-donuts",
+        name: "BoSa Donuts",
+        category: "sweetrolls",
+        town: "Payson",
+        date: "2026-09-30",
+        lastChecked: "September 30, 2026",
+        featured: "Wednesday, September 30, 2026",
+        edition: "Vol. 1, No. 7",
+        img: "bosa-donuts.jpg",
+        alt: "The baker presents a platter of golden sweet rolls",
+        caption: "Sweet rolls, fresh daily — the Hold's answer to the guards' favorite.",
+        teaser: "A walk-in donut shop on the Beeline where everything is made fresh daily from scratch — and the apple fritter reigns.",
+        blurb: [
+          "BoSa Donuts is a walk-in donut shop and bakery where the donuts are made fresh daily from scratch. The case holds the classics — glazed, chocolate iced, maple long johns, apple fritters, cinnamon twists, bear claws, and donut holes — plus breakfast sandwiches like sausage, egg & cheese on a croissant, coffee, cappuccino, and smoothies. Quick service with dine-in or drive-through, and the apple fritter is the thing the regulars swear by."
+        ],
+        offerings: "Donuts made fresh daily from scratch — glazed, chocolate iced, maple long johns, apple fritters, cinnamon twists, bear claws, and donut holes — plus breakfast sandwiches, coffee, cappuccino, and smoothies; dine-in or drive-through",
+        sweetroll: "The apple fritter is this shop's pride — crisp, crunchy glaze outside, perfectly cooked apples within; the Hold's own sweet roll, with no guard in sight to confiscate it.",
+        signature: "The apple fritter — the thing the regulars swear by",
+        address: "303 S Beeline Hwy, Payson, AZ 85541",
+        phone: "(928) 474-8889",
+        hours: "Open daily from 5 AM",
+        price: "$ inexpensive",
+        website: "http://bosadonutsaz.com/",
+        review: { text: "Excellent donuts. The Apple Fritter was my absolute favorite. Crispy, crunchy glaze on the outside with perfectly cooked apples inside.", source: "a TripAdvisor review", url: "https://www.TripAdvisor.ca/Restaurant_Review-g31305-d13738026-Reviews-BoSa_Donuts-Payson_Arizona.html" },
+        goodToKnow: "Drive-through, and the case is fullest in the morning.",
+        why: "BoSa's apple fritter is the Hold's own sweet roll — and these come fresh daily with no guard in sight to confiscate them. A cheap, cheerful morning break along the Beeline, right as the Valley Dwellers roll into town for fair week.",
+        heraldry: [
+          "Their own heraldry is disarmingly honest: \u201CBoSa doesn\u2019t try to reinvent donut recipes or show off donut bravado with culinary skills — they just simply make the perfect donut.\u201D The Payson banner is prouder still: the first and only BoSa in Payson, serving donuts made fresh daily from scratch.",
+          "The counter\u2019s heralds commend more than the case — hot or iced coffee, cappuccino, and fresh smoothies to wash down the spoil, with boba drinks for travelers of modern tastes.",
+          "The full case, as their menu heralds list it, is a small gilded army: raised rings in glazed, chocolate, crumb, and sugar; filled pillows of raspberry, lemon, apple-crumb, and Boston cream; maple bars, chocolate bars, cinnamon twists, a cinnamon roll donut, and the celebrated apple fritter \u2014 then a second wall of cake donuts and a Devil\u2019s Food regiment drawn up behind them. Travelers who take breakfast built like a sandwich will find egg-and-cheese with bacon, sausage, or ham, and donut holes by the dozen for the road."
+        ],
+        ifYouGo: "The Payson listing keeps the ovens\u2019 hours at 5 AM to 8 PM daily; come early, for the case is fullest then and the apple fritter waits for no straggler.",
+        heraldrySrc: [
+          { label: "bosadonutsaz.com", url: "http://bosadonutsaz.com/" },
+          { label: "the BoSa menu as listed by FastFoodTime", url: "https://www.fastfoodtime.com/bosa-donuts-menu/" },
+          { label: "the Payson menu, as listed", url: "https://menuweb.menu/restaurants/payson/bosa-donuts-22" }
+        ],
+        confession: "\u201CBoba\u201D defeats our scholars entirely \u2014 small dark pearls resting at the bottom of a sweet drink, chewed with every appearance of delight. We print the word exactly as the merchant gives it, and vouch with confidence only for the donuts."
+      },
+      {
+        slug: "crosswinds-restaurant",
+        name: "Crosswinds Restaurant",
+        category: "feasts",
+        town: "Payson",
+        date: "2026-10-01",
+        lastChecked: "October 1, 2026",
+        featured: "Thursday, October 1, 2026",
+        edition: "Vol. 1, No. 9",
+        img: "crosswinds-restaurant.jpg",
+        alt: "Engraving of the Sky-Boat Pedaler — a pedal-crank sky-boat with three travellers aboard — coming in to land at the Crosswinds Restaurant log diner beneath the Mogollon Rim",
+        caption: "",
+        teaser: "Payson's airport diner at the iron drakes' landing-meadow — all-day breakfast and homestyle plates beside the runway, where every landing ends at breakfast.",
+        blurb: [
+          "Crosswinds Restaurant keeps its tables at the edge of the iron drakes\u2019 landing-meadow \u2014 the airport, as other travelers name it \u2014 where the drake-barns stand in a patient row and a striped wind-serpent dances on its pole to tell each arriving drake which way the sky is blowing. It is a diner in the honest, homestyle sense: all-day breakfast, chicken fried steak and eggs, enormous biscuits and gravy, burgers, fish and chips \u2014 and pie the travelers will not stop praising. Little model drakes hang from the ceiling by the dozen, and every seat in the house faces the meadow, the better to take breakfast with a show."
+        ],
+        offerings: "All-day breakfast and homestyle American comfort fare — chicken fried steak and eggs, enormous biscuits and gravy, burgers, fish and chips — plus homemade pies; indoor and outdoor seating facing the runway",
+        sweetroll: "No sweetroll to steal at the landing-meadow — the house answers with homemade pie, which one traveler called amazing outright. The chocolate cream is the one the regulars swear by.",
+        signature: "The pie — chocolate cream first among equals — and breakfast with a runway view",
+        address: "800 W Airport Rd, Payson, AZ 85541",
+        phone: "(928) 474-1613",
+        hours: "Open daily 6 AM–3 PM (Fridays till 4 PM)",
+        price: "$ inexpensive",
+        website: "https://crosswindsrestaurant.com/",
+        review: { text: "The food was really good but the pie...wow. The pie was amazing.", source: "a Birdeye review", url: "https://reviews.birdeye.com/crosswinds-restaurant-992335360?page=16" },
+        goodToKnow: "Indoor and patio seats face the runway — breakfast comes with a landing show, and the room fills at peak hours.",
+        why: "The Hearth sends its guests to Crosswinds because no other table in the Hold lets you take coffee while iron drakes come home to roost — and because every landing there ends at breakfast, crowned with pie.",
+        heraldry: [
+          "The house stands at the west end of the landing-meadow, close enough to the long meadow-road that diners watch each drake trundle past the windows before it leaps. The great valley drakes lumber up from the lowlands with Valley Dwellers in their bellies, bound for Rim Country air; the smaller drakes of the neighborhood come and go all morning, practicing their landings like young heroes practicing a Shout.",
+          "For taking off, the keepers will tell you, is easy — any drake can fall upward off a meadow. Landings are the silly part: all that iron grace must be persuaded back to earth in one unbroken piece, and some arrive with more ceremony than others. At Crosswinds, happily, every landing ends the same way — at breakfast. The board runs from chicken fried steak and eggs and biscuits and gravy the size of a shield, through burgers and fish and chips, to a pie case holding chocolate cream and lemon meringue; travelers\u2019 word gathered at Birdeye speaks of the best bacon in town, pancakes of heroic size, and service that treats a fly-in stranger like a regular.",
+          "The travelers\u2019 tally is a proud one: four and a half stars and better across more than two thousand reviews, with families bringing their young to watch the drakes as other folk bring theirs to watch the tourney. On a fair Rim morning, with the wind-serpent streaming and the Rim standing blue beyond the pines, there is no finer gallery in the Hold for the price of a coffee."
+        ],
+        ifYouGo: "Ask for a window or patio seat facing the meadow, order pie without being asked twice, and come a touch early on fair mornings — the breakfast rush lands all at once.",
+        heraldrySrc: [
+          { label: "crosswindsrestaurant.com", url: "https://crosswindsrestaurant.com/" },
+          { label: "travelers\u2019 word gathered at Birdeye", url: "https://reviews.birdeye.com/crosswinds-restaurant-992335360?page=16" }
+        ],
+        confession: "Our engravers have studied the \u201Cairplane\u201D most carefully and report an iron drake with no fire in it at all, which the Hearth counts a mercy. We print the keepers\u2019 word for the striped oracle on the pole exactly as given \u2014 \u201Cwindsock\u201D \u2014 and vouch with confidence only for the pie."
+      }
+    ];
+
+    var JEST_LABEL = "Pure jest \u2014 no such shop trades in the Holds; order by raven, dream, or imagination only.";
+
+    var FICTION = [
+      {
+        slug: "swiftwing-raven-post",
+        name: "Swiftwing Post & Parcel",
+        trade: "Couriers, Raven Post & Sweetroll Freight",
+        img: "mail-order-raven-post.jpg",
+        alt: "Engraving of a stone raven-post tower in a Nordic village, ravens carrying scrolls and one frosted sweetroll while a hooded courier ties a ribbon to a raven's leg",
+        caption: "The morning post leaving the Swiftwing tower \u2014 one raven bears a sweetroll of some importance.",
+        teaser: "Letters, love notes, and frosted sweetrolls delivered by raven \u2014 always before the guards hear of them.",
+        blurb: [
+          "Swiftwing Post & Parcel keeps the finest-trained ravens in the Holds, each bird sworn to the post and compensated in crumbs. Contracts, courtship poems, and annotated treasure maps cross the mountains in a morning; a frosted sweetroll rides in the talons of their steadiest flyer, and the house guarantees it arrives un-snatched, un-pecked, and un-sat-upon.",
+          "Apology notes to giants are a house specialty, delivered from a respectful altitude. No letter has ever been lost \u2014 one was delayed three days by a hawk with opinions, and the hawk has since been hired."
+        ],
+        wares: "Letters and contracts flown anywhere in the Holds; sweetroll freight, guaranteed un-snatched; annotated treasure maps (annotations extra); apologies to giants, delivered from altitude",
+        signature: "The sweetroll flight \u2014 frosted, sealed, and there by breakfast",
+        where: "No storefront in the Holds \u2014 that is rather the meaning of \u201Cmail order\u201D",
+        hours: "Dawn to dusk, weather and hawks permitting",
+        coin: "Septims, and sweetrolls in trade \u2014 one per raven, no haggling",
+        order: "Write your letter fair, tie it with the blue ribbon on your fence post, and leave one septim under a sweetroll. The ravens handle the rest.",
+        whyWish: "Because Hearth guests keep asking whether Payson has a post office with wings, and the honest answer \u2014 \u201Cnot yet\u201D \u2014 breaks our hearts a little."
+      },
+      {
+        slug: "fus-ro-doors",
+        name: "Fus Ro Doors & Timberworks",
+        trade: "Doors, Gates & Repairs After Shouts",
+        img: "mail-order-door-repair.jpg",
+        alt: "Engraving of a carpenter re-hanging a splintered cottage door while a sheepish warrior in fur-trimmed armor holds a coil of rope",
+        caption: "The Timberworks at their morning\u2019s usual labor \u2014 the gentleman on the right has already apologized.",
+        teaser: "Splintered a door with an over-enthusiastic Shout? They will re-hang it, plane it true, and never once ask what you were shouting at.",
+        blurb: [
+          "Every Hold has a door that leans, a gate that sings in the wind, and one household hero who tested a new Shout indoors. Fus Ro Doors & Timberworks answers for all of them \u2014 re-hanging, re-pegging, and quietly reinforcing the woodwork of the North without a single embarrassing question.",
+          "Master carpenter Borkul and sons also straighten dragon-head gables bent by clumsy landings, and offer a much-requested service of standing nearby, nodding, and saying \u201Cit happens to the best of heroes.\u201D"
+        ],
+        wares: "Door and gate re-hanging after Unrelenting mishaps; iron-bound reinforcement for oft-shouted doors; dragon-head gable straightening; tactful, judgment-free consultations",
+        signature: "The noon call \u2014 hear a door break anywhere in the Hold, and they arrive by midday",
+        where: "Wherever a door has recently been shouted at",
+        hours: "From first hammer-blow to last light",
+        coin: "Septims; apologies accepted as deposit",
+        order: "Simply step outside and Shout. They will hear the door break anywhere in the Hold and arrive by noon \u2014 it is how most of their work finds them.",
+        whyWish: "The Hearth\u2019s great door has met one enthusiastic guest too many, and a carpenter who makes house calls by sound alone is worth his weight in septims."
+      },
+      {
+        slug: "warm-sock-mammoth-cheese",
+        name: "The Warm Sock & Mammoth Cheese Co.",
+        trade: "Self-Warming Hosiery & Provisions of Great Age",
+        img: "mail-order-warm-sock.jpg",
+        alt: "Engraving of a market stall stacked with folded knitted socks and a huge wheel of mammoth cheese, a mammoth ambling past the pines behind",
+        caption: "The company stall at market \u2014 the cheese arrives by mammoth, as is proper.",
+        teaser: "Self-warming socks, knit by a hedge-witch of excellent character, and mammoth cheese aged beside the giant camps \u2014 obtained by negotiation, never theft.",
+        blurb: [
+          "The Company\u2019s socks are knit thick, charmed warmer, and enchanted with a mild sense of loyalty, that they may refuse to be lost in any wash, river, or dragon\u2019s lair. The warm hum they give off at dawn has been mistaken for purring; the Company neither confirms nor denies employing cats.",
+          "Their mammoth cheese is aged hard by the giant camps and obtained strictly by negotiation, the giants being paid in salt, songs, and being left politely alone. A wedge keeps a traveler fed from Whiterun to Winterhold, and doubles as a doorstop in lean times."
+        ],
+        wares: "Self-warming socks, one size warms all; scarf-and-mitten sets that hum softly; mammoth cheese by the brave wedge; toe-warmers for the northward road",
+        signature: "The dawn socks \u2014 folded, humming, and faintly smug about it",
+        where: "A stall that appears at market wherever the mammoths have wandered",
+        hours: "Market days, and any day your feet complain",
+        coin: "Septims; trade in old socks considered, then politely declined",
+        order: "Leave two septims and one (1) cold, ordinary sock in a basket by your door at dusk. By dawn: upgraded, folded, and faintly smug.",
+        whyWish: "Payson winters are mild, but a Valley guest in January will swear the Rim is the far north \u2014 and a sock that warms itself settles the argument forever."
+      },
+      {
+        slug: "gable-and-soot",
+        name: "Gable & Soot Chimney Sweeps",
+        trade: "Chimneys, Dragon-Head Gables & High Places",
+        img: "mail-order-chimney-sweep.jpg",
+        alt: "Engraving of a chimney sweep on a ladder tipping his cap to the carved dragon head on a lodge gable, a chicken watching from the porch",
+        caption: "Gable greets the householder, as is customary \u2014 the chimney comes after the introductions.",
+        teaser: "Chimney sweeping for dragon-head gables, by a sweep who tips his cap to the dragon first and disturbs no naps, draconic or otherwise.",
+        blurb: [
+          "Gable & Soot are the only sweeps the dragons\u2019 landlords trust, being the only ones who ask the gable\u2019s permission before setting a ladder. Master Gable sweeps the flue, polishes the carved dragon head to a parade gloss, and inspects the roost \u2014 relocating any chickens gently, and only after fair warning.",
+          "The firm guarantees a clean climb, a tidy hearth, and no questions asked about whatever the brush brings down. Some households burn strange things; Gable has seen all of them, and says nothing, for a consideration."
+        ],
+        wares: "Chimney and flue sweeping; dragon-head gable polishing; roost inspection, chickens gently relocated; soot removal with no questions asked",
+        signature: "The gable greeting \u2014 cap tipped, introductions made, ladder last",
+        where: "Rooftops across the Holds; look for the taller ladder",
+        hours: "Early, while the roost still argues about it",
+        coin: "Septims, and one hot meal per dragon polished",
+        order: "Set a broom upside-down beside your hearth and whistle twice before breakfast. Gable will know \u2014 Gable always knows.",
+        whyWish: "Mogollon\u2019s Hearth wears dragon-head gables of its own, and every last one deserves a sweep who greets them properly."
+      }
+    ];
+
+    function fictionBySlug(slug) {
+      for (var i = 0; i < FICTION.length; i++) if (FICTION[i].slug === slug) return FICTION[i];
+      return null;
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function vendorBySlug(slug) {
+      for (var i = 0; i < VENDORS.length; i++) if (VENDORS[i].slug === slug) return VENDORS[i];
+      return null;
+    }
+    function editionHash(v) { return "#edition-" + v.date; }
+    function editionURL(v) { return ARCHIVE_URL + editionHash(v); }
+    function scrollCite(v) { return "Featured in The Payson Morning Scroll \u2014 " + v.edition + " \u00B7 " + v.featured; }
+
+    var app = document.getElementById("app");
+
+    function renderIndex() {
+      document.title = "The Gilded Pages of the Holds";
+      var h = "";
+      h += '<header class="masthead"><div class="rule-top"></div>';
+      h += '<h1 class="dir-title fell-sc">The Gilded Pages of the Holds</h1>';
+      h += '<div class="masthead-grid"><div>';
+      h += '<p class="dir-sub">A directory of the merchants featured in The Payson Morning Scroll — gathered in one ledger and sorted by trade, so a guest of Mogollon\u2019s Hearth can find a feast, a forge, or a fine sweetroll without asking a single guard (because you know they’re just waiting to tell you how they used to be an adventurer too, until they took an arrow to the knee!).</p>';
+      h += '<p class="featured-line">New merchants are entered in this ledger as The Payson Morning Scroll commends them, week by week. Should any word here have grown stale \u2014 a door moved, an hour changed, a price gone astray \u2014 send word to the Hearth and we shall set the record straight.</p>';
+      h += '</div>';
+      h += '</div>';
+      h += '<ul class="tabs" aria-label="Jump to a trade">';
+      CATEGORIES.forEach(function (c) {
+        h += '<li><a href="#cat-' + c.id + '">' + esc(c.name) + '</a></li>';
+      });
+      h += '</ul></header>';
+
+      h += '<main>';
+      CATEGORIES.forEach(function (c) {
+        var list = VENDORS.filter(function (v) { return v.category === c.id; });
+        if (!list.length) return;
+        h += '<section class="cat-section" id="cat-' + c.id + '">';
+        h += '<div class="cat-head"><h2>' + esc(c.name) + '</h2><span class="cat-gloss">' + esc(c.gloss) + '</span></div>';
+        h += '<div class="vendor-list">';
+        list.forEach(function (v) {
+          h += '<article class="card">';
+          h += '<a href="#/vendor/' + v.slug + '" aria-label="Open the full page for ' + esc(v.name) + '"><img class="thumb" src="' + v.img + '" alt="' + esc(v.alt) + '" loading="lazy" /></a>';
+          h += '<div class="card-body">';
+          h += '<p class="meta">' + esc(c.name) + ' \u00B7 ' + esc(v.town) + '</p>';
+          h += '<h3><a href="#/vendor/' + v.slug + '">' + esc(v.name) + '</a></h3>';
+          h += '<p class="teaser">' + esc(v.teaser) + '</p>';
+          if (v.sweetroll) h += '<p class="sw-line"><span class="sw-label">Sweetroll Watch \u2014 </span>' + esc(v.sweetroll) + '</p>';
+          h += '<p class="featured-line"><a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a></p>';
+          h += '<p class="checked-line"><span class="cl-label">Last Courier\u2019s Scroll on</span> ' + esc(v.lastChecked || LAST_CHECKED) + '</p>';
+          h += '<div class="card-foot"><span class="featured-line">' + esc(v.address) + ' \u00B7 ' + esc(v.phone) + '</span>';
+          h += '<a class="open-link" href="#/vendor/' + v.slug + '">Open its page \u2192</a></div>';
+          h += '</div></article>';
+        });
+        h += '</div></section>';
+      });
+      h += '</main>';
+
+      h += '<aside class="green-note interlude"><span class="gn-title">Why are the pages green?</span>';
+      h += '<p>Fair question \u2014 you\u2019re not the first traveler to hold a page up to the light and squint. The guild\u2019s official answer is gravely serious: every leaf is cured in pine smoke and copperleaf, and the green keeps moths and mildew from nibbling the ledger. The unofficial answer, whispered after the second cup of mead, is that the first printer spilt an alchemy tonic across a fresh stack\u2026 and liked the color so much he declared it tradition on the spot. Either way, the pages stayed green, the moths stayed politely baffled, and here we all are.</p></aside>';
+
+      /* ---- Mail Order Skyrim: the afterword of pure jest, filed at the very back ---- */
+      h += '<section class="fiction-section" id="mail-order-skyrim">';
+      h += '<div class="fiction-head">';
+      h += '<span class="fiction-kicker">An afterword, tucked at the back of the ledger</span>';
+      h += '<h2>Mail Order Skyrim</h2>';
+      h += '<p class="jest-label">' + esc(JEST_LABEL) + '</p>';
+      h += '<p class="fiction-intro">Here the directory ends and the jest begins. The four worthies below are <strong>invented merchants of Tamriel</strong>, enrolled by nobody: they appear in no edition of the Scroll, hold no shop in Payson or anywhere else, and cannot be visited, telephoned, mapped, or reviewed. They keep no ledgers of address or hour \u2014 only of ravens, septims, and good intentions \u2014 and they are filed here, past every true entry, so no guest mistakes a daydream for a directory.</p>';
+      h += '</div>';
+      h += '<div class="vendor-list">';
+      FICTION.forEach(function (f) {
+        h += '<article class="card jest">';
+        h += '<span class="jest-ribbon">Pure Jest</span>';
+        h += '<a href="#/fiction/' + f.slug + '" aria-label="Open the jest page for ' + esc(f.name) + ' (pure fiction)"><img class="thumb" src="' + f.img + '" alt="' + esc(f.alt) + '" loading="lazy" /></a>';
+        h += '<div class="card-body">';
+        h += '<p class="meta">Mail Order Skyrim \u00B7 ' + esc(f.trade) + '</p>';
+        h += '<h3><a href="#/fiction/' + f.slug + '">' + esc(f.name) + '</a></h3>';
+        h += '<p class="teaser">' + esc(f.teaser) + '</p>';
+        h += '<p class="featured-line">' + esc(JEST_LABEL) + '</p>';
+        h += '<div class="card-foot"><span class="featured-line">No door to find \u2014 by raven only</span>';
+        h += '<a class="open-link" href="#/fiction/' + f.slug + '">Read the jest \u2192</a></div>';
+        h += '</div></article>';
+      });
+      h += '</div>';
+      h += '<p class="fiction-note">The ravens accept no complaints, the septims are imaginary, and the socks \u2014 the Scroll is told \u2014 are magnificent.</p>';
+      h += '</section>';
+
+      h += '<footer class="trailer">';
+      h += '<h3 class="tr-title">How to use these Pages</h3>';
+      h += '<div class="trailer-grid">';
+      h += '<div><h4>Finding a merchant</h4><p>Merchants are enrolled by trade, not by name — feast-halls with feast-halls, smiths with smiths. Use the trade tabs at the top of this page to jump straight to a section, then open any merchant\u2019s own page for the full entry.</p></div>';
+      h += '<div><h4>On each merchant\u2019s page</h4><p>The full write-up exactly as The Payson Morning Scroll printed it, the engraver\u2019s likeness, a traveler\u2019s review in their own words, and the practical ledger: address, phone, hours, prices, website, and one good thing to know before you set out.</p></div>';
+      h += '<div><h4>Kept current</h4><p>Each time The Payson Morning Scroll features a new merchant, that merchant is enrolled here under its trade. Hours and prices are as printed on the day featured; when in doubt, call ahead — even the finest ledger cannot chase a changed closing time.</p></div>';
+      h += '</div>';
+      h += '<p>The full editions live in <a href="' + ARCHIVE_URL + '">The Payson Morning Scroll archive</a> — every merchant\u2019s page links back to the very edition that honored them.</p>';
+      h += '<p class="colophon">The Gilded Pages of the Holds \u00B7 Kept for the guests of Mogollon\u2019s Hearth \u00B7 Cured in pine smoke and copperleaf, against moth and mildew alike</p>';
+      h += '</footer>';
+
+      app.innerHTML = h;
+    }
+
+    function factRow(label, valueHtml, cls) {
+      return '<div class="row' + (cls ? " " + cls : "") + '"><dt>' + esc(label) + '</dt><dd>' + valueHtml + '</dd></div>';
+    }
+
+    function renderVendor(v) {
+      document.title = v.name + " — The Gilded Pages of the Holds";
+      var cat = catName(v.category);
+      var h = "";
+
+      h += '<header class="vendor-head">';
+      h += '<nav class="crumbs" aria-label="Directory path">';
+      h += '<a href="#/">The Gilded Pages</a><span class="sep">\u203A</span>';
+      h += '<a href="#cat-' + v.category + '">' + esc(cat) + '</a><span class="sep">\u203A</span>';
+      h += '<span aria-current="page">' + esc(v.name) + '</span></nav>';
+      h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 A Merchant Directory for the Guests of Mogollon\u2019s Hearth</p>';
+      h += '<h1 class="fell">' + esc(v.name) + '</h1>';
+      h += '<p class="meta-line">' + esc(cat) + ' \u00B7 ' + esc(v.town) + ' \u00B7 <a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a></p>';
+      h += '</header>';
+
+      h += '<main>';
+      h += '<figure class="engraving"><img src="' + v.img + '" alt="' + esc(v.alt) + '" />' + (v.caption ? '<figcaption>' + esc(v.caption) + '</figcaption>' : '') + '</figure>';
+      h += '<div class="vendor-grid">';
+      h += '<div>';
+      h += '<blockquote class="review"><p class="rq">\u201C' + esc(v.review.text) + '\u201D</p>';
+      h += '<p class="rs">— ' + esc(v.review.source);
+      if (v.review.url) h += ' \u00B7 <a href="' + v.review.url + '" target="_blank" rel="noopener">read it at the source</a>';
+      h += '</p></blockquote>';
+      h += '</div>';
+
+      h += '<div>';
+      h += '<h2 class="sec-label">As the Scroll told it</h2>';
+      h += '<p class="sec-cite">' + esc(scrollCite(v)) + ' — <a href="' + editionURL(v) + '">read that edition in the archive</a></p>';
+      h += '<div class="blurb">';
+      v.blurb.forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+      h += '</div>';
+      h += '<div class="why-box"><span class="wb-title">Why the Hearth sends you</span><p>' + esc(v.why) + '</p></div>';
+      if (v.sweetroll) {
+        h += '<div class="sweetroll-watch"><span class="sw-label">Sweetroll Watch</span><p>' + esc(v.sweetroll) + '</p></div>';
+      }
+      if (v.heraldry) {
+        h += '<div class="heraldry"><span class="hb-title">The fuller tale</span><span class="hb-sub">More from their own heraldry — drawn from the shop\u2019s own advertising and listings, every source named below.</span>';
+        v.heraldry.forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+        if (v.ifYouGo) h += '<p class="if-you-go"><span class="iyg-label">If you go \u2014 </span>' + esc(v.ifYouGo) + '</p>';
+        if (v.heraldrySrc && v.heraldrySrc.length) {
+          h += '<p class="src">As heralded by ' + v.heraldrySrc.map(function (s) {
+            return '<a href="' + s.url + '" target="_blank" rel="noopener">' + esc(s.label) + '</a>';
+          }).join(' \u00B7 ') + '</p>';
+        }
+        h += '</div>';
+      }
+      if (v.confession) {
+        h += '<div class="confession"><span class="cf-label">The Scroll confesses \u2014 </span>' + esc(v.confession) + '</div>';
+      }
+      h += '<dl class="facts">';
+      h += factRow("Trade", esc(cat) + " \u2014 " + esc(v.town));
+      h += factRow("Address", esc(v.address));
+      h += factRow("Phone", '<a href="tel:+1' + v.phone.replace(/[^0-9]/g, "") + '">' + esc(v.phone) + '</a>');
+      h += factRow("Hours", esc(v.hours));
+      h += factRow("Prices", esc(v.price));
+      h += factRow("They offer", esc(v.offerings));
+      h += factRow("Signature", esc(v.signature));
+      h += factRow("Good to know", esc(v.goodToKnow));
+      if (v.website) h += factRow("Website", '<a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + '</a>');
+      h += factRow("Last Courier\u2019s Scroll on", esc(v.lastChecked || LAST_CHECKED), "wide");
+      h += factRow("In the Scroll", '<a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a>');
+      h += '</dl>';
+      h += '</div>';
+      h += '</div></main>';
+
+      h += '<footer class="trailer">';
+      h += '<h3 class="tr-title">' + esc(v.name) + ' \u2014 the short of it, for the road</h3>';
+      h += '<div class="trailer-grid">';
+      h += '<div><h4>Find them</h4><ul>';
+      h += '<li>' + esc(cat) + ' \u00B7 ' + esc(v.town) + '</li>';
+      h += '<li>' + esc(v.address) + '</li>';
+      h += '<li><a href="tel:+1' + v.phone.replace(/[^0-9]/g, "") + '">' + esc(v.phone) + '</a></li>';
+      h += '<li>' + esc(v.hours) + '</li>';
+      h += '<li>' + esc(v.price) + '</li>';
+      h += '</ul></div>';
+      h += '<div><h4>Word &amp; web</h4><ul>';
+      if (v.website) h += '<li>Website: <a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + '</a></li>';
+      h += '<li>Travelers\u2019 word: ' + esc(v.review.source) + (v.review.url ? ' \u00B7 <a href="' + v.review.url + '" target="_blank" rel="noopener">read the review</a>' : '') + '</li>';
+      h += '<li>Signature: ' + esc(v.signature) + '</li>';
+      h += '</ul></div>';
+      h += '<div><h4>In the Scroll</h4><ul>';
+      h += '<li><a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a></li>';
+      h += '<li><a href="' + ARCHIVE_URL + '">The Payson Morning Scroll archive</a></li>';
+      h += '</ul></div>';
+      h += '</div>';
+      h += '<a class="back-top" href="#/">\u2190 Back to the full directory</a>';
+      h += ' <span class="sep">\u00B7</span> <a class="back-top" href="#cat-' + v.category + '">More ' + esc(cat) + '</a>';
+      h += '<div class="back-page1-wrap"><a class="back-page1-btn" href="#/">\u21A9 Return to the First Page</a></div>';
+      h += '<p class="colophon">The Gilded Pages of the Holds \u00B7 Kept for the guests of Mogollon\u2019s Hearth \u00B7 Hours and prices as printed in the Scroll on the day featured \u2014 call ahead if your road depends on them</p>';
+      h += '</footer>';
+
+      app.innerHTML = h;
+    }
+
+    function renderFiction(f) {
+      document.title = f.name + " \u2014 Mail Order Skyrim (Pure Jest) \u00B7 The Gilded Pages";
+      var h = "";
+
+      h += '<header class="vendor-head">';
+      h += '<nav class="crumbs" aria-label="Directory path">';
+      h += '<a href="#/">The Gilded Pages</a><span class="sep">\u203A</span>';
+      h += '<a href="#mail-order-skyrim">Mail Order Skyrim</a><span class="sep">\u203A</span>';
+      h += '<span aria-current="page">' + esc(f.name) + '</span></nav>';
+      h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 The Afterword of Pure Jest, Filed at the Very Back</p>';
+      h += '<h1 class="fell">' + esc(f.name) + '</h1>';
+      h += '<p class="meta-line">Mail Order Skyrim \u00B7 ' + esc(f.trade) + ' \u00B7 Never featured in The Payson Morning Scroll</p>';
+      h += '</header>';
+
+      h += '<main>';
+      h += '<div class="jest-banner"><span class="jb-title">Mail Order Skyrim \u2014 Pure Jest</span>' + esc(JEST_LABEL) + '</div>';
+      h += '<figure class="engraving"><img src="' + f.img + '" alt="' + esc(f.alt) + '" /><figcaption>' + esc(f.caption) + '</figcaption></figure>';
+      h += '<div class="vendor-grid">';
+      h += '<div>';
+      h += '<div class="why-box"><span class="wb-title">How to order</span><p>' + esc(f.order) + '</p></div>';
+      h += '<div class="why-box"><span class="wb-title">Why the Hearth wishes it were real</span><p>' + esc(f.whyWish) + '</p></div>';
+      h += '</div>';
+
+      h += '<div>';
+      h += '<div class="blurb">';
+      f.blurb.forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+      h += '</div>';
+      h += '<div class="heraldry"><span class="hb-title">The wares on offer</span>';
+      h += '<p>' + esc(f.wares) + '</p>';
+      h += '<p class="src">House specialty: ' + esc(f.signature) + '</p></div>';
+      h += '<dl class="facts">';
+      h += factRow("Trade", esc(f.trade) + " \u2014 by mail order only");
+      h += factRow("Where to find them", esc(f.where));
+      h += factRow("Hours", esc(f.hours));
+      h += factRow("Coin accepted", esc(f.coin));
+      h += factRow("Standing in the Scroll", "Never featured in The Payson Morning Scroll \u2014 a figment filed under jest, kept far from the true ledger");
+      h += '</dl>';
+      h += '</div>';
+      h += '</div></main>';
+
+      h += '<footer class="trailer">';
+      h += '<h3 class="tr-title">' + esc(f.name) + ' \u2014 the short of it, for the road (there is no road)</h3>';
+      h += '<div class="trailer-grid">';
+      h += '<div><h4>Particulars of a figment</h4><ul>';
+      h += '<li>' + esc(f.trade) + '</li>';
+      h += '<li>' + esc(f.where) + '</li>';
+      h += '<li>' + esc(f.hours) + '</li>';
+      h += '<li>' + esc(f.coin) + '</li>';
+      h += '</ul></div>';
+      h += '<div><h4>The ordering of it</h4><ul>';
+      h += '<li>' + esc(f.order) + '</li>';
+      h += '<li>House specialty: ' + esc(f.signature) + '</li>';
+      h += '</ul></div>';
+      h += '<div><h4>In the Scroll</h4><ul>';
+      h += '<li>Never enrolled \u2014 and the Scroll has checked twice</li>';
+      h += '<li>The true Merchants of the Hold, enrolled in earnest, wait in <a href="#/">the full directory</a></li>';
+      h += '</ul></div>';
+      h += '</div>';
+      h += '<a class="back-top" href="#/">\u2190 Back to the full directory</a>';
+      h += ' <span class="sep">\u00B7</span> <a class="back-top" href="#mail-order-skyrim">More Mail Order Skyrim \u2191</a>';
+      h += '<div class="back-page1-wrap"><a class="back-page1-btn" href="#/">\u21A9 Return to the First Page</a></div>';
+      h += '<p class="colophon">The Gilded Pages of the Holds \u00B7 The back pages of pure jest \u00B7 Filed under Mail Order Skyrim, where the moths can\u2019t read and the ravens can</p>';
+      h += '</footer>';
+
+      app.innerHTML = h;
+    }
+
+    function route() {
+      var hash = window.location.hash || "#/";
+      var fm = hash.match(/^#\/fiction\/([a-z0-9-]+)/);
+      if (fm) {
+        var f = fictionBySlug(fm[1]);
+        if (f) { renderFiction(f); window.scrollTo(0, 0); return; }
+      }
+      if (hash === "#mail-order-skyrim") {
+        renderIndex();
+        var fel = document.getElementById("mail-order-skyrim");
+        if (fel) { fel.scrollIntoView(); return; }
+        window.scrollTo(0, 0);
+        return;
+      }
+      var m = hash.match(/^#\/vendor\/([a-z0-9-]+)/);
+      if (m) {
+        var v = vendorBySlug(m[1]);
+        if (v) { renderVendor(v); window.scrollTo(0, 0); return; }
+      }
+      if (hash.indexOf("#cat-") === 0) {
+        renderIndex();
+        var el = document.getElementById(hash.slice(1));
+        if (el) { el.scrollIntoView(); return; }
+        window.scrollTo(0, 0);
+        return;
+      }
+      renderIndex();
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("hashchange", route);
+    route();
+    </script>
+</body>
+</html>
