@@ -1476,13 +1476,22 @@ var BIG_VENDORS = [
       h += "<main>";
       h += '<figure class="engraving"><img src="' + v.img + '" alt="' + esc(v.alt) + '" /></figure>';
       h += '<p class="lede">' + esc(v.intro) + "</p>";
-      h += '<dl class="facts">';
+      var byHold = {};
       v.locations.forEach(function (L) {
-        h += factRow(L.hold + " \u2014 address", esc(L.address));
-        h += factRow(L.hold + " \u2014 phone", telLink(L.phone));
-        h += factRow(L.hold + " \u2014 hours", esc(L.hours));
-        if (L.note) h += factRow(L.hold + " \u2014 good to know", telLink(esc(L.note)));
+        (byHold[L.hold] = byHold[L.hold] || []).push(L);
       });
+      Object.keys(byHold).forEach(function (hold) {
+        h += '<h2 class="sec-label">' + esc(hold) + "</h2>";
+        h += '<dl class="facts">';
+        byHold[hold].forEach(function (L) {
+          h += factRow("Address", esc(L.address));
+          h += factRow("Phone", telLink(L.phone));
+          h += factRow("Hours", esc(L.hours));
+          if (L.note) h += factRow("Good to know", telLink(esc(L.note)));
+        });
+        h += "</dl>";
+      });
+      h += '<dl class="facts">';
       if (v.website) h += factRow("Website", '<a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + "</a>");
       h += factRow("Last Courier\u2019s Scroll on", "October 3, 2026", "wide");
       h += "</dl>";
