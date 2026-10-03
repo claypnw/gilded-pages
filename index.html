@@ -587,6 +587,7 @@
     
       .lede { font-size: 1.12em; font-style: italic; margin: 0 0 18px; }
       .no-web { font-style: italic; opacity: .9; margin: 6px 0 0; }
+      .facts.hold-facts { margin-left: 26px; }
       .card.big h3 { font-size: 1.25em; }
     </style>
   </head>
@@ -1482,7 +1483,7 @@ var BIG_VENDORS = [
       });
       Object.keys(byHold).forEach(function (hold) {
         h += '<h2 class="sec-label">' + esc(hold) + "</h2>";
-        h += '<dl class="facts">';
+        h += '<dl class="facts hold-facts">';
         byHold[hold].forEach(function (L) {
           h += factRow("Address", esc(L.address));
           h += factRow("Phone", telLink(L.phone));
