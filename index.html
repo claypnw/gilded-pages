@@ -586,6 +586,7 @@
       [hidden] { display: none !important; }
     
       .lede { font-size: 1.12em; font-style: italic; margin: 0 0 18px; }
+      .no-web { font-style: italic; opacity: .9; margin: 6px 0 0; }
       .card.big h3 { font-size: 1.25em; }
     </style>
   </head>
@@ -1466,7 +1467,10 @@ var BIG_VENDORS = [
       h += '<span aria-current="page">' + esc(v.name) + "</span></nav>";
       h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 A Directory for the Guests of Mogollon\u2019s Hearth</p>';
       if (v.website) h += '<h1 class="fell"><a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.name) + "</a></h1>";
-      else h += '<h1 class="fell">' + esc(v.name) + "</h1>";
+      else {
+        h += '<h1 class="fell">' + esc(v.name) + "</h1>";
+        h += '<p class="no-web">This house keeps no webpage to visit — but the directory remembers the way. <a href="#cat-' + v.category + '">\u2190 Back to the summary</a></p>';
+      }
       h += '<p class="meta-line">' + esc(cat) + " \u00B7 Directory entry \u00B7 " + v.locations.length + (v.locations.length === 1 ? " location" : " locations") + "</p>";
       h += "</header>";
       h += "<main>";
@@ -1592,7 +1596,11 @@ var BIG_VENDORS = [
       h += '<a href="#cat-' + v.category + '">' + esc(cat) + '</a><span class="sep">\u203A</span>';
       h += '<span aria-current="page">' + esc(v.name) + '</span></nav>';
       h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 A Merchant Directory for the Guests of Mogollon\u2019s Hearth</p>';
-      h += '<h1 class="fell">' + esc(v.name) + '</h1>';
+      if (v.website) h += '<h1 class="fell"><a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.name) + '</a></h1>';
+      else {
+        h += '<h1 class="fell">' + esc(v.name) + '</h1>';
+        h += '<p class="no-web">This house keeps no webpage to visit — but the directory remembers the way. <a href="#cat-' + v.category + '">\u2190 Back to the summary</a></p>';
+      }
       h += '<p class="meta-line">' + esc(cat) + ' \u00B7 ' + esc(v.town) + ' \u00B7 <a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a></p>';
       h += '</header>';
 
