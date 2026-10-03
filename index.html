@@ -585,11 +585,7 @@
       .back-page1-btn:active { transform: translateY(1px); box-shadow: 1px 2px 0 var(--shadow), inset 0 0 0 1px rgba(143, 109, 31, 0.18); }
       [hidden] { display: none !important; }
     
-      .big-locs { margin: 6px 0 0; display: flex; flex-direction: column; gap: 10px; }
-      .big-loc { border-top: 1px dashed var(--card-line); padding-top: 8px; }
-      .big-loc dt { font-weight: bold; }
-      .big-loc dd { margin: 2px 0 0; }
-      .big-note { font-style: italic; opacity: .85; }
+      .lede { font-size: 1.12em; font-style: italic; margin: 0 0 18px; }
       .card.big h3 { font-size: 1.25em; }
     </style>
   </head>
@@ -1444,23 +1440,55 @@ var BIG_VENDORS = [
     function bigCard(v, c) {
       var h = "";
       h += '<article class="card big">';
-      h += '<img class="thumb" src="' + v.img + '" alt="' + esc(v.alt) + '" loading="lazy" />';
+      h += '<a href="#/big/' + v.slug + '" aria-label="Open the full listing for ' + esc(v.name) + '"><img class="thumb" src="' + v.img + '" alt="' + esc(v.alt) + '" loading="lazy" /></a>';
       h += '<div class="card-body">';
       h += '<p class="meta">' + esc(c.name) + " \u00B7 Directory entry \u00B7 " + v.locations.length + (v.locations.length === 1 ? " location" : " locations") + "</p>";
-      if (v.website) h += '<h3><a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.name) + "</a></h3>";
-      else h += "<h3>" + esc(v.name) + "</h3>";
+      h += '<h3><a href="#/big/' + v.slug + '">' + esc(v.name) + "</a></h3>";
       h += '<p class="teaser">' + esc(v.intro) + "</p>";
-      h += '<dl class="big-locs">';
-      v.locations.forEach(function (L) {
-        h += '<div class="big-loc"><dt>' + esc(L.hold) + "</dt><dd>";
-        h += esc(L.address) + "<br>" + telLink(L.phone) + " \u00B7 " + esc(L.hours);
-        if (L.note) h += '<br><span class="big-note">' + telLink(esc(L.note)) + "</span>";
-        h += "</dd></div>";
-      });
-      h += "</dl>";
+      h += '<p class="featured-line">' + v.locations.map(function (L) { return esc(L.hold); }).join(" \u00B7 ") + "</p>";
+      h += '<div class="card-foot"><a class="open-link" href="#/big/' + v.slug + '">Open its page \u2192</a></div>';
       h += '<p class="checked-line"><span class="cl-label">Last Courier\u2019s Scroll on</span> October 3, 2026</p>';
       h += "</div></article>";
       return h;
+    }
+    function bigBySlug(slug) {
+      for (var i = 0; i < BIG_VENDORS.length; i++) if (BIG_VENDORS[i].slug === slug) return BIG_VENDORS[i];
+      return null;
+    }
+    function renderBig(v) {
+      document.title = v.name + " \u2014 The Gilded Pages of the Holds";
+      var cat = catName(v.category);
+      var h = "";
+      h += '<header class="vendor-head">';
+      h += '<nav class="crumbs" aria-label="Directory path">';
+      h += '<a href="#/">The Gilded Pages</a><span class="sep">\u203A</span>';
+      h += '<a href="#cat-' + v.category + '">' + esc(cat) + '</a><span class="sep">\u203A</span>';
+      h += '<span aria-current="page">' + esc(v.name) + "</span></nav>";
+      h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 A Directory for the Guests of Mogollon\u2019s Hearth</p>';
+      if (v.website) h += '<h1 class="fell"><a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.name) + "</a></h1>";
+      else h += '<h1 class="fell">' + esc(v.name) + "</h1>";
+      h += '<p class="meta-line">' + esc(cat) + " \u00B7 Directory entry \u00B7 " + v.locations.length + (v.locations.length === 1 ? " location" : " locations") + "</p>";
+      h += "</header>";
+      h += "<main>";
+      h += '<figure class="engraving"><img src="' + v.img + '" alt="' + esc(v.alt) + '" /></figure>';
+      h += '<p class="lede">' + esc(v.intro) + "</p>";
+      h += '<dl class="facts">';
+      v.locations.forEach(function (L) {
+        h += factRow(L.hold + " \u2014 address", esc(L.address));
+        h += factRow(L.hold + " \u2014 phone", telLink(L.phone));
+        h += factRow(L.hold + " \u2014 hours", esc(L.hours));
+        if (L.note) h += factRow(L.hold + " \u2014 good to know", telLink(esc(L.note)));
+      });
+      if (v.website) h += factRow("Website", '<a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + "</a>");
+      h += factRow("Last Courier\u2019s Scroll on", "October 3, 2026", "wide");
+      h += "</dl>";
+      h += "</main>";
+      h += '<footer class="trailer">';
+      h += '<a class="back-top" href="#cat-' + v.category + '">More ' + esc(cat) + "</a>";
+      h += '<div class="back-page1-wrap"><a class="back-page1-btn" href="#/">\u21A9 Return to the First Page</a></div>';
+      h += '<p class="colophon">The Gilded Pages of the Holds \u00B7 Kept for the guests of Mogollon\u2019s Hearth</p>';
+      h += "</footer>";
+      app.innerHTML = h;
     }
     function renderIndex() {
       document.title = "The Gilded Pages of the Holds";
@@ -1725,6 +1753,11 @@ var BIG_VENDORS = [
         if (fel) { fel.scrollIntoView(); return; }
         window.scrollTo(0, 0);
         return;
+      }
+      var bm = hash.match(/^#\/big\/([a-z0-9-]+)/);
+      if (bm) {
+        var bv = bigBySlug(bm[1]);
+        if (bv) { renderBig(bv); window.scrollTo(0, 0); return; }
       }
       var m = hash.match(/^#\/vendor\/([a-z0-9-]+)/);
       if (m) {
