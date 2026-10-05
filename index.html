@@ -616,7 +616,11 @@ var BIG_CATEGORIES = [
   { id: "larders", name: "Larders & Provisions", gloss: "Groceries, warehouse & general stores" },
   { id: "inns",    name: "Inns & Lodging", gloss: "Hotels, motels, resorts & RV parks" },
   { id: "wheels",  name: "Wheels & Road Services", gloss: "Auto parts, dealers, towing & taxi" },
-  { id: "town",    name: "Town Services", gloss: "Veterinary, grooming & storage" }
+  { id: "town",    name: "Town Services", gloss: "Veterinary, grooming & storage" },
+  { id: "hospitals", name: "Hospitals", gloss: "Full hospitals with 24/7 emergency" },
+  { id: "urgent",  name: "Urgent Care", gloss: "Walk-in care for the hurts that can't wait" },
+  { id: "dental",  name: "Dental", gloss: "Tooth-healers, including emergencies" },
+  { id: "pharmacy", name: "Apothecaries", gloss: "Pharmacies for prescriptions" }
 ];
 
 var BIG_VENDORS = [
@@ -1007,6 +1011,111 @@ var BIG_VENDORS = [
   locations: [
     { hold: "Payson", address: "510 E State Hwy 260, Payson", phone: "(928) 474-2829", hours: "Mon–Sat 8 AM–9 PM; Sun 9 AM–7 PM", note: "Pet supplies, PetVet veterinary clinic, propane refill station." },
     { hold: "Show Low", address: "3801 S White Mountain Rd, Show Low", phone: "(928) 532-5232", hours: "Mon–Sat 8 AM–9 PM; Sun 9 AM–7 PM", note: "Pet wash, PetVet clinic, propane refill, trailer rental." }
+  ]
+},
+/* ---------------- HOSPITALS ---------------- */
+{
+  slug: "big-banner-payson", name: "Banner Payson Medical Center", category: "hospitals", big: true,
+  img: "big-banner-health.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-payson-medical-center",
+  alt: "Engraving of a stone house of healing \u2014 a healer in robes tending a patient, a red cross banner over the door, pines behind",
+  intro: "The Hold's own house of healing \u2014 Payson's full hospital with a day-and-night emergency door, the closest to the Hearth.",
+  locations: [
+    { hold: "Payson", address: "807 S Ponderosa St, Payson", phone: "(928) 471-3222", hours: "Emergency open 24 hours, every day", note: "44-bed hospital; Arizona-designated Level IV Trauma Center." }
+  ]
+},
+{
+  slug: "big-summit-hospital", name: "Summit Healthcare Regional Medical Center", category: "hospitals", big: true,
+  img: "big-summit-healthcare.webp",
+  website: "http://summithealthcare.net/",
+  alt: "Engraving of a mountain-view hospital \u2014 tall windows, a healer carrying a lantern toward the emergency door at dusk",
+  intro: "The White Mountains' house of healing \u2014 Show Low's full hospital with a day-and-night emergency door.",
+  locations: [
+    { hold: "Show Low", address: "2200 E Show Low Lake Rd, Show Low", phone: "(928) 537-4375", hours: "Emergency open 24 hours, every day", note: "89-bed hospital with ICU, surgical services, and cardiac cath lab." },
+    { hold: "Show Low", address: "Summit Healthcare Urgent Care, 4951 S White Mountain Rd, Bldg A, Show Low", phone: "(928) 537-6743", hours: "Daily 8 AM\u20138 PM", note: "Call ahead \u2014 this site has had temporary closures; the hospital emergency door stays open regardless." }
+  ]
+},
+{
+  slug: "big-vvmc", name: "Verde Valley Medical Center", category: "hospitals", big: true,
+  img: "big-nah.webp",
+  website: "https://www.nahealth.com/emergency-department",
+  alt: "Engraving of a red-rock country infirmary \u2014 healers crossing a courtyard between sandstone walls, a banner with a white cross",
+  intro: "The Verde Valley's healers \u2014 a full hospital in Cottonwood and a day-and-night emergency door in Sedona.",
+  locations: [
+    { hold: "Cottonwood", address: "269 S Candy Ln, Cottonwood", phone: "(928) 634-2251", hours: "Emergency open 24 hours, every day", note: "Level IV Trauma Center. Nearest full hospital to Camp Verde (~20 min)." },
+    { hold: "Sedona", address: "VVMC Sedona Campus, 3700 W State Route 89A, Sedona", phone: "(928) 204-4100", hours: "Emergency open 24 hours, every day", note: "Freestanding emergency department." },
+    { hold: "Camp Verde", address: "NAH Urgent Care, 1298 Finnie Flat Rd, Camp Verde", phone: "(928) 639-5555", hours: "Daily 8 AM\u20136 PM", note: "Camp Verde's urgent care." }
+  ]
+},
+{
+  slug: "big-yrmc", name: "Dignity Health, Yavapai Regional Medical Center", category: "hospitals", big: true,
+  img: "big-yrmc.webp",
+  website: "http://www.yrmc.org/services/emergency-services",
+  alt: "Engraving of a grand western hospital \u2014 many windows, wagons at the entrance, a healer directing travelers to the emergency door",
+  intro: "The western Holds' great hospital \u2014 Prescott's full regional hospital with a day-and-night emergency door, and a second campus in Prescott Valley.",
+  locations: [
+    { hold: "Prescott", address: "West Campus, 1003 Willow Creek Rd, Prescott", phone: "(928) 445-2700", hours: "Emergency open 24 hours, every day", note: "206-bed regional hospital." },
+    { hold: "Prescott Valley", address: "East Campus, 7700 E Florentine Rd, Prescott Valley", phone: "(928) 771-5676", hours: "Emergency open 24 hours, every day", note: "" }
+  ]
+},
+/* ---------------- URGENT CARE ---------------- */
+{
+  slug: "big-banner-sameday", name: "Banner Same-Day Care", category: "urgent", big: true,
+  img: "big-banner-sameday.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-same-day-care-beeline",
+  alt: "Engraving of a bright same-day healer's clinic \u2014 a healer greeting a traveler with a bandaged arm, lantern over the entrance, pines behind",
+  intro: "The quick healer's door \u2014 same-day care with labs and X-ray on site, for the sprains and fevers that can't wait for morning.",
+  locations: [
+    { hold: "Payson", address: "101 AZ-260, Suite G, Payson", phone: "(928) 596-4570", hours: "Mon\u2013Thu 8 AM\u20136 PM", note: "On-site labs and X-ray." },
+    { hold: "Show Low", address: "680 E Deuce of Clubs, Ste B, Show Low", phone: "(928) 596-4580", hours: "Mon\u2013Sat 8 AM\u20136 PM", note: "" }
+  ]
+},
+{
+  slug: "big-payson-walkin", name: "Payson Walk-In Clinic", category: "urgent", big: true,
+  img: "big-payson-walkin.webp",
+  website: "http://www.paysonclinic.com/",
+  alt: "Engraving of a cozy Main Street clinic \u2014 a friendly healer at the door, flower boxes in the windows, pines on the ridge behind",
+  intro: "Payson's own neighborhood healer \u2014 a locally owned walk-in clinic on Main Street for same-day care.",
+  locations: [
+    { hold: "Payson", address: "615 W Main St, Payson", phone: "(928) 363-1603", hours: "Mon\u2013Thu 8 AM\u20134 PM", note: "Locally owned." }
+  ]
+},
+{
+  slug: "big-nextcare", name: "NextCare Urgent Care", category: "urgent", big: true,
+  img: "big-nextcare.webp",
+  website: "https://nextcare.com/locations/az/cottonwood/",
+  alt: "Engraving of a small urgent-care cottage \u2014 a healer waving a traveler in from the road, a lantern lit over the door",
+  intro: "The quick healer's door across the western Holds \u2014 walk-in urgent care for the hurts that can't wait.",
+  locations: [
+    { hold: "Cottonwood", address: "450 S Willard St #120, Cottonwood", phone: "(928) 634-2574", hours: "Daily 8 AM\u20136 PM", note: "" },
+    { hold: "Prescott", address: "2062 Willow Creek Rd, Prescott", phone: "(928) 443-5103", hours: "Mon\u2013Fri 8 AM\u20137 PM; Sat\u2013Sun 8 AM\u20134 PM", note: "" },
+    { hold: "Prescott Valley", address: "3051 N Windsong Dr, Prescott Valley", phone: "(928) 772-3336", hours: "Mon\u2013Fri 7 AM\u20136 PM; Sat\u2013Sun 7 AM\u20133 PM", note: "" }
+  ]
+},
+/* ---------------- DENTAL ---------------- */
+{
+  slug: "big-emergency-dental", name: "Emergency Dental Care, Payson", category: "dental", big: true,
+  img: "big-emergency-dental.webp",
+  website: "https://andersondentalonline.com/emergency-dental-services/",
+  alt: "Engraving of a tooth-healer's workshop \u2014 a healer holding a carved wooden tooth, shelves of bottles, a patient in a wooden chair, lamplight",
+  intro: "The tooth-healers \u2014 Payson's dentists who take emergencies and same-day urgent visits, for the toothache that ruins a vacation.",
+  locations: [
+    { hold: "Payson", address: "Anderson Dental Group, 712 N Beeline Hwy, Payson", phone: "(928) 474-4581", hours: "Mon\u2013Thu 8 AM\u20135 PM; Fri 8 AM\u20131 PM", note: "Dedicated emergency dentistry; severe toothache, broken teeth, lost crowns. Call ahead to confirm Friday hours." },
+    { hold: "Payson", address: "Center Point Dental, 906 S Beeline Hwy, Payson", phone: "(928) 472-2500", hours: "Mon\u2013Thu 8 AM\u20135 PM", note: "Emergency dental care; often accommodates same-day urgent visits." }
+  ]
+},
+/* ---------------- APOTHECARIES ---------------- */
+{
+  slug: "big-pharmacy", name: "Pharmacies, Payson", category: "pharmacy", big: true,
+  img: "big-pharmacy.webp",
+  website: "https://www.walgreens.com/locator/walgreens-100+s+beeline+hwy-payson-az-85541/id=6533",
+  alt: "Engraving of an apothecary shop \u2014 shelves of jars and bottles, an apothecary handing a parcel to a traveler, mortar and pestle over the door",
+  intro: "The apothecaries \u2014 where to fill a prescription in Payson. No 24-hour pharmacy in town; Walgreens keeps the latest hours.",
+  locations: [
+    { hold: "Payson", address: "Walgreens, 100 S Beeline Hwy, Payson", phone: "(928) 474-1599", hours: "Daily 7 AM\u201310 PM", note: "Latest pharmacy hours in Payson; most central." },
+    { hold: "Payson", address: "Walmart Pharmacy, 300 N Beeline Hwy, Payson", phone: "(928) 474-0034", hours: "Mon\u2013Sat 9 AM\u20137 PM; Sun 10 AM\u20136 PM", note: "" },
+    { hold: "Payson", address: "Safeway Pharmacy, 401 AZ-260, Payson", phone: "(928) 472-8242", hours: "Mon\u2013Sat 9 AM\u20136 PM (lunch 1:30\u20132 PM); Sun 10 AM\u20136 PM", note: "" },
+    { hold: "Payson", address: "Bashas' Pharmacy, 142 AZ-260, Payson", phone: "(928) 474-7039", hours: "Mon\u2013Fri 10 AM\u20137 PM; Sat 9 AM\u20135:30 PM; closed Sunday", note: "" }
   ]
 }
 ];
