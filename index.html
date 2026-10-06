@@ -1674,7 +1674,7 @@ var BIG_VENDORS = [
         h += '<h2 class="sec-label">' + esc(hold) + "</h2>";
         h += '<dl class="facts hold-facts">';
         byHold[hold].forEach(function (L) {
-          h += factRow("Address", esc(L.address));
+          h += factRow("Address", addrLink(L.address));
           h += factRow("Phone", telLink(L.phone));
           h += factRow("Hours", esc(L.hours));
           if (L.note) h += factRow("Good to know", telLink(esc(L.note)));
