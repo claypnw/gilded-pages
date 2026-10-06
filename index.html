@@ -1616,6 +1616,8 @@ var BIG_VENDORS = [
     function editionHash(v) { return "#edition-" + v.date; }
     function editionURL(v) { return ARCHIVE_URL + editionHash(v); }
     function scrollCite(v) { return "Featured in The Payson Morning Scroll \u2014 " + v.edition + " \u00B7 " + v.featured; }
+    function mapsURL(addr) { return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(addr); }
+    function addrLink(addr) { return '<a href="' + mapsURL(addr) + '" target="_blank" rel="noopener">' + esc(addr) + '</a>'; }
 
     var app = document.getElementById("app");
 
@@ -1726,7 +1728,7 @@ var BIG_VENDORS = [
           if (v.sweetroll) h += '<p class="sw-line"><span class="sw-label">Sweetroll Watch \u2014 </span>' + esc(v.sweetroll) + '</p>';
           h += '<p class="featured-line"><a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a></p>';
           h += '<p class="checked-line"><span class="cl-label">Last Courier\u2019s Scroll on</span> ' + esc(v.lastChecked || LAST_CHECKED) + '</p>';
-          h += '<div class="card-foot"><span class="featured-line">' + esc(v.address) + ' \u00B7 ' + esc(v.phone) + '</span>';
+          h += '<div class="card-foot"><span class="featured-line">' + addrLink(v.address) + ' \u00B7 ' + esc(v.phone) + '</span>';
           h += '<a class="open-link" href="#/vendor/' + v.slug + '">Open its page \u2192</a></div>';
           h += '</div></article>';
         });
@@ -1837,7 +1839,7 @@ var BIG_VENDORS = [
       }
       h += '<dl class="facts">';
       h += factRow("Trade", esc(cat) + " \u2014 " + esc(v.town));
-      h += factRow("Address", esc(v.address));
+      h += factRow("Address", addrLink(v.address));
       h += factRow("Phone", '<a href="tel:+1' + v.phone.replace(/[^0-9]/g, "") + '">' + esc(v.phone) + '</a>');
       h += factRow("Hours", esc(v.hours));
       h += factRow("Prices", esc(v.price));
@@ -1856,7 +1858,7 @@ var BIG_VENDORS = [
       h += '<div class="trailer-grid">';
       h += '<div><h4>Find them</h4><ul>';
       h += '<li>' + esc(cat) + ' \u00B7 ' + esc(v.town) + '</li>';
-      h += '<li>' + esc(v.address) + '</li>';
+      h += '<li>' + addrLink(v.address) + '</li>';
       h += '<li><a href="tel:+1' + v.phone.replace(/[^0-9]/g, "") + '">' + esc(v.phone) + '</a></li>';
       h += '<li>' + esc(v.hours) + '</li>';
       h += '<li>' + esc(v.price) + '</li>';
