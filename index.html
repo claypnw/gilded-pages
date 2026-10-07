@@ -621,7 +621,8 @@ var BIG_CATEGORIES = [
   { id: "hospitals", name: "Hospitals", gloss: "Full hospitals with 24/7 emergency" },
   { id: "urgent",  name: "Urgent Care", gloss: "Walk-in care for the hurts that can't wait" },
   { id: "dental",  name: "Dental", gloss: "Tooth-healers, including emergencies" },
-  { id: "pharmacy", name: "Apothecaries", gloss: "Pharmacies for prescriptions" }
+  { id: "pharmacy", name: "Apothecaries", gloss: "Pharmacies for prescriptions" },
+  { id: "vision",   name: "Vision", gloss: "Eye-healers, spectacles & eye care" }
 ];
 
 var BIG_VENDORS = [
@@ -1193,6 +1194,76 @@ var BIG_VENDORS = [
   intro: "The Frontier Street tooth-healer \u2014 general dentistry in Bonanza Square, keeping Payson's smiles sound along the Beeline.",
   locations: [
     { hold: "Payson", address: "200 W Frontier St #5, Payson", phone: "(928) 472-2500", hours: "Hours not confirmed \u2014 ring ahead", note: "Shares the (928) 472-2500 line with Center Point Dental, a separate practice." }
+  ]
+},
+/* ---------------- VISION ---------------- */
+{
+  slug: "big-payson-eye-care", name: "Payson Eye Care Center", category: "vision", big: true,
+  img: "big-payson-eye-care.webp",
+  website: "http://www.paysoneyecare.com/",
+  alt: "Engraving of an elven eye-healer's tower room \u2014 a healer examining a traveler's eyes with a great crystal lens, shelves of round spectacles and crystal vials, warm candlelight",
+  intro: "The sight-tenders of Beeline Highway \u2014 sharp-vision checkings, lens-craft for spectacles and the tiny lenses that rest upon the eye itself (other travelers call them 'contact lenses'), and care for ailing eyes. Eye emergencies seen.",
+  locations: [
+    { hold: "Payson", address: "411 S Beeline Hwy Ste A, Payson", phone: "(928) 474-3556", hours: "Mon\u2013Thu 8 AM\u20135 PM; Fri 8 AM\u20132 PM", note: "Drs. Troy S. Ford and Jonathan Beeson, ODs. Comprehensive eye exams, contacts, medical eye care, eye emergencies." }
+  ]
+},
+{
+  slug: "big-risser-thomas-eye", name: "Risser Thomas Eye Clinic", category: "vision", big: true,
+  img: "big-risser-thomas-eye.webp",
+  website: "http://rissereyeclinic.com/",
+  alt: "Engraving of a Nord surgeon-healer's treatment hall \u2014 a healer using a magnifying crystal and brass instruments, a patient reclining in a wooden chair, tapestries with an eye sigil on stone walls",
+  intro: "The eye-surgeons' hall \u2014 ophthalmology for the serious ailments: clouded lenses (other travelers call them 'cataracts'), glaucoma, and full medical and surgical eye care.",
+  locations: [
+    { hold: "Payson", address: "302 W Main St, Payson", phone: "(928) 474-4126", hours: "Mon\u2013Fri 8:30 AM\u20134:30 PM", note: "Dr. Christian F. Risser, MD. Hours per their Google listing \u2014 call ahead to confirm." }
+  ]
+},
+{
+  slug: "big-alpine-optical", name: "Alpine Optical", category: "vision", big: true,
+  img: "big-alpine-optical.webp",
+  alt: "Engraving of a medieval spectacle-maker's shop \u2014 a wooden counter displaying round spectacles and brass-framed lenses, the shopkeeper polishing a lens, pine trees through an open shutter",
+  intro: "The spectacle-smith's counter \u2014 eyeglass frames and lens-craft inside the Risser Thomas hall, fitting travelers with their pocket-scrying lenses.",
+  locations: [
+    { hold: "Payson", address: "302 W Main St, Payson", phone: "(928) 474-2989", hours: "Hours not confirmed \u2014 ring ahead", note: "Small independent optical shop (est. 1985) inside the same hall as the Risser Thomas Eye Clinic. No working website of its own." }
+  ]
+},
+{
+  slug: "big-walmart-vision", name: "Walmart Vision & Glasses", category: "vision", big: true,
+  img: "big-walmart-vision.webp",
+  website: "https://www.walmart.com/store/1369-payson-az/vision-center?veh=seo_loc",
+  alt: "Engraving of a spectacle-stall inside a grand timber provisioning hall \u2014 a counter with rows of round spectacles and crystal lenses, a merchant fitting spectacles on a smiling shopper, hanging lanterns",
+  intro: "The spectacle counter in the grand provisioning hall \u2014 frames, lenses, and eye exams at the everyday prices the hall is famed for, open seven days.",
+  locations: [
+    { hold: "Payson", address: "300 N Beeline Hwy (inside Walmart), Payson", phone: "(928) 472-2826", hours: "Mon\u2013Fri 9 AM\u20137 PM; Sat 9 AM\u20136 PM; Sun noon\u20135 PM", note: "Sunday hours vary across listings \u2014 ring ahead to confirm." }
+  ]
+},
+{
+  slug: "big-camp-verde-eye-care", name: "Camp Verde Eye Care", category: "vision", big: true,
+  img: "big-camp-verde-eye-care.webp",
+  website: "http://www.cv-eyecare.com/",
+  alt: "Engraving of a riverside timber eye-healer's hall \u2014 a wood-elf healer examining a farmer's eyes with a crystal lens beside a window overlooking a green river valley",
+  intro: "The verde-valley eye-healer \u2014 Dr. Jorge Huston's long-running optometry hall: vision and eye-health exams, dry-eye and glaucoma care, and a fitting room of frames.",
+  locations: [
+    { hold: "Camp Verde", address: "452 W Finnie Flat Rd Ste A1, Camp Verde", phone: "(928) 567-3330", hours: "Mon\u2013Thu 8 AM\u20135 PM (lunch noon\u20131 PM); Fri closed", note: "Accepts VSP, Spectera, and Medicare." }
+  ]
+},
+/* ---------------- DENTAL ---------------- */
+{
+  slug: "big-donald-smith-dds", name: "Donald L. Smith, DDS", category: "dental", big: true,
+  img: "big-donald-smith-dds.webp",
+  alt: "Engraving of a timber tooth-healer's hut among tall pines with the Mogollon Rim on the horizon \u2014 a bearded healer polishing an ivory tooth beside a smiling patient, a few birds in the sky",
+  intro: "The lone tooth-healer of the pines \u2014 Pine's own dentist, keeping the teeth of the Rim Country villages sound without the long ride to Payson.",
+  locations: [
+    { hold: "Pine-Strawberry", address: "8921 W Fossil Creek Rd, Pine", phone: "(928) 476-2655", hours: "Hours not confirmed \u2014 ring ahead", note: "General dentistry; the only practice in the Pine-Strawberry hold. No website \u2014 ring before setting out." }
+  ]
+},
+{
+  slug: "big-verde-smiles", name: "Verde Smiles", category: "dental", big: true,
+  img: "big-verde-smiles.webp",
+  website: "http://www.verdesmiles.com/",
+  alt: "Engraving of a bright tooth-healer's chamber beside a green river \u2014 a young mother and child smiling widely while a Nord tooth-healer holds a polished ivory tooth, timber beams and river light",
+  intro: "The smiling hall by the verde river \u2014 family and children's dentistry with same-day help for the tooth that won't wait, new patients welcomed like kin.",
+  locations: [
+    { hold: "Camp Verde", address: "430 W Finnie Flat Rd, Camp Verde", phone: "(928) 567-4108", hours: "Mon, Tue & Thu 8 AM\u20134 PM; Wed & Fri 8 AM\u2013noon", note: "General + pediatric dentistry; advertises same-day emergency care. Phone per their official site." }
   ]
 }
 ];
