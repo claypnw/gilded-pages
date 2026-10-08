@@ -622,7 +622,9 @@ var BIG_CATEGORIES = [
   { id: "urgent",  name: "Urgent Care", gloss: "Walk-in care for the hurts that can't wait" },
   { id: "dental",  name: "Dental", gloss: "Tooth-healers, including emergencies" },
   { id: "pharmacy", name: "Apothecaries", gloss: "Pharmacies for prescriptions" },
-  { id: "vision",   name: "Vision", gloss: "Eye-healers, spectacles & eye care" }
+  { id: "vision",   name: "Vision", gloss: "Eye-healers, spectacles & eye care" },
+  { id: "mental",   name: "Mental Health & Recovery", gloss: "Counselors, mind-healers & recovery halls" },
+  { id: "hospice",  name: "Hospice", gloss: "Comfort care for life's last road" }
 ];
 
 var BIG_VENDORS = [
@@ -942,11 +944,10 @@ var BIG_VENDORS = [
 {
   slug: "big-paysonrideshare", name: "Payson Rideshare Taxi Service", category: "wheels", big: true,
   img: "big-payson-rideshare.webp",
-  website: "https://paysonrideshare.business.site",
   alt: "Engraving of a friendly taxi — a Nord driver tipping his cap as cloaked travelers board a roomy motor-cab",
   intro: "The hired cab — a veteran driver tips his cap and takes thee anywhere in the county, day or night, up to six travelers.",
   locations: [
-    { hold: "Payson", address: "Service-area business — no street address; serves Gila County", phone: "(602) 350-1105", hours: "Listed 24 hours, 7 days", note: "Veteran-owned taxi and rideshare; single riders or groups up to 6." }
+    { hold: "Payson", address: "Service-area business — no street address; serves Gila County", phone: "(602) 350-1105", hours: "Listed 24 hours, 7 days", note: "Veteran-owned taxi and rideshare; single riders or groups up to 6. No working website — ring (602) 350-1105." }
   ]
 },
 {
@@ -1264,6 +1265,77 @@ var BIG_VENDORS = [
   intro: "The smiling hall by the verde river \u2014 family and children's dentistry with same-day help for the tooth that won't wait, new patients welcomed like kin.",
   locations: [
     { hold: "Camp Verde", address: "430 W Finnie Flat Rd, Camp Verde", phone: "(928) 567-4108", hours: "Mon, Tue & Thu 8 AM\u20134 PM; Wed & Fri 8 AM\u2013noon", note: "General + pediatric dentistry; advertises same-day emergency care. Phone per their official site." }
+  ]
+},
+/* ---------------- MENTAL HEALTH & RECOVERY ---------------- */
+{
+  slug: "big-southwest-behavioral", name: "Southwest Behavioral & Health Services \u2013 Aero Outpatient", category: "mental", big: true,
+  img: "big-southwest-behavioral.webp",
+  website: "https://www.sbhservices.org/aero-outpatient",
+  alt: "Engraving of a Nord wise-healer's warm timber counsel-hall \u2014 a kind-faced healer listening across a sturdy wooden table to a traveler, hearth fire behind, shelves of herbs and bound tomes, a cat asleep by the fire",
+  intro: "The counsel-hall on Aero Drive \u2014 one-to-one and kin-circle counsel, mind-healers and the draughts that steady troubled humors (other travelers call them 'psychiatric medications'), and aid for those wrestling the mead-demons. Medicaid, Medicare, TRICARE and most insurances honored.",
+  locations: [
+    { hold: "Payson", address: "404 W Aero Dr, Payson", phone: "(928) 474-3303", hours: "Mon\u2013Thu 7 AM\u20136 PM; Fri 7 AM\u20135 PM", note: "Outpatient counseling, psychiatry, addiction treatment. The Empowerment Center shares the hall. Hours per their official site." }
+  ]
+},
+{
+  slug: "big-mogollon-treatment", name: "Mogollon Treatment Center", category: "mental", big: true,
+  img: "big-mogollon-treatment.webp",
+  website: "https://mogollontreatmentcenter.com/",
+  alt: "Engraving of a calm healer's rest-hall at dawn \u2014 a traveler resting peacefully on a simple cot in a sunlit timber room, a gentle healer checking their pulse, bundles of drying herbs hanging from the rafters",
+  intro: "The detox hall on Aero Drive \u2014 round-the-clock care for travelers breaking free of the mead and the poppy (other travelers call it 'medical detox'), then counsel and steady steps after. Joint Commission accredited.",
+  locations: [
+    { hold: "Payson", address: "306 W Aero Dr, Payson", phone: "(928) 466-4242", hours: "Open 24 hours", note: "Medical detox + outpatient addiction treatment. The NPI registry also lists (714) 910-4286 as a contact \u2014 ring (928) 466-4242 first." }
+  ]
+},
+{
+  slug: "big-mogollon-residential", name: "Mogollon Residential", category: "mental", big: true,
+  img: "big-mogollon-residential.webp",
+  website: "https://mogollontreatmentcenter.com/mogollon-residential/",
+  alt: "Engraving of a long timber longhouse at sunrise among tall pines \u2014 travelers sharing a warm morning meal at a long wooden table, lantern light, the Rim distant on the horizon, a few birds in the sky",
+  intro: "The recovery longhouse on Wade Lane \u2014 a live-in hall where travelers mend together after the detox, sharing meals and counsel under the pines. Kin of the Mogollon Treatment Center.",
+  locations: [
+    { hold: "Payson", address: "212 W Wade Ln, Payson", phone: "(928) 478-7173", hours: "Hours not confirmed \u2014 ring ahead", note: "Residential addiction recovery; the Treatment Center's sister hall \u2014 one web page serves both." }
+  ]
+},
+{
+  slug: "big-psych-assist", name: "Psych Assist", category: "mental", big: true,
+  img: "big-psych-assist.webp",
+  website: "http://www.psychassistaz.com/",
+  alt: "Engraving of a scholar-healer's quiet study \u2014 tall shelves of scrolls and tomes, a wise healer writing notes by candlelight, a comfortable chair facing theirs, a window over a pine forest, an owl on the sill",
+  intro: "The mind-healers of Main Street \u2014 psychiatry, counsel and mind-craft from a hall of several healers, for troubled thoughts and the humors that unbalance them.",
+  locations: [
+    { hold: "Payson", address: "405 W Main St Ste B, Payson", phone: "(480) 648-7628", hours: "Mon\u2013Fri 9 AM\u20135 PM (listings vary \u2014 ring ahead)", note: "Psychiatry, psychology and therapy; led by a psychiatric nurse practitioner." }
+  ]
+},
+{
+  slug: "big-community-bridges", name: "Community Bridges", category: "mental", big: true,
+  img: "big-community-bridges.webp",
+  website: "https://communitybridgesaz.org",
+  alt: "Engraving of a sturdy stone bridge crossing a forest stream at dawn \u2014 travelers helping one another across toward a warm-lit timber hall, morning mist, lanterns glowing",
+  intro: "The bridge-builders of Main Street \u2014 counsel and crisis aid for the troubled of mind and those caught by the mead, SAMHSA-listed and CARF-accredited, answering day and night.",
+  locations: [
+    { hold: "Payson", address: "803 W Main St Unit A, Payson", phone: "(928) 468-0022", hours: "Mon\u2013Fri 9 AM\u20135 PM (ring ahead)", note: "Substance-abuse and mental-health treatment with crisis response; honors Medicaid, Medicare and private insurance." }
+  ]
+},
+{
+  slug: "big-uturn-for-christ", name: "U-Turn For Christ", category: "mental", big: true,
+  img: "big-uturn-for-christ.webp",
+  alt: "Engraving of a small timber chapel among tall pines at dusk \u2014 warm light in its windows, a lantern-lit path to its open door, two travelers walking toward the light, stars overhead",
+  intro: "The turning-path chapel on Colcord Road \u2014 a faith-bound live-in hall where travelers leave the mead and the poppy behind through work, counsel and prayer.",
+  locations: [
+    { hold: "Payson", address: "217 S Colcord Rd, Payson", phone: "(928) 978-2833", hours: "Hours not confirmed \u2014 ring ahead", note: "Faith-based residential recovery. Phone listings conflict \u2014 (928) 951-0806 and (928) 468-6336 also appear; no working website found." }
+  ]
+},
+/* ---------------- HOSPICE ---------------- */
+{
+  slug: "big-compassus", name: "Compassus \u2013 Payson", category: "hospice", big: true,
+  img: "big-compassus.webp",
+  website: "https://www.compassus.com/locations/arizona/payson/",
+  alt: "Engraving of a gentle healer sitting beside a resting elder in a warm timber room \u2014 holding the elder's hand kindly, candlelight on the bedside table, a window over a pine forest at sunset",
+  intro: "The comfort-keepers of Mud Springs Road \u2014 hospice and home-health care for life's last road, easing pain and bearing the family up, Medicare-certified since 1994.",
+  locations: [
+    { hold: "Payson", address: "511 S Mud Springs Rd, Payson", phone: "(928) 472-6340", hours: "Office Mon\u2013Fri 9 AM\u20136 PM; hospice care round the clock", note: "Hospice + home health; serves Gila and Coconino counties. Phone per Medicare records and their own site." }
   ]
 }
 ];
