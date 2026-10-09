@@ -624,7 +624,8 @@ var BIG_CATEGORIES = [
   { id: "pharmacy", name: "Apothecaries", gloss: "Pharmacies for prescriptions" },
   { id: "vision",   name: "Vision", gloss: "Eye-healers, spectacles & eye care" },
   { id: "mental",   name: "Mental Health & Recovery", gloss: "Counselors, mind-healers & recovery halls" },
-  { id: "hospice",  name: "Hospice", gloss: "Comfort care for life's last road" }
+  { id: "hospice",  name: "Hospice", gloss: "Comfort care for life's last road" },
+  { id: "medical",  name: "Medical Offices", gloss: "Doctors, surgeons & clinics of the Holds" }
 ];
 
 var BIG_VENDORS = [
@@ -1336,6 +1337,76 @@ var BIG_VENDORS = [
   intro: "The comfort-keepers of Mud Springs Road \u2014 hospice and home-health care for life's last road, easing pain and bearing the family up, Medicare-certified since 1994.",
   locations: [
     { hold: "Payson", address: "511 S Mud Springs Rd, Payson", phone: "(928) 472-6340", hours: "Office Mon\u2013Fri 9 AM\u20136 PM; hospice care round the clock", note: "Hospice + home health; serves Gila and Coconino counties. Phone per Medicare records and their own site." }
+  ]
+},
+/* ---------------- MEDICAL OFFICES ---------------- */
+{
+  slug: "big-banner-clinic-main", name: "Banner Health Clinic \u2013 Family Medicine", category: "medical", big: true,
+  img: "big-banner-clinic-main.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-health-clinic-main-family-medicine",
+  alt: "Engraving of a warm medieval healing hall \u2014 a kindly Nord healer in fur-trimmed robes speaking with a mother and two children beside a wooden examination bench, shelves of clay herb jars and folded bandages, a hearth behind",
+  intro: "Banner's own family-medicine hall on Main Street \u2014 the first door a traveler knocks on: checkups, women's health and little ones' care, from healers who know the whole Hold by name.",
+  locations: [
+    { hold: "Payson", address: "117 E Main St Ste A100, Payson", phone: "(928) 596-4500", hours: "Mon\u2013Fri 7 AM\u20135 PM", note: "Multi-specialty family medicine/pediatrics/women's health. All facts from bannerhealth.com, checked live." }
+  ]
+},
+{
+  slug: "big-banner-clinic-specialty", name: "Banner Health Clinic \u2013 Surgery & Cardiology", category: "medical", big: true,
+  img: "big-banner-clinic-specialty.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-health-clinic-main-surgery",
+  alt: "Engraving of a calm medieval surgical chamber \u2014 two healers in clean linen robes and leather aprons working with focus at a stone table lit by tall candles, a tray of carved bone and brass tools",
+  intro: "Banner's blade-and-heart hall \u2014 general surgery and heart care under one roof, with the cancer specialists calling at the same door, for when the wound or the heart needs a master.",
+  locations: [
+    { hold: "Payson", address: "122 E Main St, Payson", phone: "(928) 596-4600", hours: "Mon\u2013Fri 7:30 AM\u20135:15 PM", note: "Surgery + cardiology per the official Banner page; oncology (Banner Cancer Center Specialists) also sees patients at this address." }
+  ]
+},
+{
+  slug: "big-banner-orthopedics", name: "Banner Health Clinic \u2013 Orthopedics", category: "medical", big: true,
+  img: "big-banner-orthopedics.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-health-clinic-main-orthopedics",
+  alt: "Engraving of a medieval bone-setter's workshop \u2014 a grey-bearded healer fitting a carved wooden splint to a young warrior's knee, jointed bone models on the timber wall, carved crutches in the corner",
+  intro: "Banner's bone-setters \u2014 sports injuries, worn-out joints and fractures, and the new hips and knees that carry travelers back up the Rim.",
+  locations: [
+    { hold: "Payson", address: "126 E Main St Ste D, Payson", phone: "(928) 596-4800", hours: "Mon\u2013Fri 8 AM\u20135 PM", note: "Phone per bannerhealth.com; older directories still show (928) 472-5260." }
+  ]
+},
+{
+  slug: "big-abcs-pediatrics", name: "ABC's Pediatrics", category: "medical", big: true,
+  img: "big-abcs-pediatrics.webp",
+  website: "http://www.abcspediatrics.com/",
+  alt: "Engraving of a warm healer's nursery room \u2014 a smiling female healer in a hooded robe listening to a giggling small child's chest through a brass horn, wooden toys on the shelf, sunlight through a round window",
+  intro: "The Hold's children's healer \u2014 well-child visits, immunizations, sports physicals and sick visits, where little Nords are the only patients that matter.",
+  locations: [
+    { hold: "Payson", address: "109 W Main St, Payson", phone: "(928) 474-9399", hours: "Mon\u2013Thu 9 AM\u20135 PM; Fri 9 AM\u201312 PM", note: "Practice moved to 109 W Main St (NPI record updated Sept 2025); their site's footer still shows the old 117 East Main address." }
+  ]
+},
+{
+  slug: "big-payson-dermatology", name: "Payson Dermatology", category: "medical", big: true,
+  img: "big-payson-dermatology.webp",
+  website: "https://www.paysondermatology.com/",
+  alt: "Engraving of a medieval skin-healer's study \u2014 a bespectacled scholar-healer examining a patient's forearm with a brass magnifying lens, shelves of salve jars and pressed herbs, sunlight through a leaded window",
+  intro: "The skin-healers of the Beeline \u2014 medical dermatology with a Mohs skin-cancer surgeon on staff, for moles, rashes and the sun's toll on high-country skin.",
+  locations: [
+    { hold: "Payson", address: "313 S Beeline Hwy, Payson", phone: "(928) 472-7107", hours: "Mon\u2013Fri 8 AM\u20134 PM", note: "Styles itself 'Payson Dermatology and MOHS Center'; Mohs skin-cancer surgery on site. All facts from their own site, checked live." }
+  ]
+},
+{
+  slug: "big-ponderosa-family-care", name: "Ponderosa Family Care", category: "medical", big: true,
+  img: "big-ponderosa-family-care.webp",
+  website: "https://ponderosafamilycare.com/",
+  alt: "Engraving of a cozy village doctor's cottage at dawn \u2014 a warm-hearted grey-bearded healer greeting a family at his timber door, a brass lantern glowing over the lintel, tall pines behind",
+  intro: "A multi-provider family-medicine hall on Main Street \u2014 everyday care for the whole family, where the healer learns thy name and thy story.",
+  locations: [
+    { hold: "Payson", address: "127 E Main St Ste D, Payson", phone: "(928) 468-8603", hours: "Hours not confirmed \u2014 ring ahead", note: "Address + phone per the NPI registry (active) and their own homepage." }
+  ]
+},
+{
+  slug: "big-high-country-family-care", name: "High Country Family Care", category: "medical", big: true,
+  img: "big-high-country-family-care.webp",
+  alt: "Engraving of a traveling highland healer \u2014 a kind healer in a fur-trimmed cloak arriving on horseback at a timber homestead on a mountain trail, waving to an elderly couple on the porch, pines and peaks behind",
+  intro: "From six months old to a hundred and five, with house calls and DOT physicals \u2014 the traveling-healer tradition, kept on Frontier Street.",
+  locations: [
+    { hold: "Payson", address: "200 W Frontier St Ste M, Payson", phone: "(928) 478-6280", hours: "Hours not confirmed \u2014 ring ahead", note: "Hours vary by source, and their website could not be confirmed live \u2014 call ahead. Active, 21 five-star Google reviews." }
   ]
 }
 ];
