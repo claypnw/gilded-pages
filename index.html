@@ -79,18 +79,12 @@
         opacity: 0.65;
       }
       .menu-back {
-        display: inline-block;
-        margin: 0 0 14px;
-        padding: 10px 16px;
-        min-height: 44px;
-        font-family: "IM Fell English SC", Georgia, serif;
-        font-size: 18px;
-        letter-spacing: 0.04em;
-        color: var(--accent-deep);
-        background: var(--card);
-        border: 1px solid var(--card-line);
-        border-radius: 8px;
-        text-decoration: none;
+        position: absolute; top: 12px; left: 12px; z-index: 50;
+        display: inline-block; padding: 10px 16px;
+        color: #e8b64c; background: rgba(24,15,9,.85);
+        border: 2px solid #8f8068; border-radius: 10px;
+        font-family: "IM Fell English SC", Georgia, serif; font-size: 18px;
+        letter-spacing: 0.04em; text-decoration: none;
       }
       .dir-title {
         font-size: clamp(34px, 6.5vw, 58px);
@@ -607,6 +601,7 @@
     </style>
   </head>
   <body>
+    <a class="menu-back" href="https://claypnw.github.io/menu/">← Menu</a>
     <div class="wrap" id="app"></div>
     <noscript><p style="padding:20px">The Gilded Pages needs JavaScript to open its leaves.</p></noscript>
     <script>
@@ -1925,7 +1920,6 @@ var BIG_VENDORS = [
       document.title = "The Gilded Pages of the Holds";
       var h = "";
       h += '<header class="masthead"><div class="rule-top"></div>';
-      h += '<a class="menu-back" href="https://claypnw.github.io/menu/">&larr; Menu</a>';
       h += '<h1 class="dir-title fell-sc">The Gilded Pages of the Holds</h1>';
       h += '<div class="masthead-grid"><div>';
       h += '<p class="dir-sub">A directory of the merchants featured in The Payson Morning Scroll — plus the great provisioning halls, inns, and road services of the Holds — gathered in one ledger and sorted by trade, so a guest of Mogollon\u2019s Hearth can find a feast, a forge, or a fine sweetroll without asking a single guard (because you know they’re just waiting to tell you how they used to be an adventurer too, until they took an arrow to the knee!).</p>';
