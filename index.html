@@ -13,32 +13,32 @@
     <style>
       :root {
         color-scheme: light dark;
-        --paper: #dfe5cb;
-        --paper-deep: #cdd7ae;
-        --paper-edge: #b9c695;
-        --card: #eef1dc;
-        --card-line: #9aa87c;
-        --ink: #2b331f;
-        --ink-soft: #525f3c;
-        --accent: #33604a;
-        --accent-deep: #224433;
-        --gold: #8f6d1f;
-        --quote-bg: #e4ebcd;
-        --shadow: rgba(43, 51, 31, 0.25);
+        --paper: #f3eee3;
+        --paper-deep: #e9dfc9;
+        --paper-edge: #d9c9a8;
+        --card: #f7f1e4;
+        --card-line: #8f8068;
+        --ink: #211e19;
+        --ink-soft: #6b6257;
+        --accent: #b54f24;
+        --accent-deep: #542d1b;
+        --gold: #b54f24;
+        --quote-bg: #efe6d0;
+        --shadow: rgba(33, 30, 25, 0.25);
       }
       @media (prefers-color-scheme: dark) {
         :root {
-          --paper: #171f11;
-          --paper-deep: #111809;
-          --paper-edge: #0b1006;
-          --card: #202b17;
-          --card-line: #44562f;
-          --ink: #e4ebd0;
-          --ink-soft: #aabd8e;
-          --accent: #93c7a4;
-          --accent-deep: #b7dcc2;
-          --gold: #cda64e;
-          --quote-bg: #243118;
+          --paper: #151817;
+          --paper-deep: #101312;
+          --paper-edge: #080a09;
+          --card: #202321;
+          --card-line: #57503f;
+          --ink: #f2ecdf;
+          --ink-soft: #c8c0b2;
+          --accent: #db7040;
+          --accent-deep: #e8b64c;
+          --gold: #e8b64c;
+          --quote-bg: #2a241d;
           --shadow: rgba(0, 0, 0, 0.55);
         }
       }
@@ -51,9 +51,9 @@
         font-size: 17px;
         line-height: 1.55;
         background:
-          radial-gradient(ellipse 60% 40% at 12% 8%, rgba(120, 140, 80, 0.20), transparent 70%),
-          radial-gradient(ellipse 50% 35% at 88% 22%, rgba(90, 115, 60, 0.18), transparent 70%),
-          radial-gradient(ellipse 70% 50% at 50% 95%, rgba(100, 125, 70, 0.16), transparent 70%),
+          radial-gradient(ellipse 60% 40% at 12% 8%, rgba(181, 79, 36, 0.14), transparent 70%),
+          radial-gradient(ellipse 50% 35% at 88% 22%, rgba(143, 128, 104, 0.14), transparent 70%),
+          radial-gradient(ellipse 70% 50% at 50% 95%, rgba(84, 45, 27, 0.10), transparent 70%),
           linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 55%, var(--paper) 100%);
         background-color: var(--paper);
         min-height: 100vh;
@@ -105,23 +105,6 @@
         grid-template-columns: 1fr;
         gap: 16px;
       }
-      .green-note {
-        border: 1px solid var(--card-line);
-        background: var(--card);
-        padding: 12px 16px 13px;
-        font-size: 15px;
-        box-shadow: 2px 3px 0 var(--shadow);
-      }
-      .green-note .gn-title {
-        font-family: "IM Fell English SC", Georgia, serif;
-        font-size: 16px;
-        letter-spacing: 0.04em;
-        display: block;
-        margin-bottom: 4px;
-        color: var(--accent-deep);
-      }
-      .green-note p { margin: 0; }
-      .green-note.interlude { margin-top: 48px; }
 
       /* ---------- category thumb tabs ---------- */
       .tabs {
@@ -580,18 +563,18 @@
       .back-top:hover { text-decoration: underline; }
       .back-page1-wrap { text-align: center; margin: 30px 0 12px; }
       .back-page1-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; font-family: "IM Fell English SC", Georgia, serif; font-size: 19px; letter-spacing: 0.05em; color: var(--accent-deep); background:
-          radial-gradient(ellipse 70% 50% at 18% 20%, rgba(143, 109, 31, 0.10), transparent 60%),
-          radial-gradient(ellipse 60% 45% at 82% 80%, rgba(51, 96, 74, 0.10), transparent 65%),
+          radial-gradient(ellipse 70% 50% at 18% 20%, rgba(181, 79, 36, 0.10), transparent 60%),
+          radial-gradient(ellipse 60% 45% at 82% 80%, rgba(181, 79, 36, 0.10), transparent 65%),
           linear-gradient(165deg, var(--card) 0%, var(--quote-bg) 55%, var(--card) 100%);
         border: 2px solid var(--accent-deep); outline: 1px solid var(--card-line); outline-offset: 3px;
-        padding: 13px 34px; text-decoration: none; box-shadow: 2px 3px 0 var(--shadow), inset 0 0 0 1px rgba(143, 109, 31, 0.18); border-radius: 2px; }
+        padding: 13px 34px; text-decoration: none; box-shadow: 2px 3px 0 var(--shadow), inset 0 0 0 1px rgba(181, 79, 36, 0.18); border-radius: 2px; }
       .back-page1-btn::before, .back-page1-btn::after { content: "\2022"; position: absolute; top: 50%; transform: translateY(-52%); font-size: 13px; color: var(--gold); opacity: 0.85; }
       .back-page1-btn::before { left: 11px; }
       .back-page1-btn::after { right: 11px; }
       .back-page1-btn:hover { color: var(--accent); background:
-          radial-gradient(ellipse 70% 50% at 18% 20%, rgba(143, 109, 31, 0.14), transparent 60%),
+          radial-gradient(ellipse 70% 50% at 18% 20%, rgba(181, 79, 36, 0.14), transparent 60%),
           linear-gradient(165deg, var(--quote-bg) 0%, var(--card) 60%, var(--quote-bg) 100%); }
-      .back-page1-btn:active { transform: translateY(1px); box-shadow: 1px 2px 0 var(--shadow), inset 0 0 0 1px rgba(143, 109, 31, 0.18); }
+      .back-page1-btn:active { transform: translateY(1px); box-shadow: 1px 2px 0 var(--shadow), inset 0 0 0 1px rgba(181, 79, 36, 0.18); }
       [hidden] { display: none !important; }
     
       .lede { font-size: 1.12em; font-style: italic; margin: 0 0 18px; }
@@ -1959,8 +1942,6 @@ var BIG_VENDORS = [
       });
       h += '</main>';
 
-      h += '<aside class="green-note interlude"><span class="gn-title">Why are the pages green?</span>';
-      h += '<p>Fair question \u2014 you\u2019re not the first traveler to hold a page up to the light and squint. The guild\u2019s official answer is gravely serious: every leaf is cured in pine smoke and copperleaf, and the green keeps moths and mildew from nibbling the ledger. The unofficial answer, whispered after the second cup of mead, is that the first printer spilt an alchemy tonic across a fresh stack\u2026 and liked the color so much he declared it tradition on the spot. Either way, the pages stayed green, the moths stayed politely baffled, and here we all are.</p></aside>';
 
       /* ---- Mail Order Skyrim: the afterword of pure jest, filed at the very back ---- */
       h += '<section class="fiction-section" id="mail-order-skyrim">';
