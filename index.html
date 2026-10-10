@@ -621,7 +621,8 @@ var BIG_CATEGORIES = [
   { id: "vision",   name: "Vision", gloss: "Eye-healers, spectacles & eye care" },
   { id: "mental",   name: "Mental Health & Recovery", gloss: "Counselors, mind-healers & recovery halls" },
   { id: "hospice",  name: "Hospice", gloss: "Comfort care for life's last road" },
-  { id: "medical",  name: "Medical Offices", gloss: "Doctors, surgeons & clinics of the Holds" }
+  { id: "medical",  name: "Medical Offices", gloss: "Doctors, surgeons & clinics of the Holds" },
+  { id: "physical", name: "Physical Therapy", gloss: "Bone-setters, stretchers & recovery halls" }
 ];
 
 var BIG_VENDORS = [
@@ -1403,6 +1404,75 @@ var BIG_VENDORS = [
   intro: "From six months old to a hundred and five, with house calls and DOT physicals \u2014 the traveling-healer tradition, kept on Frontier Street.",
   locations: [
     { hold: "Payson", address: "200 W Frontier St Ste M, Payson", phone: "(928) 478-6280", hours: "Hours not confirmed \u2014 ring ahead", note: "Hours vary by source, and their website could not be confirmed live \u2014 call ahead. Active, 21 five-star Google reviews." }
+  ]
+},
+{
+  slug: "big-peak-health-medical", name: "Peak Health Medical Group", category: "medical", big: true,
+  img: "big-peak-health-medical.webp",
+  website: "https://peakhealthmedicalgroup.com/",
+  alt: "Engraving of a grand timber-frame healing hall \u2014 robed healers and townsfolk passing beneath a carved arched doorway, nordic knotwork over the lintel, glowing lanterns, pine-covered mountains behind",
+  intro: "A grand healing hall on Main Street \u2014 family medicine for the whole hold, where the healers learn thy name and thy story.",
+  locations: [
+    { hold: "Payson", address: "127 E Main St Ste A, Payson", phone: "(928) 492-9222", hours: "Mon\u2013Fri 8 AM\u20135 PM", note: "Sibling practice to Peak Dermatology \u2014 both are Dr. Rex's enterprises sharing Suite A, and their own site cross-links the two. All facts from their own site, checked live." }
+  ]
+},
+{
+  slug: "big-elk-ridge-health", name: "Elk Ridge Community Health", category: "medical", big: true,
+  img: "big-north-country-healthcare.webp",
+  website: "https://elkridge.org/locations/payson/",
+  alt: "Engraving of a humble healer's cottage with its door wide open \u2014 a farmer, an elder with a staff, and a child all welcomed by a kind grey-bearded healer, smoke curling from the chimney, pines behind",
+  intro: "The hold's open-door healing hall \u2014 a community health center where no traveler is turned away: family medicine, pediatrics, dental and behavioral health.",
+  locations: [
+    { hold: "Payson", address: "126 E Main St Ste B, Payson", phone: "(928) 468-8610", hours: "Mon\u2013Tue 7 AM\u20135 PM; Wed 8 AM\u20136 PM; Thu 9 AM\u20136 PM", note: "Formerly North Country HealthCare \u2014 taken over by El Rio Health in April 2026 and renamed. Friday hours not published \u2014 ring ahead. Location page checked live." }
+  ]
+},
+{
+  slug: "big-integrated-medical-services", name: "Integrated Medical Services", category: "medical", big: true,
+  img: "big-integrated-medical-services.webp",
+  website: "https://www.imsaz.com/",
+  alt: "Engraving of a guild hall of healers \u2014 robed physician-scholars gathered around a great oak table poring over healing scrolls, jars of herbs and a mortar and pestle, candlelight",
+  intro: "A guild of many healers under one timber roof \u2014 primary care and cardiology from the same hall on Cedar Lane.",
+  locations: [
+    { hold: "Payson", address: "111 W Cedar Ln Ste A, Payson", phone: "(928) 472-4675", hours: "Mon\u2013Fri 7 AM\u20135 PM", note: "Multi-specialty physician group; the number is IMS's own (their Payson Roundup ad confirms it). Site checked live." }
+  ]
+},
+{
+  slug: "big-peak-dermatology", name: "Peak Dermatology", category: "medical", big: true,
+  img: "big-peak-dermatology.webp",
+  website: "https://www.peakdermcare.com/",
+  alt: "Engraving of a medieval skin-healer's apothecary \u2014 a bespectacled scholar examining a patient's forearm with a brass magnifying lens, shelves of salve jars and pressed herbs, sunlight through a leaded window",
+  intro: "The skin-healers of Suite A \u2014 medical and cosmetic dermatology with a Mohs skin-cancer surgeon on staff, sibling practice to Peak Health Medical Group.",
+  locations: [
+    { hold: "Payson", address: "127 E Main St Ste A, Payson", phone: "(928) 951-0395", hours: "Mon\u2013Fri 8 AM\u20135 PM", note: "Dr. Christopher Rex, board-certified dermatologist and Mohs surgeon (toll-free 833-739-3376). Shares Suite A with Peak Health Medical Group \u2014 same enterprise. Site checked live." }
+  ]
+},
+{
+  slug: "big-eagle-springs-family", name: "Eagle Springs Family Medicine", category: "medical", big: true,
+  img: "big-eagle-springs-family.webp",
+  alt: "Engraving of a clear mountain spring \u2014 a healer filling a wooden bucket at the spring while a great eagle soars above pine-clad peaks, a family of travelers on the trail below",
+  intro: "A family-medicine hall out east on the highway \u2014 everyday care where the eagle's shadow crosses the springs.",
+  locations: [
+    { hold: "Payson", address: "903 E Highway 260 Ste 4, Payson", phone: "(928) 468-7700", hours: "Hours not confirmed \u2014 ring ahead", note: "No own website found \u2014 call ahead for hours. Address + phone per the NPI registry (active)." }
+  ]
+},
+{
+  slug: "big-banner-physical-therapy", name: "Banner Physical Therapy", category: "physical", big: true,
+  img: "big-banner-physical-therapy.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-physical-therapy-main",
+  alt: "Engraving of a warrior's recovery hall \u2014 a limping nord soldier guided through strengthening exercises by a healer, wooden practice dummies and rolled bandages on shelves, healing banners on the timber walls",
+  intro: "The bone-setters' hall \u2014 outpatient physical therapy with individualized plans of care, in the Banner Health family.",
+  locations: [
+    { hold: "Payson", address: "126 E Main St Ste C, Payson", phone: "(928) 468-8907", hours: "Mon\u2013Fri 8 AM\u20135 PM", note: "Banner Health's own location page, checked live. Fax (928) 468-8912." }
+  ]
+},
+{
+  slug: "big-payson-physical-therapy", name: "Payson Physical Therapy", category: "physical", big: true,
+  img: "big-payson-physical-therapy.webp",
+  website: "http://www.paysonphysicaltherapy.com/",
+  alt: "Engraving of a riverside rehabilitation garden \u2014 a patient relearning to walk with wooden walking staves beside a gentle river, willow trees, an encouraging healer beside him, pine hills beyond",
+  intro: "The independent recovery hall on Main Street \u2014 physical therapy and rehabilitation where the healers answer to no distant lord.",
+  locations: [
+    { hold: "Payson", address: "405 W Main St Ste D, Payson", phone: "(928) 474-0429", hours: "Mon\u2013Fri 8 AM\u20134 PM", note: "Independent PT and rehabilitation clinic. Site checked live; hours per Google place data \u2014 call to confirm." }
   ]
 }
 ];
