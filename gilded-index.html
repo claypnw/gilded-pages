@@ -1,0 +1,2214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/jpeg" href="icon.jpg" />
+  <link rel="apple-touch-icon" href="icon.jpg" />
+    <title>The Gilded Pages of the Holds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --paper: #f3eee3;
+        --paper-deep: #e9dfc9;
+        --paper-edge: #d9c9a8;
+        --card: #f7f1e4;
+        --card-line: #8f8068;
+        --ink: #211e19;
+        --ink-soft: #6b6257;
+        --accent: #b54f24;
+        --accent-deep: #542d1b;
+        --gold: #b54f24;
+        --quote-bg: #efe6d0;
+        --shadow: rgba(33, 30, 25, 0.25);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #151817;
+          --paper-deep: #101312;
+          --paper-edge: #080a09;
+          --card: #202321;
+          --card-line: #57503f;
+          --ink: #f2ecdf;
+          --ink-soft: #c8c0b2;
+          --accent: #db7040;
+          --accent-deep: #e8b64c;
+          --gold: #e8b64c;
+          --quote-bg: #2a241d;
+          --shadow: rgba(0, 0, 0, 0.55);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Source Sans 3", "Trebuchet MS", sans-serif;
+        font-size: 17px;
+        line-height: 1.55;
+        background:
+          radial-gradient(ellipse 60% 40% at 12% 8%, rgba(181, 79, 36, 0.14), transparent 70%),
+          radial-gradient(ellipse 50% 35% at 88% 22%, rgba(143, 128, 104, 0.14), transparent 70%),
+          radial-gradient(ellipse 70% 50% at 50% 95%, rgba(84, 45, 27, 0.10), transparent 70%),
+          linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 55%, var(--paper) 100%);
+        background-color: var(--paper);
+        min-height: 100vh;
+      }
+      .fell { font-family: "Alegreya SC", Georgia, serif; }
+      .fell-sc { font-family: "Alegreya SC", Georgia, serif; }
+      a { color: var(--accent); }
+      a:hover { color: var(--accent-deep); }
+
+      .wrap { max-width: 1060px; margin: 0 auto; padding: 0 18px 56px; }
+
+      /* ---------- page header band ---------- */
+      .masthead {
+        border-bottom: 3px double var(--ink);
+        padding: 30px 0 18px;
+        margin-bottom: 8px;
+      }
+      .masthead .rule-top {
+        border-top: 1px solid var(--ink);
+        border-bottom: 1px solid var(--ink);
+        height: 4px;
+        margin-bottom: 20px;
+        opacity: 0.65;
+      }
+      .menu-back {
+        position: absolute; top: 12px; left: 12px; z-index: 50;
+        display: inline-block; padding: 10px 16px;
+        color: #e8b64c; background: rgba(24,15,9,.85);
+        border: 2px solid #8f8068; border-radius: 10px;
+        font-family: "Alegreya SC", Georgia, serif; font-size: 18px;
+        letter-spacing: 0.04em; text-decoration: none;
+      }
+      .dir-title {
+        font-size: clamp(34px, 6.5vw, 58px);
+        line-height: 1.05;
+        margin: 0 0 6px;
+        letter-spacing: 0.01em;
+      }
+      .dir-sub {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-style: italic;
+        font-size: clamp(17px, 2.6vw, 21px);
+        color: var(--ink-soft);
+        margin: 0 0 14px;
+        max-width: 62ch;
+      }
+      .masthead-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      /* ---------- category thumb tabs ---------- */
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 20px 0 6px;
+        padding: 0;
+        list-style: none;
+      }
+      .tabs a {
+        display: inline-block;
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 15px;
+        text-decoration: none;
+        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--card-line);
+        border-bottom: 3px solid var(--accent);
+        padding: 6px 12px 5px;
+      }
+      .tabs a:hover { background: var(--quote-bg); color: var(--accent-deep); }
+
+      /* ---------- category sections ---------- */
+      .cat-section { margin-top: 42px; scroll-margin-top: 18px; }
+      .cat-head {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 6px;
+        flex-wrap: wrap;
+      }
+      .cat-head h2 {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(24px, 4vw, 32px);
+        margin: 0;
+      }
+      .cat-gloss { font-style: italic; color: var(--ink-soft); font-size: 15.5px; }
+
+      .vendor-list { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 20px; }
+      @media (min-width: 760px) { .vendor-list { grid-template-columns: 1fr 1fr; } }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--card-line);
+        box-shadow: 2px 3px 0 var(--shadow);
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .card img.thumb {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        height: auto;
+        display: block;
+        border-bottom: 1px solid var(--card-line);
+        filter: sepia(0.25) saturate(0.85);
+      }
+      .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .card h3 {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 1.15;
+        margin: 0;
+      }
+      .card h3 a { color: var(--ink); text-decoration: none; }
+      .card h3 a:hover { color: var(--accent-deep); text-decoration: underline; }
+      .card .meta {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 14.5px;
+        letter-spacing: 0.03em;
+        color: var(--accent-deep);
+      }
+      .card .teaser { margin: 0; font-size: 15.5px; color: var(--ink); }
+      .card .card-foot {
+        margin-top: auto;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-top: 1px dotted var(--card-line);
+      }
+      .featured-line { font-size: 13.5px; color: var(--ink-soft); font-style: italic; }
+      .checked-line {
+        margin: 2px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+        background: var(--quote-bg);
+        border: 1px solid var(--card-line);
+        border-left: 3px solid var(--accent);
+        padding: 6px 10px;
+        flex: 0 0 auto;
+      }
+      .checked-line .cl-label {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 13.5px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+      }
+      .open-link {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 15px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .open-link:hover { text-decoration: underline; }
+
+      /* ---------- vendor page ---------- */
+      .crumbs {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+      .crumbs a { text-decoration: none; }
+      .crumbs a:hover { text-decoration: underline; }
+      .crumbs .sep { color: var(--ink-soft); }
+      .vendor-head { border-bottom: 3px double var(--ink); padding-bottom: 14px; margin-bottom: 24px; }
+      .vendor-head .dir-small {
+        font-family: "Alegreya SC", Georgia, serif;
+        letter-spacing: 0.06em;
+        font-size: 14px;
+        color: var(--ink-soft);
+        margin: 0 0 8px;
+      }
+      .vendor-head h1 {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(32px, 6vw, 50px);
+        line-height: 1.08;
+        margin: 0 0 8px;
+      }
+      .vendor-head .meta-line {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: clamp(16px, 2.6vw, 19px);
+        color: var(--accent-deep);
+        margin: 0;
+      }
+      .vendor-grid { display: grid; grid-template-columns: 1fr; gap: 26px; }
+      @media (min-width: 820px) {
+        .vendor-grid { grid-template-columns: 1.15fr 1fr; gap: 34px; align-items: start; }
+      }
+      figure.engraving { margin: 0 auto 26px; max-width: 880px; }
+      figure.engraving img {
+        width: 100%;
+        display: block;
+        border: 1px solid var(--card-line);
+        box-shadow: 3px 4px 0 var(--shadow);
+        filter: sepia(0.22) saturate(0.85);
+        background: var(--card);
+      }
+      figure.engraving figcaption {
+        font-style: italic;
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        margin-top: 9px;
+        text-align: center;
+      }
+      .blurb { font-size: 17.5px; }
+      .blurb p { margin: 0 0 14px; }
+
+      /* vendor page section labels: the scroll version & the fuller tale */
+      .sec-label {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 21px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+        margin: 0 0 3px;
+      }
+      .sec-cite {
+        font-size: 14.5px;
+        font-style: italic;
+        color: var(--ink-soft);
+        margin: 0 0 14px;
+      }
+      .sec-cite a { color: var(--accent-deep); }
+      .heraldry .hb-sub {
+        display: block;
+        font-size: 14.5px;
+        font-style: italic;
+        color: var(--ink-soft);
+        margin-bottom: 9px;
+      }
+      .blurb p:first-of-type::first-letter {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 2.6em;
+        float: left;
+        line-height: 0.85;
+        padding: 4px 8px 0 0;
+        color: var(--accent-deep);
+      }
+      blockquote.review {
+        margin: 22px 0;
+        background: var(--quote-bg);
+        border: 1px solid var(--card-line);
+        padding: 16px 20px 14px;
+        box-shadow: 2px 3px 0 var(--shadow);
+      }
+      blockquote.review .rq {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-style: italic;
+        font-size: 19px;
+        line-height: 1.45;
+        margin: 0 0 8px;
+      }
+      blockquote.review .rs { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+
+      .why-box {
+        border: 1px solid var(--card-line);
+        border-top: 3px solid var(--gold);
+        background: var(--card);
+        padding: 15px 18px 13px;
+        margin: 22px 0;
+      }
+      .why-box .wb-title {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .why-box p { margin: 0; font-size: 16.5px; }
+
+      /* from their own heraldry */
+      .heraldry {
+        border: 1px solid var(--card-line);
+        border-top: 3px solid var(--accent);
+        background: var(--card);
+        padding: 15px 18px 13px;
+        margin: 22px 0;
+      }
+      .heraldry .hb-title {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .heraldry p { margin: 0 0 10px; font-size: 16.5px; }
+      .heraldry p:last-child { margin-bottom: 0; }
+      .heraldry .if-you-go { font-style: italic; }
+      .heraldry .if-you-go .iyg-label {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-style: normal;
+        color: var(--accent-deep);
+      }
+      .heraldry .src { font-size: 13.5px; color: var(--ink-soft); font-style: italic; }
+
+      /* the scroll confesses */
+      .confession {
+        border: 1px dashed var(--card-line);
+        background: var(--quote-bg);
+        padding: 11px 16px 10px;
+        margin: 18px 0 4px;
+        font-size: 15.5px;
+        font-style: italic;
+        box-shadow: 2px 3px 0 var(--shadow);
+      }
+      .confession .cf-label {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-style: normal;
+        font-size: 14.5px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+      }
+
+      /* ---------- mail order skyrim (pure jest) ---------- */
+      .fiction-section {
+        margin-top: 64px;
+        border-top: 3px double var(--ink);
+        padding-top: 26px;
+        scroll-margin-top: 18px;
+      }
+      .fiction-head { text-align: center; margin-bottom: 24px; }
+      .fiction-kicker {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 14px;
+        letter-spacing: 0.09em;
+        color: var(--gold);
+        display: block;
+      }
+      .fiction-head h2 {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(30px, 5.5vw, 46px);
+        margin: 4px 0 12px;
+      }
+      .jest-label {
+        display: inline-block;
+        border: 2px dashed var(--gold);
+        background: var(--quote-bg);
+        padding: 8px 18px;
+        font-style: italic;
+        font-size: 15.5px;
+        box-shadow: 2px 3px 0 var(--shadow);
+        max-width: 70ch;
+      }
+      .fiction-intro { max-width: 68ch; margin: 14px auto 0; font-size: 16px; text-align: left; }
+      .jest-banner {
+        border: 2px dashed var(--gold);
+        background: var(--quote-bg);
+        padding: 10px 18px;
+        text-align: center;
+        font-style: italic;
+        font-size: 16px;
+        box-shadow: 2px 3px 0 var(--shadow);
+        margin-bottom: 24px;
+      }
+      .jest-banner .jb-title {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-style: normal;
+        letter-spacing: 0.06em;
+        color: var(--gold);
+        display: block;
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+      .card.jest {
+        border: 1px dashed var(--gold);
+        background: var(--quote-bg);
+        position: relative;
+      }
+      .jest-ribbon {
+        position: absolute;
+        top: 20px;
+        right: -38px;
+        transform: rotate(38deg);
+        background: var(--card);
+        border-top: 1.5px solid var(--gold);
+        border-bottom: 1.5px solid var(--gold);
+        color: var(--gold);
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        padding: 4px 44px;
+        z-index: 2;
+        box-shadow: 0 2px 4px var(--shadow);
+      }
+      .card.jest .meta { color: var(--gold); }
+      .fiction-note {
+        margin-top: 20px;
+        font-size: 14.5px;
+        font-style: italic;
+        color: var(--ink-soft);
+        text-align: center;
+      }
+
+      /* sweetroll watch */
+      .sweetroll-watch {
+        margin: 18px 0 4px;
+        background: var(--quote-bg);
+        border: 1px solid var(--card-line);
+        border-left: 4px solid var(--gold);
+        padding: 12px 16px 11px;
+        font-size: 15.5px;
+        box-shadow: 2px 3px 0 var(--shadow);
+      }
+      .sweetroll-watch .sw-label {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 14.5px;
+        letter-spacing: 0.05em;
+        color: var(--accent-deep);
+        display: block;
+        margin-bottom: 3px;
+      }
+      .sweetroll-watch p { margin: 0; font-style: italic; }
+      .card .sw-line {
+        margin: 0;
+        font-size: 14px;
+        font-style: italic;
+        color: var(--ink-soft);
+        border-left: 3px solid var(--gold);
+        background: var(--quote-bg);
+        padding: 7px 10px;
+      }
+      .card .sw-line .sw-label {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-style: normal;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        color: var(--accent-deep);
+      }
+
+      /* directory facts table */
+      .facts { margin: 6px 0 0; border-top: 1px solid var(--card-line); }
+      .facts .row {
+        display: grid;
+        grid-template-columns: 118px 1fr;
+        gap: 10px;
+        padding: 8px 2px;
+        border-bottom: 1px solid var(--card-line);
+        font-size: 15.5px;
+      }
+      .facts dt {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 14.5px;
+        letter-spacing: 0.03em;
+        color: var(--accent-deep);
+        padding-top: 1px;
+      }
+      .facts dd { margin: 0; }
+      .facts .row.wide { grid-template-columns: 198px 1fr; }
+      @media (max-width: 560px) { .facts .row.wide { grid-template-columns: 148px 1fr; } }
+
+      /* ---------- trailer / footer ---------- */
+      .trailer {
+        margin-top: 46px;
+        border-top: 3px double var(--ink);
+        padding-top: 18px;
+      }
+      .trailer .tr-title {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-size: 18px;
+        letter-spacing: 0.03em;
+        margin: 0 0 12px;
+        color: var(--accent-deep);
+      }
+      .trailer-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+      @media (min-width: 760px) { .trailer-grid { grid-template-columns: repeat(3, 1fr); } }
+      .trailer h4 {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: 0.05em;
+        color: var(--ink-soft);
+        margin: 0 0 6px;
+        border-bottom: 1px solid var(--card-line);
+        padding-bottom: 4px;
+      }
+      .trailer ul { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+      .trailer li { margin: 0 0 5px; }
+      .trailer p { font-size: 15px; margin: 0 0 10px; max-width: 78ch; }
+      .colophon {
+        margin-top: 22px;
+        text-align: center;
+        font-style: italic;
+        color: var(--ink-soft);
+        font-size: 14px;
+        border-top: 1px solid var(--card-line);
+        padding-top: 12px;
+      }
+      .back-top { display: inline-block; margin-top: 14px; font-family: "Alegreya SC", Georgia, serif; font-size: 15px; text-decoration: none; }
+      .back-top:hover { text-decoration: underline; }
+      .back-page1-wrap { text-align: center; margin: 30px 0 12px; }
+      .back-page1-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; font-family: "Alegreya SC", Georgia, serif; font-size: 19px; letter-spacing: 0.05em; color: var(--accent-deep); background:
+          radial-gradient(ellipse 70% 50% at 18% 20%, rgba(181, 79, 36, 0.10), transparent 60%),
+          radial-gradient(ellipse 60% 45% at 82% 80%, rgba(181, 79, 36, 0.10), transparent 65%),
+          linear-gradient(165deg, var(--card) 0%, var(--quote-bg) 55%, var(--card) 100%);
+        border: 2px solid var(--accent-deep); outline: 1px solid var(--card-line); outline-offset: 3px;
+        padding: 13px 34px; text-decoration: none; box-shadow: 2px 3px 0 var(--shadow), inset 0 0 0 1px rgba(181, 79, 36, 0.18); border-radius: 2px; }
+      .back-page1-btn::before, .back-page1-btn::after { content: "\2022"; position: absolute; top: 50%; transform: translateY(-52%); font-size: 13px; color: var(--gold); opacity: 0.85; }
+      .back-page1-btn::before { left: 11px; }
+      .back-page1-btn::after { right: 11px; }
+      .back-page1-btn:hover { color: var(--accent); background:
+          radial-gradient(ellipse 70% 50% at 18% 20%, rgba(181, 79, 36, 0.14), transparent 60%),
+          linear-gradient(165deg, var(--quote-bg) 0%, var(--card) 60%, var(--quote-bg) 100%); }
+      .back-page1-btn:active { transform: translateY(1px); box-shadow: 1px 2px 0 var(--shadow), inset 0 0 0 1px rgba(181, 79, 36, 0.18); }
+      [hidden] { display: none !important; }
+    
+      .lede { font-size: 1.12em; font-style: italic; margin: 0 0 18px; }
+      .no-web { font-style: italic; opacity: .9; margin: 6px 0 0; }
+      .facts.hold-facts { margin-left: 26px; }
+      .card.big h3 { font-size: 1.25em; }
+    </style>
+  </head>
+  <body>
+    <a class="menu-back" href="https://claypnw.github.io/menu/">← Menu</a>
+    <div class="wrap" id="app"></div>
+    <noscript><p style="padding:20px">The Gilded Pages needs JavaScript to open its leaves.</p></noscript>
+    <script>
+    var ARCHIVE_URL = "https://claypnw.github.io/morning-scroll/";
+    var LAST_CHECKED = "September 30, 2026";
+
+    var CATEGORIES = [
+      { id: "feasts",     name: "Feasts & Morning Boards",              gloss: "Diners, cafés & restaurants" },
+      { id: "wake",       name: "Wake-Potions & Coffee Houses",         gloss: "Coffee shops & espresso" },
+      { id: "sweetrolls", name: "Sweetrolls, Bakeries & Market Stalls", gloss: "Bakeries, donuts & food markets" },
+      { id: "meadhalls",  name: "Mead Halls, Ales & Pub Fare",          gloss: "Breweries & pubs" },
+      { id: "relics",     name: "Relics, Antiques & Secondhand Treasures", gloss: "Thrift & antique shops" },
+      { id: "smiths",     name: "Smiths, Hardware & Maker Supply",      gloss: "Hardware, tools & build supplies" },
+      { id: "outfitters", name: "Outfitters, Trail Gear & Rentals",     gloss: "Outdoor shops & gear rentals" }
+    ];
+
+/* Big-store directory entries for The Gilded Pages — built 2026-10-03.
+   Each entry: one old-timey intro line (Skyrim bend, light & fun), an engraving,
+   and plain practical facts per Hold location. No Scroll citation, no reviews. */
+
+var BIG_CATEGORIES = [
+  { id: "larders", name: "Larders & Provisions", gloss: "Groceries, warehouse & general stores" },
+  { id: "inns",    name: "Inns & Lodging", gloss: "Hotels, motels, resorts & RV parks" },
+  { id: "wheels",  name: "Wheels & Road Services", gloss: "Auto parts, dealers, towing & taxi" },
+  { id: "town",    name: "Town Services", gloss: "Veterinary, grooming & storage" },
+  { id: "hospitals", name: "Hospitals", gloss: "Full hospitals with 24/7 emergency" },
+  { id: "urgent",  name: "Urgent Care", gloss: "Walk-in care for the hurts that can't wait" },
+  { id: "dental",  name: "Dental", gloss: "Tooth-healers, including emergencies" },
+  { id: "pharmacy", name: "Apothecaries", gloss: "Pharmacies for prescriptions" },
+  { id: "vision",   name: "Vision", gloss: "Eye-healers, spectacles & eye care" },
+  { id: "mental",   name: "Mental Health & Recovery", gloss: "Counselors, mind-healers & recovery halls" },
+  { id: "hospice",  name: "Hospice", gloss: "Comfort care for life's last road" },
+  { id: "medical",  name: "Medical Offices", gloss: "Doctors, surgeons & clinics of the Holds" }
+];
+
+var BIG_VENDORS = [
+/* ---------------- LARDERS & PROVISIONS ---------------- */
+{
+  slug: "big-walmart", name: "Walmart Supercenter", category: "larders", big: true,
+  img: "big-walmart.webp",
+  website: "https://www.walmart.com",
+  alt: "Engraving of a grand provisioning hall — Nord shoppers with baskets, a clerk handing a parcel to a family, dragon carving over the door",
+  intro: "The grand provisioning — fill thy wagon once and the whole of the Holds becomes thy larder: Rim picnics, fire-pit firewood, and not a mid-week run back to town.",
+  locations: [
+    { hold: "Payson", address: "300 N Beeline Hwy, Payson", phone: "(928) 474-0029", hours: "Open daily 6 AM–11 PM", note: "Pharmacy (928) 474-0034: Mon–Sat 9 AM–7 PM, Sun 10 AM–6 PM." },
+    { hold: "Show Low", address: "5401 S White Mountain Rd, Show Low", phone: "(928) 537-3141", hours: "Open daily 6 AM–11 PM", note: "Auto Care Center on site." },
+    { hold: "Prescott", address: "3050 E State Route 69, Prescott", phone: "(928) 445-1113", hours: "Open daily 6 AM–11 PM", note: "" },
+    { hold: "Prescott", address: "1280 Gail Gardner Way, Prescott", phone: "(928) 541-0071", hours: "Open daily 6 AM–11 PM", note: "Second Prescott store, west side." }
+  ]
+},
+{
+  slug: "big-safeway", name: "Safeway", category: "larders", big: true,
+  img: "big-safeway.webp",
+  website: "https://www.safeway.com",
+  alt: "Engraving of a friendly grocery hall — cheese wheels, bread loaves and salmon on ice, a Khajiit shopper sniffing a cheese wheel",
+  intro: "The neighborhood larder — cheese wheels, fresh-baked bread, and a proper deli counter; many a Hearth supper has been saved by this hall.",
+  locations: [
+    { hold: "Payson", address: "401 State Route 260, Payson", phone: "(928) 472-8208", hours: "Open daily 6 AM–10 PM", note: "Pharmacy (928) 472-8242. Fuel station at 201 E Hwy 260, daily 4 AM–10 PM. In-store Starbucks." },
+    { hold: "Sedona", address: "2300 W Hwy 89A, Sedona", phone: "(928) 282-0118", hours: "Open daily 6 AM–10 PM", note: "Pharmacy (928) 282-1712. Only Safeway in Sedona." },
+    { hold: "Show Low", address: "900 W Deuce Of Clubs, Show Low", phone: "(928) 532-5656", hours: "Open daily 6 AM–10 PM", note: "Pharmacy (928) 532-5659. Bakery, deli, floral, sushi, Starbucks; DriveUp & Go pickup." },
+    { hold: "Prescott", address: "450 White Spar Rd, Prescott", phone: "(928) 778-3086", hours: "Open daily 6 AM–10 PM", note: "Pharmacy, bakery, deli, Starbucks, DriveUp & Go." },
+    { hold: "Prescott", address: "1044 Willow Creek Rd, Prescott", phone: "(928) 445-4550", hours: "Open daily 6 AM–10 PM", note: "Second Prescott store — same larder, north side." }
+  ]
+},
+{
+  slug: "big-costco", name: "Costco", category: "larders", big: true,
+  img: "big-costco.webp",
+  website: "https://www.costco.com/warehouse-locations/prescott-az-466.html",
+  alt: "Engraving of a grand timber warehouse — bulk barrels of mead and grain, shoppers with carts, a clerk handing out samples",
+  intro: "The warehouse of wonders — cheese wheels by the cartload and mead by the barrel; a membership token is required at the door, and the samples are free.",
+  locations: [
+    { hold: "Prescott", address: "3911 E State Route 69, Prescott", phone: "(928) 541-2203", hours: "Mon–Fri 10 AM–8:30 PM; Sat 9:30 AM–7 PM; Sun 10 AM–6 PM", note: "Membership required. Gas station, food court, pharmacy (928) 541-2218, Tire Center (928) 541-2213, Optical (928) 541-2214." }
+  ]
+},
+{
+  slug: "big-target", name: "Target", category: "larders", big: true,
+  img: "big-target.webp",
+  website: "https://www.target.com/sl/prescott/884",
+  alt: "Engraving of a cheerful general store — clothing racks, a delighted shopper holding up a lantern, shelves of provisions and candles",
+  intro: "The cheerful general store — tunics, lanterns, and everything betwixt; pop in for one thing and leave with a cart of treasures.",
+  locations: [
+    { hold: "Prescott", address: "1851 E Highway 69, Prescott", phone: "(928) 771-8400", hours: "Mon–Sat 8 AM–10 PM; Sun 8 AM–9 PM", note: "Order Pickup and Drive Up available; wine & beer sold." }
+  ]
+},
+{
+  slug: "big-ross", name: "Ross Dress for Less", category: "larders", big: true,
+  img: "big-ross.webp",
+  website: "https://www.rossstores.com/",
+  alt: "Engraving of a discount clothing hall — racks of tunics and cloaks with septim bargain tags, shoppers happily hunting",
+  intro: "The bargain hunter's dungeon — racks of tunics, cloaks, and boots at prices that make even a miser smile; the treasure changes daily, so strike when thou seest.",
+  locations: [
+    { hold: "Show Low", address: "4441 S White Mountain Rd, Show Low", phone: "(928) 532-1160", hours: "Mon–Thu 9 AM–9 PM; Fri–Sat 8:30 AM–10 PM; Sun 9:30 AM–8:30 PM", note: "Same center as Big 5." },
+    { hold: "Prescott", address: "1931 E State Route 69, Prescott", phone: "(928) 445-4604", hours: "Mon–Thu 9 AM–8:30 PM; Fri–Sat 9 AM–10:30 PM; Sun 9 AM–9:30 PM", note: "" }
+  ]
+},
+{
+  slug: "big-big5", name: "Big 5 Sporting Goods", category: "larders", big: true,
+  img: "big-big5.webp",
+  website: "https://www.big5sportinggoods.com/",
+  alt: "Engraving of a sporting goods outfitter — boots, fishing rods, packs and tents, a Nord family picking packs for a Rim trip",
+  intro: "The outfitter's hall — packs, rods, and boots for thy Rim adventures; gear up here and the trails are thine.",
+  locations: [
+    { hold: "Show Low", address: "4441 S White Mountain Rd #101, Show Low", phone: "(928) 537-5551", hours: "Mon–Thu 9:30 AM–8:30 PM; Fri 9:30 AM–9 PM; Sat 9 AM–8:30 PM; Sun 9:30 AM–8 PM", note: "Camping, fishing, and hunting gear; same center as Ross." }
+  ]
+},
+{
+  slug: "big-staples", name: "Staples", category: "larders", big: true,
+  img: "big-staples.webp",
+  website: "https://stores.staples.com/az/prescott/186-e.-sheldon-st.",
+  alt: "Engraving of a Nord stationer's — paper stacks, quills, ink bottles and scrolls, a clerk helping a traveler at a great press",
+  intro: "The scribe's supply — paper, quills, and inkpots by the ream; print thy maps and post thy parcels.",
+  locations: [
+    { hold: "Prescott", address: "186 E Sheldon St, Prescott", phone: "(928) 776-0041", hours: "Mon–Fri 8 AM–7 PM; Sat 9 AM–6 PM; Sun 11 AM–6 PM", note: "Print & marketing services, passport photos, shipping services." }
+  ]
+},
+{
+  slug: "big-officedepot", name: "Office Depot", category: "larders", big: true,
+  img: "big-officedepot.webp",
+  website: "https://www.officedepot.com",
+  alt: "Engraving of a post and supplies counter — a clerk weighing a parcel on a brass scale, ledgers and ink, parcels addressed to Riverwood and Solitude",
+  intro: "The clerk's counter — ledgers, ink, and parcels weighed true; the FedEx raven-post inside flies thy packages afar.",
+  locations: [
+    { hold: "Prescott", address: "1931 E Highway 69 (Frontier Village III), Prescott", phone: "(928) 777-8123", hours: "Mon 10 AM–6 PM; Tue–Fri 9 AM–8 PM; Sat 10 AM–7 PM; Sun 10 AM–6 PM", note: "Hours as last listed — call ahead to confirm. FedEx drop-off and pickup counter inside." }
+  ]
+},
+{
+  slug: "big-bestbuy", name: "Best Buy", category: "larders", big: true,
+  img: "big-bestbuy.webp",
+  website: "https://stores.bestbuy.com/az/prescott/3085-gateway-blvd-377.html",
+  alt: "Engraving of a marvels-of-the-age gadget shop — a clerk demonstrating a sparking contraption, soul gems in jars, clockwork and gears",
+  intro: "The hall of marvels — strange glowing devices and clockwork wonders; the Geek Squad sages mend what ails thy contraptions.",
+  locations: [
+    { hold: "Prescott", address: "3085 Gateway Blvd, Prescott", phone: "(928) 776-7099", hours: "Mon–Sat 10 AM–9 PM; Sun 10 AM–8 PM", note: "Geek Squad services, Apple Shop in-store, trade-in program." }
+  ]
+},
+/* ---------------- INNS & LODGING ---------------- */
+{
+  slug: "big-holidayinnexpress", name: "Holiday Inn Express", category: "inns", big: true,
+  img: "big-holiday-inn-express.webp",
+  website: "https://www.ihg.com/holidayinnexpress/hotels/us/en/sedona/sdoaz/hoteldetail",
+  alt: "Engraving of a tidy timber-and-stone inn at dawn — a Nord traveler greeted at the door, dragon-head gables",
+  intro: "A tidy roadside inn — hot breakfast at dawn and a warm bed by dusk; the reliable rest on any road.",
+  locations: [
+    { hold: "Sedona", address: "6176 Highway 179, Sedona", phone: "(928) 284-0711", hours: "Check-in 3 PM; check-out 11 AM", note: "By Bell Rock; outdoor pool, hot tub, free hot breakfast, pet-friendly." },
+    { hold: "Payson", address: "206 S Beeline Hwy, Payson", phone: "(928) 472-7484", hours: "Check-in 3 PM; check-out 11 AM", note: "This address now appears to trade as a Comfort Inn — call ahead to confirm the banner." }
+  ]
+},
+{
+  slug: "big-comfortinn", name: "Comfort Inn", category: "inns", big: true,
+  img: "big-comfort-inn.webp",
+  website: "https://www.choicehotels.com/arizona/payson/comfort-inn-hotels",
+  alt: "Engraving of a cozy inn — a traveler in Nord tunic sinking into a chair by the stone hearth, breakfast trays coming out",
+  intro: "The cozy hearth — plump beds, hot breakfast, and a pool to soak road-weary feet.",
+  locations: [
+    { hold: "Payson", address: "206 S Beeline Hwy, Payson", phone: "(928) 472-7484", hours: "Check-in 3 PM; check-out 11 AM", note: "Indoor heated pool, hot breakfast; no pets (service animals only)." },
+    { hold: "Camp Verde", address: "340 N Goswick Way, Camp Verde", phone: "(928) 567-9000", hours: "Check-in 3 PM; check-out 11 AM", note: "Free hot breakfast, pet-friendly, truck parking, fitness center; near Fort Verde." }
+  ]
+},
+{
+  slug: "big-daysinn", name: "Days Inn", category: "inns", big: true,
+  img: "big-days-inn.webp",
+  website: "https://www.wyndhamhotels.com/days-inn/camp-verde-arizona/days-inn-camp-verde-arizona/overview",
+  alt: "Engraving of a sunny motor inn — horse-drawn carriages out front, a Nord family unloading, a glinting pool",
+  intro: "The sunny motor inn — a clean bed, a fair price, and the road at thy door.",
+  locations: [
+    { hold: "Camp Verde", address: "1640 W State Route 260, Camp Verde", phone: "(928) 852-0124", hours: "Check-in 3 PM; check-out 11 AM", note: "Free guest laundry, seasonal pool and hot tub; discount at the Denny's next door." },
+    { hold: "Payson", address: "1005 S Beeline Hwy, Payson", phone: "(928) 851-3075", hours: "Call ahead for check-in times", note: "Listing appears active — call ahead to confirm before setting out." }
+  ]
+},
+{
+  slug: "big-bestwestern", name: "Best Western Inn of Payson", category: "inns", big: true,
+  img: "big-best-western.webp",
+  website: "https://www.bestwestern.com",
+  alt: "Engraving of a classic western inn — wooden porch with rocking chair, a clerk handing an iron key to cloaked travelers",
+  intro: "The classic western inn — hot breakfast, a steaming pool, and a porch made for evening tales.",
+  locations: [
+    { hold: "Payson", address: "301 S Beeline Hwy Ste A, Payson", phone: "(928) 474-9800", hours: "24-hour front desk", note: "Hot breakfast, indoor pool and hot tub, fitness room." }
+  ]
+},
+{
+  slug: "big-qualityinn", name: "Quality Inn", category: "inns", big: true,
+  img: "big-quality-inn.webp",
+  website: "https://www.choicehotels.com",
+  alt: "Engraving of a comfortable lodge inn — an Argonian innkeeper serving bread and cheese, a dog asleep by the door",
+  intro: "The comfortable lodge — a stone hearth in the lobby and a dog asleep by the door; four-legged travelers welcome.",
+  locations: [
+    { hold: "Payson", address: "801 N Beeline Hwy, Payson", phone: "(928) 474-3241", hours: "Check-in 4 PM; check-out 11 AM", note: "Pet-friendly ($20/night fee)." }
+  ]
+},
+{
+  slug: "big-super8", name: "Super 8", category: "inns", big: true,
+  img: "big-super-8.webp",
+  website: "https://www.wyndhamhotels.com/super8",
+  alt: "Engraving of a simple log-cabin roadside motel — painted wooden sign, a weary cloaked traveler resting on the porch",
+  intro: "The simple rest — clean, honest, and easy on the coin purse; a weary traveler's friend.",
+  locations: [
+    { hold: "Payson", address: "809 E Hwy 260, Payson", phone: "(928) 478-7465", hours: "Call ahead for check-in times", note: "" }
+  ]
+},
+{
+  slug: "big-knightsinn", name: "Knights Inn", category: "inns", big: true,
+  img: "big-knights-inn.webp",
+  website: "https://www.knightsinn.com",
+  alt: "Engraving of a small budget inn — horned-helm painted sign, a traveler smiling while counting coins",
+  intro: "The budget keep — a fair price and a smile; count thy coins and rest easy near downtown.",
+  locations: [
+    { hold: "Payson", address: "101 W Phoenix St, Payson", phone: "(928) 474-4526", hours: "Check-in 3 PM; check-out 11 AM; 24-hour front desk", note: "Pet-friendly; budget rooms near downtown Payson." }
+  ]
+},
+{
+  slug: "big-hamptoninn", name: "Hampton Inn", category: "inns", big: true,
+  img: "big-hampton-inn.webp",
+  website: "https://www.hilton.com/en/hotels/prchhhx-hampton-prescott/",
+  alt: "Engraving of a handsome inn — steaming hot-springs pool, travelers in robes, a servant with mead tankards",
+  intro: "The handsome modern inn — a steaming hot-springs pool and mountain views; even the monthly Altmer patrol beds down here, though none will admit to waving.",
+  locations: [
+    { hold: "Prescott", address: "3453 Ranch Drive, Prescott", phone: "(928) 443-5500", hours: "Check-in 4 PM; check-out 11 AM; 24-hour front desk", note: "Heated indoor pool, hot tub, free hot breakfast; off AZ-69 near the mall." }
+  ]
+},
+{
+  slug: "big-hilton", name: "Hilton", category: "inns", big: true,
+  img: "big-hilton.webp",
+  website: "https://www.hilton.com",
+  alt: "Engraving of a grand resort hall — an Orc porter with trunk and bedroll, a dragon fountain, iron keys on wall hooks",
+  intro: "The grand resort — dragon-fountain halls and red-rock views; for when the quest deserves a feast of a stay.",
+  locations: [
+    { hold: "Sedona", address: "Hilton Sedona Resort at Bell Rock, 90 Ridge Trail Drive, Sedona", phone: "(928) 284-4040", hours: "Check-in 4 PM; check-out 11 AM", note: "Spa, 18-hole golf, SaltRock restaurant; suites with balconies; pet-friendly." },
+    { hold: "Prescott", address: "Hilton Garden Inn Prescott Downtown, 300 N Montezuma St, Prescott", phone: "(928) 515-3422", hours: "Check-in 3 PM; check-out 11 AM; 24-hour front desk", note: "On-site restaurant, outdoor pool, EV charging; two blocks from Whiskey Row." }
+  ]
+},
+{
+  slug: "big-enchantment", name: "Enchantment Resort", category: "inns", big: true,
+  img: "big-enchantment.webp",
+  website: "https://www.enchantmentresort.com/",
+  alt: "Engraving of a canyon resort — timber-and-stone lodges beneath red-rock walls, guests on a guided trail walk, a steaming bathhouse",
+  intro: "The canyon sanctuary — adobe casitas in red-rock Boynton Canyon, a destination spa, and a hundred guided adventures.",
+  locations: [
+    { hold: "Sedona", address: "525 Boynton Canyon Rd, Sedona", phone: "(928) 282-2900", hours: "Check-in 4 PM; check-out noon", note: "Mii amo destination spa, fine dining, golf, 100+ weekly guided activities; direct trail access." }
+  ]
+},
+{
+  slug: "big-lauberge", name: "L'Auberge de Sedona", category: "inns", big: true,
+  img: "big-lauberge.webp",
+  website: "https://www.lauberge.com/",
+  alt: "Engraving of a creekside inn — timber cottages along a babbling creek, a Nord couple on a footbridge, lanterns at dusk",
+  intro: "The creekside dream — cottages on Oak Creek, lanterns at dusk, and dinners worth writing home about.",
+  locations: [
+    { hold: "Sedona", address: "301 L'Auberge Lane, Sedona", phone: "(928) 282-1661", hours: "Check-in 4 PM; check-out 11 AM", note: "Creekside cottages, spa, fine dining; yoga, stargazing; pet-friendly." }
+  ]
+},
+{
+  slug: "big-amara", name: "Amara Resort and Spa", category: "inns", big: true,
+  img: "big-amara.webp",
+  website: "https://www.amararesort.com/",
+  alt: "Engraving of a sleek resort — stone bathhouse with steaming pools, furs and braziers, the creek below",
+  intro: "The sleek hideaway — an infinity pool above Oak Creek and red rocks beyond; Uptown's galleries at thy doorstep.",
+  locations: [
+    { hold: "Sedona", address: "100 Amara Lane, Sedona", phone: "(928) 282-4828", hours: "Check-in 4 PM; check-out 11 AM", note: "Infinity pool over Oak Creek, spa, SaltRock restaurant; pet-friendly." }
+  ]
+},
+{
+  slug: "big-hyattpinonpointe", name: "Hyatt Vacation Club at Piñon Pointe", category: "inns", big: true,
+  img: "big-hyatt-pinon-pointe.webp",
+  website: "https://www.hyatt.com/hyatt-vacation-club/en-US/sedsh-hyatt-vacation-club-at-pinon-pointe",
+  alt: "Engraving of villa lodgings — a family cooking a roast on a spit, stew cauldron, fire pit with furs outside",
+  intro: "The villa homestead — full kitchens and room to spread out; cook thy own roast over the fire pit.",
+  locations: [
+    { hold: "Sedona", address: "1 N AZ-89-ALT, Sedona", phone: "(928) 204-8820", hours: "Check-in from 4 PM; check-out until 10 AM", note: "Residential-style villas with full kitchens; pool, hot tubs, fire pit; no pets; $45/day resort fee." }
+  ]
+},
+{
+  slug: "big-element", name: "Element Sedona", category: "inns", big: true,
+  img: "big-element.webp",
+  website: "https://www.marriott.com/en-us/hotels/flgel-element-sedona/overview/",
+  alt: "Engraving of an eco-friendly lodge — windmill, herb garden, woven baskets, a hot-spring bathhouse among pines",
+  intro: "The green lodge — an eco-minded stay with kitchens and a saline pool; light on the land, easy on the traveler.",
+  locations: [
+    { hold: "Sedona", address: "6601 State Route 179, Sedona", phone: "(928) 862-3000", hours: "Check-in from 4 PM; check-out until 11 AM", note: "Extended-stay lodge; full in-room kitchens, free breakfast; pet-friendly." }
+  ]
+},
+{
+  slug: "big-wranch", name: "W Ranch Resort", category: "inns", big: true,
+  img: "big-w-ranch.webp",
+  alt: "Engraving of an RV resort — neat rows of canvas-topped wagons, neighbors chatting over a fence, a paddle-ball game",
+  intro: "The wagon-circle community — full-hookup sites for thy rolling home, with pickleball and good neighbors.",
+  locations: [
+    { hold: "Star Valley", address: "16 N Star Vale Dr, Star Valley", phone: "(928) 474-4242", hours: "Call ahead for office hours", note: "55+ community with RV sites (full hookups): about $75/day, $275/week, $705/mo + electric. Clubhouse, dog park." }
+  ]
+},
+{
+  slug: "big-hunterslodge", name: "Hunters Lodge RV and Cabin Resort", category: "inns", big: true,
+  img: "big-hunters-lodge.webp",
+  alt: "Engraving of a rustic cabin resort — log cabins, an Orc tending the fire pit, a dog groomed in a tub on the porch",
+  intro: "The rustic camp — cabins, RV sites, and a porch made for whittling; all ages welcome at this fire.",
+  locations: [
+    { hold: "Star Valley", address: "3758 E AZ Hwy 260, Star Valley", phone: "(928) 474-5182", hours: "Call ahead for office hours", note: "RV sites, rental cabins, laundry, dog grooming; all-ages." }
+  ]
+},
+{
+  slug: "big-lamplighter", name: "Lamplighter RV Resort", category: "inns", big: true,
+  img: "big-lamplighter.webp",
+  website: "https://lamplighterrvresort.com",
+  alt: "Engraving of a big friendly RV community — timber hall with billiards and card tables, elders playing cards, lantern-lit trails",
+  intro: "The great hall of wagons — 286 lots, a timber clubhouse with billiards and cards, and lantern-lit evening strolls.",
+  locations: [
+    { hold: "Star Valley", address: "3933 E AZ Hwy 260, Star Valley", phone: "(928) 474-5048", hours: "Call ahead for office hours", note: "55+ resort; nightly, weekly, monthly, and annual rates. Big clubhouse, dog park, walking trails." }
+  ]
+},
+/* ---------------- WHEELS & ROAD SERVICES ---------------- */
+{
+  slug: "big-autozone", name: "AutoZone", category: "wheels", big: true,
+  img: "big-autozone.webp",
+  website: "https://www.autozone.com",
+  alt: "Engraving of an auto-parts counter — a Nord clerk pouring dwarven oil into a traveler's lantern, shelves of oil and fittings",
+  intro: "The parts counter — dwarven oil, lantern oil, and iron fittings; free battery testing and tools to borrow.",
+  locations: [
+    { hold: "Payson", address: "109 E Hwy 260, Payson", phone: "(928) 472-8810", hours: "Mon–Sat 7 AM–9 PM; Sun 7:30 AM–8 PM", note: "Free battery and check-engine-light testing; Loan-A-Tool program." }
+  ]
+},
+{
+  slug: "big-oreilly", name: "O'Reilly Auto Parts", category: "wheels", big: true,
+  img: "big-oreilly.webp",
+  website: "https://www.oreillyauto.com",
+  alt: "Engraving of an auto-parts shop — a Khajiit mechanic fitting a lantern onto an iron motor-wagon, a Nord driver watching",
+  intro: "The wrench-wrights — a Khajiit mechanic will fit thy lantern while thou watchest; wiper blades installed free.",
+  locations: [
+    { hold: "Payson", address: "210 S Beeline Hwy, Payson", phone: "(928) 472-6227", hours: "Mon–Sat 7 AM–9 PM; Sun 7:30 AM–8 PM", note: "Free battery testing, wiper-blade installation, loaner tools." }
+  ]
+},
+{
+  slug: "big-stevecouryford", name: "Steve Coury Ford", category: "wheels", big: true,
+  img: "big-steve-coury-ford.webp",
+  website: "https://www.stevecouryford.com",
+  alt: "Engraving of a Ford dealer's yard — rows of iron motor-wagons, a Nord salesman handing keys to a happy family",
+  intro: "The iron-wagon yard — rows of fine Ford wagons, a service bay, and a parts counter; the Quick Lube across the road keeps thee rolling.",
+  locations: [
+    { hold: "Star Valley", address: "4397 E AZ Hwy 260, Star Valley", phone: "Sales (928) 267-5129 · Service (928) 267-5133 · Parts (928) 267-5128", hours: "Sales Mon–Sat 8 AM–6 PM, closed Sun", note: "New and used Ford dealership with service center and parts counter." },
+    { hold: "Star Valley", address: "Steve Coury Quick Lube & Tire, 4402 E AZ Hwy 260, Star Valley", phone: "(928) 363-4113", hours: "Mon–Fri 8 AM–5 PM; Sat 8 AM–4 PM", note: "Quick lube and tire service, just across the highway from the dealership." }
+  ]
+},
+{
+  slug: "big-carlstowing", name: "Carl's Towing", category: "wheels", big: true,
+  img: "big-carls-towing.webp",
+  alt: "Engraving of a tow wagon to the rescue — an iron tow rig winching a stuck wagon from a ditch, the driver waving thanks",
+  intro: "The rescue wagon — winch-outs, lockouts, and heavy hauls at any hour; when the ditch claims thy wagon, Carl answers.",
+  locations: [
+    { hold: "Star Valley", address: "3650 E Hwy 260, Star Valley", phone: "(928) 474-9868", hours: "Open 24 hours, 7 days", note: "Light, medium, and heavy-duty towing; mobile repair, winch-outs, lockouts." }
+  ]
+},
+{
+  slug: "big-paysonrideshare", name: "Payson Rideshare Taxi Service", category: "wheels", big: true,
+  img: "big-payson-rideshare.webp",
+  alt: "Engraving of a friendly taxi — a Nord driver tipping his cap as cloaked travelers board a roomy motor-cab",
+  intro: "The hired cab — a veteran driver tips his cap and takes thee anywhere in the county, day or night, up to six travelers.",
+  locations: [
+    { hold: "Payson", address: "Service-area business — no street address; serves Gila County", phone: "(602) 350-1105", hours: "Listed 24 hours, 7 days", note: "Veteran-owned taxi and rideshare; single riders or groups up to 6. No working website — ring (602) 350-1105." }
+  ]
+},
+{
+  slug: "oneills-mobile-oil", name: "O'Neill's Mobile Oil Change", category: "wheels", big: true,
+  img: "oneills-mobile-oil.webp",
+  alt: "Engraving of a traveling oilwright — a Nord mechanic pouring fresh oil from his service wagon's barrel, oil flasks and tools arranged behind him",
+  intro: "The oilwright who comes to thee — fresh oil and a new filter at thy doorstep; call or text and he brings the shop to thee, anywhere in Payson and Star Valley.",
+  locations: [
+    { hold: "Payson", address: "Mobile service — no street address; serves Payson, Star Valley & surrounding areas", phone: "(928) 978-8427", hours: "Call or text for appointment", note: "Synthetic blend $70 · Full synthetic $90 · Diesel $120; tire rotation, filters, wipers also offered." }
+  ]
+},
+/* ---------------- TOWN SERVICES ---------------- */
+{
+  slug: "big-scrvstorage", name: "SC RV & Mini Storage", category: "town", big: true,
+  img: "big-sc-rv-storage.webp",
+  website: "https://rvandministorage.com",
+  alt: "Engraving of a tidy storage yard — rows of wagons and storage houses, a Nord keeper with a big key ring",
+  intro: "The keeper of wagons — tidy storage for thy rolling home and thy overflow treasures; a big ring of keys and an honest rate.",
+  locations: [
+    { hold: "Star Valley", address: "4397 Arizona Highway 260, Star Valley", phone: "(928) 300-9816", hours: "Mon–Fri 9 AM–5 PM; Sat–Sun closed", note: "Part of the Steve Coury Automotive Family; RV parking and self-storage units." }
+  ]
+},
+{
+  slug: "big-starvalleyvet", name: "Star Valley Veterinary Clinic", category: "town", big: true,
+  img: "big-star-valley-vet.webp",
+  website: "https://starvalleyvet.com",
+  alt: "Engraving of a beast-healer's clinic — a kind Nord vet examining a happy dog, cats watching from a sunny shelf",
+  intro: "The beast-healers — potions, bandages, and kind hands for thy four-legged companions; boarding when thou must roam.",
+  locations: [
+    { hold: "Star Valley", address: "103 S Walters Lane, Star Valley", phone: "(928) 474-9605", hours: "Mon–Thu 8 AM–5:30 PM", note: "Small-animal clinic: wellness exams, surgery, lab, boarding; appointments by reservation." }
+  ]
+},
+{
+  slug: "big-laceysgrooming", name: "Lacey's Dog Gone Grooming Salon", category: "town", big: true,
+  img: "big-laceys-grooming.webp",
+  website: "https://dogonegroomn.base44.app",
+  alt: "Engraving of a dog-grooming parlor — a Nord groomer trimming a fluffy dog, bubbles, bows, a proud prancing pup",
+  intro: "The pampering parlor — bubbles, bows, and a proud prancing pup; all breeds, all temperaments welcome.",
+  locations: [
+    { hold: "Star Valley", address: "3700 E AZ Highway 260, Star Valley", phone: "(602) 423-0421", hours: "Mon–Sat 8 AM–5 PM (call to confirm)", note: "Full-service dog grooming with online booking." }
+  ]
+},
+/* ---------------- SMITHS, HARDWARE & MAKER SUPPLY ---------------- */
+{
+  slug: "big-homedepot", name: "The Home Depot", category: "smiths", big: true,
+  img: "big-home-depot.webp",
+  website: "https://www.homedepot.com",
+  alt: "Engraving of a giant hardware hall — an Orc blacksmith loading planks onto a cart, lumber racks and iron ingots",
+  intro: "The giant's hardware hall — lumber by the rack, iron by the ingot, and tools to rent; an Orc blacksmith loads thy cart.",
+  locations: [
+    { hold: "Payson", address: "2000 N Beeline Hwy, Payson", phone: "(928) 468-0339", hours: "Mon–Sat 6 AM–9 PM; Sun 7 AM–8 PM", note: "Garden center; tool rental desk (928) 468-5168; Pro desk (928) 468-5162." },
+    { hold: "Show Low", address: "5601 S White Mountain Rd, Show Low", phone: "(928) 532-1552", hours: "Mon–Sat 6 AM–9 PM; Sun 7 AM–8 PM", note: "Tool and truck rental, garden center." },
+    { hold: "Prescott", address: "1941 E State Route 69, Prescott", phone: "(928) 771-8467", hours: "Mon–Sat 6 AM–9 PM; Sun 7 AM–8 PM", note: "Tool and truck rental, key cutting, propane exchange, garden center." }
+  ]
+},
+{
+  slug: "big-lowes", name: "Lowe's", category: "smiths", big: true,
+  img: "big-lowes.webp",
+  website: "https://www.lowes.com",
+  alt: "Engraving of a home-improvement store — a clerk explaining a cast-iron hearthstove to a Nord couple, a dog dozing by the door",
+  intro: "The home-improver's hall — hearthstoves explained with patience and a dog dozing by the door; dog-friendly, naturally.",
+  locations: [
+    { hold: "Show Low", address: "5800 S White Mountain Rd, Show Low", phone: "(928) 532-2620", hours: "Mon–Sat 6 AM–9 PM; Sun 8 AM–8 PM", note: "Garden center; appliance delivery. Sunday hours vary by listing — call ahead." },
+    { hold: "Prescott", address: "2300 E State Route 69, Prescott", phone: "(928) 541-8640", hours: "Mon–Sat 6 AM–9 PM; Sun 7 AM–8 PM", note: "Garden center, truck delivery, dog-friendly store." }
+  ]
+},
+{
+  slug: "big-tractorsupply", name: "Tractor Supply Co.", category: "smiths", big: true,
+  img: "big-tractor-supply.webp",
+  website: "https://www.tractorsupply.com",
+  alt: "Engraving of a ranch supply store — feed sacks, a soapy dog in a pet-wash tub, chicks in a warming pen, ranchers browsing",
+  intro: "The rancher's supply — feed sacks, tack, and a soapy dog in the pet-wash tub; the PetVet clinic tends thy beasts.",
+  locations: [
+    { hold: "Payson", address: "510 E State Hwy 260, Payson", phone: "(928) 474-2829", hours: "Mon–Sat 8 AM–9 PM; Sun 9 AM–7 PM", note: "Pet supplies, PetVet veterinary clinic, propane refill station." },
+    { hold: "Show Low", address: "3801 S White Mountain Rd, Show Low", phone: "(928) 532-5232", hours: "Mon–Sat 8 AM–9 PM; Sun 9 AM–7 PM", note: "Pet wash, PetVet clinic, propane refill, trailer rental." }
+  ]
+},
+/* ---------------- HOSPITALS ---------------- */
+{
+  slug: "big-banner-payson", name: "Banner Payson Medical Center", category: "hospitals", big: true,
+  img: "big-banner-health.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-payson-medical-center",
+  alt: "Engraving of a stone house of healing \u2014 a healer in robes tending a patient, a red cross banner over the door, pines behind",
+  intro: "The Hold's own house of healing \u2014 Payson's full hospital with a day-and-night emergency door, the closest to the Hearth.",
+  locations: [
+    { hold: "Payson", address: "807 S Ponderosa St, Payson", phone: "(928) 471-3222", hours: "Emergency open 24 hours, every day", note: "44-bed hospital; Arizona-designated Level IV Trauma Center." }
+  ]
+},
+{
+  slug: "big-summit-hospital", name: "Summit Healthcare Regional Medical Center", category: "hospitals", big: true,
+  img: "big-summit-healthcare.webp",
+  website: "http://summithealthcare.net/",
+  alt: "Engraving of a mountain-view hospital \u2014 tall windows, a healer carrying a lantern toward the emergency door at dusk",
+  intro: "The White Mountains' house of healing \u2014 Show Low's full hospital with a day-and-night emergency door.",
+  locations: [
+    { hold: "Show Low", address: "2200 E Show Low Lake Rd, Show Low", phone: "(928) 537-4375", hours: "Emergency open 24 hours, every day", note: "89-bed hospital with ICU, surgical services, and cardiac cath lab." },
+    { hold: "Show Low", address: "Summit Healthcare Urgent Care, 4951 S White Mountain Rd, Bldg A, Show Low", phone: "(928) 537-6743", hours: "Daily 8 AM\u20138 PM", note: "Call ahead \u2014 this site has had temporary closures; the hospital emergency door stays open regardless." }
+  ]
+},
+{
+  slug: "big-vvmc", name: "Verde Valley Medical Center", category: "hospitals", big: true,
+  img: "big-nah.webp",
+  website: "https://www.nahealth.com/emergency-department",
+  alt: "Engraving of a red-rock country infirmary \u2014 healers crossing a courtyard between sandstone walls, a banner with a white cross",
+  intro: "The Verde Valley's healers \u2014 a full hospital in Cottonwood and a day-and-night emergency door in Sedona.",
+  locations: [
+    { hold: "Cottonwood", address: "269 S Candy Ln, Cottonwood", phone: "(928) 634-2251", hours: "Emergency open 24 hours, every day", note: "Level IV Trauma Center. Nearest full hospital to Camp Verde (~20 min)." },
+    { hold: "Sedona", address: "VVMC Sedona Campus, 3700 W State Route 89A, Sedona", phone: "(928) 204-4100", hours: "Emergency open 24 hours, every day", note: "Freestanding emergency department." },
+    { hold: "Camp Verde", address: "NAH Urgent Care, 1298 Finnie Flat Rd, Camp Verde", phone: "(928) 639-5555", hours: "Daily 8 AM\u20136 PM", note: "Camp Verde's urgent care." }
+  ]
+},
+{
+  slug: "big-yrmc", name: "Dignity Health, Yavapai Regional Medical Center", category: "hospitals", big: true,
+  img: "big-yrmc.webp",
+  website: "http://www.yrmc.org/services/emergency-services",
+  alt: "Engraving of a grand western hospital \u2014 many windows, wagons at the entrance, a healer directing travelers to the emergency door",
+  intro: "The western Holds' great hospital \u2014 Prescott's full regional hospital with a day-and-night emergency door, and a second campus in Prescott Valley.",
+  locations: [
+    { hold: "Prescott", address: "West Campus, 1003 Willow Creek Rd, Prescott", phone: "(928) 445-2700", hours: "Emergency open 24 hours, every day", note: "206-bed regional hospital." },
+    { hold: "Prescott Valley", address: "East Campus, 7700 E Florentine Rd, Prescott Valley", phone: "(928) 771-5676", hours: "Emergency open 24 hours, every day", note: "" }
+  ]
+},
+/* ---------------- URGENT CARE ---------------- */
+{
+  slug: "big-banner-sameday", name: "Banner Same-Day Care", category: "urgent", big: true,
+  img: "big-banner-sameday.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-same-day-care-beeline",
+  alt: "Engraving of a bright same-day healer's clinic \u2014 a healer greeting a traveler with a bandaged arm, lantern over the entrance, pines behind",
+  intro: "The quick healer's door \u2014 same-day care with labs and X-ray on site, for the sprains and fevers that can't wait for morning.",
+  locations: [
+    { hold: "Payson", address: "101 AZ-260, Suite G, Payson", phone: "(928) 596-4570", hours: "Mon\u2013Thu 8 AM\u20136 PM", note: "On-site labs and X-ray." },
+    { hold: "Show Low", address: "680 E Deuce of Clubs, Ste B, Show Low", phone: "(928) 596-4580", hours: "Mon\u2013Sat 8 AM\u20136 PM", note: "" }
+  ]
+},
+{
+  slug: "big-payson-walkin", name: "Payson Walk-In Clinic", category: "urgent", big: true,
+  img: "big-payson-walkin.webp",
+  website: "http://www.paysonclinic.com/",
+  alt: "Engraving of a cozy Main Street clinic \u2014 a friendly healer at the door, flower boxes in the windows, pines on the ridge behind",
+  intro: "Payson's own neighborhood healer \u2014 a locally owned walk-in clinic on Main Street for same-day care.",
+  locations: [
+    { hold: "Payson", address: "615 W Main St, Payson", phone: "(928) 363-1603", hours: "Mon\u2013Thu 8 AM\u20134 PM", note: "Locally owned." }
+  ]
+},
+{
+  slug: "big-nextcare", name: "NextCare Urgent Care", category: "urgent", big: true,
+  img: "big-nextcare.webp",
+  website: "https://nextcare.com/locations/az/cottonwood/",
+  alt: "Engraving of a small urgent-care cottage \u2014 a healer waving a traveler in from the road, a lantern lit over the door",
+  intro: "The quick healer's door across the western Holds \u2014 walk-in urgent care for the hurts that can't wait.",
+  locations: [
+    { hold: "Cottonwood", address: "450 S Willard St #120, Cottonwood", phone: "(928) 634-2574", hours: "Daily 8 AM\u20136 PM", note: "" },
+    { hold: "Prescott", address: "2062 Willow Creek Rd, Prescott", phone: "(928) 443-5103", hours: "Mon\u2013Fri 8 AM\u20137 PM; Sat\u2013Sun 8 AM\u20134 PM", note: "" },
+    { hold: "Prescott Valley", address: "3051 N Windsong Dr, Prescott Valley", phone: "(928) 772-3336", hours: "Mon\u2013Fri 7 AM\u20136 PM; Sat\u2013Sun 7 AM\u20133 PM", note: "" }
+  ]
+},
+/* ---------------- DENTAL ---------------- */
+{
+  slug: "big-emergency-dental", name: "Emergency Dental Care, Payson", category: "dental", big: true,
+  img: "big-emergency-dental.webp",
+  website: "https://andersondentalonline.com/emergency-dental-services/",
+  alt: "Engraving of a tooth-healer's workshop \u2014 a healer holding a carved wooden tooth, shelves of bottles, a patient in a wooden chair, lamplight",
+  intro: "The tooth-healers \u2014 Payson's dentists who take emergencies and same-day urgent visits, for the toothache that ruins a vacation.",
+  locations: [
+    { hold: "Payson", address: "Anderson Dental Group, 712 N Beeline Hwy, Payson", phone: "(928) 474-4581", hours: "Mon\u2013Thu 8 AM\u20135 PM; Fri 8 AM\u20131 PM", note: "Dedicated emergency dentistry; severe toothache, broken teeth, lost crowns. Call ahead to confirm Friday hours." },
+    { hold: "Payson", address: "Center Point Dental, 906 S Beeline Hwy, Payson", phone: "(928) 472-2500", hours: "Mon\u2013Thu 8 AM\u20135 PM", note: "Emergency dental care; often accommodates same-day urgent visits." }
+  ]
+},
+/* ---------------- APOTHECARIES ---------------- */
+{
+  slug: "big-pharmacy", name: "Pharmacies, Payson", category: "pharmacy", big: true,
+  img: "big-pharmacy.webp",
+  website: "https://www.walgreens.com/locator/walgreens-100+s+beeline+hwy-payson-az-85541/id=6533",
+  alt: "Engraving of an apothecary shop \u2014 shelves of jars and bottles, an apothecary handing a parcel to a traveler, mortar and pestle over the door",
+  intro: "The apothecaries \u2014 where to fill a prescription in Payson. No 24-hour pharmacy in town; Walgreens keeps the latest hours.",
+  locations: [
+    { hold: "Payson", address: "Walgreens, 100 S Beeline Hwy, Payson", phone: "(928) 474-1599", hours: "Daily 7 AM\u201310 PM", note: "Latest pharmacy hours in Payson; most central." },
+    { hold: "Payson", address: "Walmart Pharmacy, 300 N Beeline Hwy, Payson", phone: "(928) 474-0034", hours: "Mon\u2013Sat 9 AM\u20137 PM; Sun 10 AM\u20136 PM", note: "" },
+    { hold: "Payson", address: "Safeway Pharmacy, 401 AZ-260, Payson", phone: "(928) 472-8242", hours: "Mon\u2013Sat 9 AM\u20136 PM (lunch 1:30\u20132 PM); Sun 10 AM\u20136 PM", note: "" },
+    { hold: "Payson", address: "Bashas' Pharmacy, 142 AZ-260, Payson", phone: "(928) 474-7039", hours: "Mon\u2013Fri 10 AM\u20137 PM; Sat 9 AM\u20135:30 PM; closed Sunday", note: "" }
+  ]
+},
+{
+  slug: "big-payson-premier-dental", name: "Payson Premier Dental", category: "dental", big: true,
+  img: "big-payson-premier-dental.webp",
+  website: "https://www.paysonpremierdental.com/",
+  alt: "Engraving of a warm tooth-healer's timber cottage \u2014 a gentle healer polishing a carved wooden tooth, a Nord family with children looking on, cloves and bottles on a shelf",
+  intro: "The family tooth-healer \u2014 cleanings and checkups for the whole clan, braces and invisible straightening-trays (other travelers call them 'invisalines'), laser gum therapy, and a pediatric dental specialist for the little ones.",
+  locations: [
+    { hold: "Payson", address: "409 W Main St, Payson", phone: "(928) 472-8400", hours: "Mon\u2013Thu 8:30 AM\u20135 PM; Fri by appointment", note: "Led by Dr. Kristin Wade, DMD, FAGD. In-house Dental Savings Plan for travelers without coverage; 5-star rated." }
+  ]
+},
+{
+  slug: "big-winterholler-dental", name: "Winterholler Dental Implants & Cosmetic Dentistry", category: "dental", big: true,
+  img: "big-winterholler-dental.webp",
+  website: "https://www.myarizonasmile.com/",
+  alt: "Engraving of a master craft-healer's workbench \u2014 a healer carving a lifelike tooth from pale ivory-wood, finished dentures of polished bone, an apprentice watching by lamplight",
+  intro: "The smile-rebuilders \u2014 carved-ivory implants, a full set of new teeth for a mouth gone bare (other travelers call it 'All-on-4'), dentures, TMJ craft, and cosmetic work, all under one roof.",
+  locations: [
+    { hold: "Payson", address: "315 E State Highway 260, Payson", phone: "(928) 474-2200", hours: "Mon\u2013Thu 8 AM\u20135 PM; Fri\u2013Sun closed", note: "Drs. Chris & Patrice Winterholler; serving Payson 25+ years, with a second hall in Scottsdale. Also reachable at (928) 492-0860." }
+  ]
+},
+{
+  slug: "big-payson-orthodontics", name: "Payson Orthodontics", category: "dental", big: true,
+  img: "big-payson-orthodontics.webp",
+  website: "https://www.paysonorthodontics.com/",
+  alt: "Engraving of a tooth-straightener's parlor \u2014 a healer fitting a young patient with a fine silver band, charts of teeth pinned to a timber wall",
+  intro: "The tooth-straighteners \u2014 wire braces and clear trays for the young and the young-at-heart, promised in fewer seasons than the old wire-ways.",
+  locations: [
+    { hold: "Payson", address: "902 S Beeline Hwy Ste A, Payson", phone: "(928) 472-7223", hours: "Mon\u2013Thu 8 AM\u20135 PM; Fri 8 AM\u20133 PM; Sat\u2013Sun closed", note: "Dr. Benjamin McDowell. Accepting new patients; Spanish-speaking staff; 5-star rated." }
+  ]
+},
+{
+  slug: "big-plets-dental", name: "James H. Plets, DDS, MSD", category: "dental", big: true,
+  img: "big-plets-dental.webp",
+  alt: "Engraving of an old-timey healer's examination room \u2014 a healer peering into a patient's mouth with a small hand mirror, a candle on a stand, framed teeth charts",
+  intro: "The board-certified tooth-straightener \u2014 Dr. Plets has been aligning smiles since 1984, longer than most healers have held a mirror.",
+  locations: [
+    { hold: "Payson", address: "120 E Main St Ste B, Payson", phone: "(928) 474-3727", hours: "Hours not confirmed \u2014 ring ahead", note: "Orthodontics; older listings show 614 N Beeline Hwy, the current practice is at 120 E Main St Ste B." }
+  ]
+},
+{
+  slug: "big-beier-dental", name: "Beier Family Dentistry", category: "dental", big: true,
+  img: "big-beier-dental.webp",
+  website: "https://www.drbeier.com/",
+  alt: "Engraving of a tooth-healer easing a troublesome molar with carved wooden tongs \u2014 the patient gripping the chair, jars of dried herbs on a shelf",
+  intro: "The one-patient-at-a-time healer \u2014 Dr. Charles Beier's oath is that every patient is treated as his only patient: implants, crowns carved the same day, dentures, and honest second opinions.",
+  locations: [
+    { hold: "Payson", address: "414 S Beeline Hwy #5, Payson", phone: "(928) 472-9303", hours: "Mon\u2013Thu 8 AM\u20131 PM / 2\u20135 PM; closed Fri\u2013Sun", note: "Serving Rim Country since 1995; same-day CEREC crowns; 4.9-star rated." }
+  ]
+},
+{
+  slug: "big-diquattro-dental", name: "Ryan L. Diquattro, DDS (Frontier Dental Arts)", category: "dental", big: true,
+  img: "big-diquattro-dental.webp",
+  alt: "Engraving of a healer's clean workshop \u2014 rows of carved wooden teeth in a display case, a grinning stone gargoyle above the door",
+  intro: "The quiet tooth-healer of Meadow Street \u2014 general dentistry under the Frontier Dental Arts name, no grand hall, just steady work.",
+  locations: [
+    { hold: "Payson", address: "704 S Meadow St, Payson", phone: "(928) 478-8425", hours: "Hours not confirmed \u2014 ring ahead", note: "Phone unconfirmed: the federal registry lists (928) 474-5231 for this practice. Ring to confirm before setting out." }
+  ]
+},
+{
+  slug: "big-bonanza-dental", name: "Bonanza Square Dentistry", category: "dental", big: true,
+  img: "big-bonanza-dental.webp",
+  alt: "Engraving of a healer's tidy dental parlor \u2014 a healer polishing a carved wooden tooth at a treadle workbench, a brass lantern above, shelves of apothecary jars",
+  intro: "The Frontier Street tooth-healer \u2014 general dentistry in Bonanza Square, keeping Payson's smiles sound along the Beeline.",
+  locations: [
+    { hold: "Payson", address: "200 W Frontier St #5, Payson", phone: "(928) 472-2500", hours: "Hours not confirmed \u2014 ring ahead", note: "Shares the (928) 472-2500 line with Center Point Dental, a separate practice." }
+  ]
+},
+/* ---------------- VISION ---------------- */
+{
+  slug: "big-payson-eye-care", name: "Payson Eye Care Center", category: "vision", big: true,
+  img: "big-payson-eye-care.webp",
+  website: "http://www.paysoneyecare.com/",
+  alt: "Engraving of an elven eye-healer's tower room \u2014 a healer examining a traveler's eyes with a great crystal lens, shelves of round spectacles and crystal vials, warm candlelight",
+  intro: "The sight-tenders of Beeline Highway \u2014 sharp-vision checkings, lens-craft for spectacles and the tiny lenses that rest upon the eye itself (other travelers call them 'contact lenses'), and care for ailing eyes. Eye emergencies seen.",
+  locations: [
+    { hold: "Payson", address: "411 S Beeline Hwy Ste A, Payson", phone: "(928) 474-3556", hours: "Mon\u2013Thu 8 AM\u20135 PM; Fri 8 AM\u20132 PM", note: "Drs. Troy S. Ford and Jonathan Beeson, ODs. Comprehensive eye exams, contacts, medical eye care, eye emergencies." }
+  ]
+},
+{
+  slug: "big-risser-thomas-eye", name: "Risser Thomas Eye Clinic", category: "vision", big: true,
+  img: "big-risser-thomas-eye.webp",
+  website: "http://rissereyeclinic.com/",
+  alt: "Engraving of a Nord surgeon-healer's treatment hall \u2014 a healer using a magnifying crystal and brass instruments, a patient reclining in a wooden chair, tapestries with an eye sigil on stone walls",
+  intro: "The eye-surgeons' hall \u2014 ophthalmology for the serious ailments: clouded lenses (other travelers call them 'cataracts'), glaucoma, and full medical and surgical eye care.",
+  locations: [
+    { hold: "Payson", address: "302 W Main St, Payson", phone: "(928) 474-4126", hours: "Mon\u2013Fri 8:30 AM\u20134:30 PM", note: "Dr. Christian F. Risser, MD. Hours per their Google listing \u2014 call ahead to confirm." }
+  ]
+},
+{
+  slug: "big-alpine-optical", name: "Alpine Optical", category: "vision", big: true,
+  img: "big-alpine-optical.webp",
+  alt: "Engraving of a medieval spectacle-maker's shop \u2014 a wooden counter displaying round spectacles and brass-framed lenses, the shopkeeper polishing a lens, pine trees through an open shutter",
+  intro: "The spectacle-smith's counter \u2014 eyeglass frames and lens-craft inside the Risser Thomas hall, fitting travelers with their pocket-scrying lenses.",
+  locations: [
+    { hold: "Payson", address: "302 W Main St, Payson", phone: "(928) 474-2989", hours: "Hours not confirmed \u2014 ring ahead", note: "Small independent optical shop (est. 1985) inside the same hall as the Risser Thomas Eye Clinic. No working website of its own." }
+  ]
+},
+{
+  slug: "big-walmart-vision", name: "Walmart Vision & Glasses", category: "vision", big: true,
+  img: "big-walmart-vision.webp",
+  website: "https://www.walmart.com/store/1369-payson-az/vision-center?veh=seo_loc",
+  alt: "Engraving of a spectacle-stall inside a grand timber provisioning hall \u2014 a counter with rows of round spectacles and crystal lenses, a merchant fitting spectacles on a smiling shopper, hanging lanterns",
+  intro: "The spectacle counter in the grand provisioning hall \u2014 frames, lenses, and eye exams at the everyday prices the hall is famed for, open seven days.",
+  locations: [
+    { hold: "Payson", address: "300 N Beeline Hwy (inside Walmart), Payson", phone: "(928) 472-2826", hours: "Mon\u2013Fri 9 AM\u20137 PM; Sat 9 AM\u20136 PM; Sun noon\u20135 PM", note: "Sunday hours vary across listings \u2014 ring ahead to confirm." }
+  ]
+},
+{
+  slug: "big-camp-verde-eye-care", name: "Camp Verde Eye Care", category: "vision", big: true,
+  img: "big-camp-verde-eye-care.webp",
+  website: "http://www.cv-eyecare.com/",
+  alt: "Engraving of a riverside timber eye-healer's hall \u2014 a wood-elf healer examining a farmer's eyes with a crystal lens beside a window overlooking a green river valley",
+  intro: "The verde-valley eye-healer \u2014 Dr. Jorge Huston's long-running optometry hall: vision and eye-health exams, dry-eye and glaucoma care, and a fitting room of frames.",
+  locations: [
+    { hold: "Camp Verde", address: "452 W Finnie Flat Rd Ste A1, Camp Verde", phone: "(928) 567-3330", hours: "Mon\u2013Thu 8 AM\u20135 PM (lunch noon\u20131 PM); Fri closed", note: "Accepts VSP, Spectera, and Medicare." }
+  ]
+},
+/* ---------------- DENTAL ---------------- */
+{
+  slug: "big-donald-smith-dds", name: "Donald L. Smith, DDS", category: "dental", big: true,
+  img: "big-donald-smith-dds.webp",
+  alt: "Engraving of a timber tooth-healer's hut among tall pines with the Mogollon Rim on the horizon \u2014 a bearded healer polishing an ivory tooth beside a smiling patient, a few birds in the sky",
+  intro: "The lone tooth-healer of the pines \u2014 Pine's own dentist, keeping the teeth of the Rim Country villages sound without the long ride to Payson.",
+  locations: [
+    { hold: "Pine-Strawberry", address: "8921 W Fossil Creek Rd, Pine", phone: "(928) 476-2655", hours: "Hours not confirmed \u2014 ring ahead", note: "General dentistry; the only practice in the Pine-Strawberry hold. No website \u2014 ring before setting out." }
+  ]
+},
+{
+  slug: "big-verde-smiles", name: "Verde Smiles", category: "dental", big: true,
+  img: "big-verde-smiles.webp",
+  website: "http://www.verdesmiles.com/",
+  alt: "Engraving of a bright tooth-healer's chamber beside a green river \u2014 a young mother and child smiling widely while a Nord tooth-healer holds a polished ivory tooth, timber beams and river light",
+  intro: "The smiling hall by the verde river \u2014 family and children's dentistry with same-day help for the tooth that won't wait, new patients welcomed like kin.",
+  locations: [
+    { hold: "Camp Verde", address: "430 W Finnie Flat Rd, Camp Verde", phone: "(928) 567-4108", hours: "Mon, Tue & Thu 8 AM\u20134 PM; Wed & Fri 8 AM\u2013noon", note: "General + pediatric dentistry; advertises same-day emergency care. Phone per their official site." }
+  ]
+},
+/* ---------------- MENTAL HEALTH & RECOVERY ---------------- */
+{
+  slug: "big-southwest-behavioral", name: "Southwest Behavioral & Health Services \u2013 Aero Outpatient", category: "mental", big: true,
+  img: "big-southwest-behavioral.webp",
+  website: "https://www.sbhservices.org/aero-outpatient",
+  alt: "Engraving of a Nord wise-healer's warm timber counsel-hall \u2014 a kind-faced healer listening across a sturdy wooden table to a traveler, hearth fire behind, shelves of herbs and bound tomes, a cat asleep by the fire",
+  intro: "The counsel-hall on Aero Drive \u2014 one-to-one and kin-circle counsel, mind-healers and the draughts that steady troubled humors (other travelers call them 'psychiatric medications'), and aid for those wrestling the mead-demons. Medicaid, Medicare, TRICARE and most insurances honored.",
+  locations: [
+    { hold: "Payson", address: "404 W Aero Dr, Payson", phone: "(928) 474-3303", hours: "Mon\u2013Thu 7 AM\u20136 PM; Fri 7 AM\u20135 PM", note: "Outpatient counseling, psychiatry, addiction treatment. The Empowerment Center shares the hall. Hours per their official site." }
+  ]
+},
+{
+  slug: "big-mogollon-treatment", name: "Mogollon Treatment Center", category: "mental", big: true,
+  img: "big-mogollon-treatment.webp",
+  website: "https://mogollontreatmentcenter.com/",
+  alt: "Engraving of a calm healer's rest-hall at dawn \u2014 a traveler resting peacefully on a simple cot in a sunlit timber room, a gentle healer checking their pulse, bundles of drying herbs hanging from the rafters",
+  intro: "The detox hall on Aero Drive \u2014 round-the-clock care for travelers breaking free of the mead and the poppy (other travelers call it 'medical detox'), then counsel and steady steps after. Joint Commission accredited.",
+  locations: [
+    { hold: "Payson", address: "306 W Aero Dr, Payson", phone: "(928) 466-4242", hours: "Open 24 hours", note: "Medical detox + outpatient addiction treatment. The NPI registry also lists (714) 910-4286 as a contact \u2014 ring (928) 466-4242 first." }
+  ]
+},
+{
+  slug: "big-mogollon-residential", name: "Mogollon Residential", category: "mental", big: true,
+  img: "big-mogollon-residential.webp",
+  website: "https://mogollontreatmentcenter.com/mogollon-residential/",
+  alt: "Engraving of a long timber longhouse at sunrise among tall pines \u2014 travelers sharing a warm morning meal at a long wooden table, lantern light, the Rim distant on the horizon, a few birds in the sky",
+  intro: "The recovery longhouse on Wade Lane \u2014 a live-in hall where travelers mend together after the detox, sharing meals and counsel under the pines. Kin of the Mogollon Treatment Center.",
+  locations: [
+    { hold: "Payson", address: "212 W Wade Ln, Payson", phone: "(928) 478-7173", hours: "Hours not confirmed \u2014 ring ahead", note: "Residential addiction recovery; the Treatment Center's sister hall \u2014 one web page serves both." }
+  ]
+},
+{
+  slug: "big-psych-assist", name: "Psych Assist", category: "mental", big: true,
+  img: "big-psych-assist.webp",
+  website: "http://www.psychassistaz.com/",
+  alt: "Engraving of a scholar-healer's quiet study \u2014 tall shelves of scrolls and tomes, a wise healer writing notes by candlelight, a comfortable chair facing theirs, a window over a pine forest, an owl on the sill",
+  intro: "The mind-healers of Main Street \u2014 psychiatry, counsel and mind-craft from a hall of several healers, for troubled thoughts and the humors that unbalance them.",
+  locations: [
+    { hold: "Payson", address: "405 W Main St Ste B, Payson", phone: "(480) 648-7628", hours: "Mon\u2013Fri 9 AM\u20135 PM (listings vary \u2014 ring ahead)", note: "Psychiatry, psychology and therapy; led by a psychiatric nurse practitioner." }
+  ]
+},
+{
+  slug: "big-community-bridges", name: "Community Bridges", category: "mental", big: true,
+  img: "big-community-bridges.webp",
+  website: "https://communitybridgesaz.org",
+  alt: "Engraving of a sturdy stone bridge crossing a forest stream at dawn \u2014 travelers helping one another across toward a warm-lit timber hall, morning mist, lanterns glowing",
+  intro: "The bridge-builders of Main Street \u2014 counsel and crisis aid for the troubled of mind and those caught by the mead, SAMHSA-listed and CARF-accredited, answering day and night.",
+  locations: [
+    { hold: "Payson", address: "803 W Main St Unit A, Payson", phone: "(928) 468-0022", hours: "Mon\u2013Fri 9 AM\u20135 PM (ring ahead)", note: "Substance-abuse and mental-health treatment with crisis response; honors Medicaid, Medicare and private insurance." }
+  ]
+},
+{
+  slug: "big-uturn-for-christ", name: "U-Turn For Christ", category: "mental", big: true,
+  img: "big-uturn-for-christ.webp",
+  alt: "Engraving of a small timber chapel among tall pines at dusk \u2014 warm light in its windows, a lantern-lit path to its open door, two travelers walking toward the light, stars overhead",
+  intro: "The turning-path chapel on Colcord Road \u2014 a faith-bound live-in hall where travelers leave the mead and the poppy behind through work, counsel and prayer.",
+  locations: [
+    { hold: "Payson", address: "217 S Colcord Rd, Payson", phone: "(928) 978-2833", hours: "Hours not confirmed \u2014 ring ahead", note: "Faith-based residential recovery. Phone listings conflict \u2014 (928) 951-0806 and (928) 468-6336 also appear; no working website found." }
+  ]
+},
+/* ---------------- HOSPICE ---------------- */
+{
+  slug: "big-compassus", name: "Compassus \u2013 Payson", category: "hospice", big: true,
+  img: "big-compassus.webp",
+  website: "https://www.compassus.com/locations/arizona/payson/",
+  alt: "Engraving of a gentle healer sitting beside a resting elder in a warm timber room \u2014 holding the elder's hand kindly, candlelight on the bedside table, a window over a pine forest at sunset",
+  intro: "The comfort-keepers of Mud Springs Road \u2014 hospice and home-health care for life's last road, easing pain and bearing the family up, Medicare-certified since 1994.",
+  locations: [
+    { hold: "Payson", address: "511 S Mud Springs Rd, Payson", phone: "(928) 472-6340", hours: "Office Mon\u2013Fri 9 AM\u20136 PM; hospice care round the clock", note: "Hospice + home health; serves Gila and Coconino counties. Phone per Medicare records and their own site." }
+  ]
+},
+/* ---------------- MEDICAL OFFICES ---------------- */
+{
+  slug: "big-banner-clinic-main", name: "Banner Health Clinic \u2013 Family Medicine", category: "medical", big: true,
+  img: "big-banner-clinic-main.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-health-clinic-main-family-medicine",
+  alt: "Engraving of a warm medieval healing hall \u2014 a kindly Nord healer in fur-trimmed robes speaking with a mother and two children beside a wooden examination bench, shelves of clay herb jars and folded bandages, a hearth behind",
+  intro: "Banner's own family-medicine hall on Main Street \u2014 the first door a traveler knocks on: checkups, women's health and little ones' care, from healers who know the whole Hold by name.",
+  locations: [
+    { hold: "Payson", address: "117 E Main St Ste A100, Payson", phone: "(928) 596-4500", hours: "Mon\u2013Fri 7 AM\u20135 PM", note: "Multi-specialty family medicine/pediatrics/women's health. All facts from bannerhealth.com, checked live." }
+  ]
+},
+{
+  slug: "big-banner-clinic-specialty", name: "Banner Health Clinic \u2013 Surgery & Cardiology", category: "medical", big: true,
+  img: "big-banner-clinic-specialty.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-health-clinic-main-surgery",
+  alt: "Engraving of a calm medieval surgical chamber \u2014 two healers in clean linen robes and leather aprons working with focus at a stone table lit by tall candles, a tray of carved bone and brass tools",
+  intro: "Banner's blade-and-heart hall \u2014 general surgery and heart care under one roof, with the cancer specialists calling at the same door, for when the wound or the heart needs a master.",
+  locations: [
+    { hold: "Payson", address: "122 E Main St, Payson", phone: "(928) 596-4600", hours: "Mon\u2013Fri 7:30 AM\u20135:15 PM", note: "Surgery + cardiology per the official Banner page; oncology (Banner Cancer Center Specialists) also sees patients at this address." }
+  ]
+},
+{
+  slug: "big-banner-orthopedics", name: "Banner Health Clinic \u2013 Orthopedics", category: "medical", big: true,
+  img: "big-banner-orthopedics.webp",
+  website: "https://www.bannerhealth.com/locations/payson/banner-health-clinic-main-orthopedics",
+  alt: "Engraving of a medieval bone-setter's workshop \u2014 a grey-bearded healer fitting a carved wooden splint to a young warrior's knee, jointed bone models on the timber wall, carved crutches in the corner",
+  intro: "Banner's bone-setters \u2014 sports injuries, worn-out joints and fractures, and the new hips and knees that carry travelers back up the Rim.",
+  locations: [
+    { hold: "Payson", address: "126 E Main St Ste D, Payson", phone: "(928) 596-4800", hours: "Mon\u2013Fri 8 AM\u20135 PM", note: "Phone per bannerhealth.com; older directories still show (928) 472-5260." }
+  ]
+},
+{
+  slug: "big-abcs-pediatrics", name: "ABC's Pediatrics", category: "medical", big: true,
+  img: "big-abcs-pediatrics.webp",
+  website: "http://www.abcspediatrics.com/",
+  alt: "Engraving of a warm healer's nursery room \u2014 a smiling female healer in a hooded robe listening to a giggling small child's chest through a brass horn, wooden toys on the shelf, sunlight through a round window",
+  intro: "The Hold's children's healer \u2014 well-child visits, immunizations, sports physicals and sick visits, where little Nords are the only patients that matter.",
+  locations: [
+    { hold: "Payson", address: "109 W Main St, Payson", phone: "(928) 474-9399", hours: "Mon\u2013Thu 9 AM\u20135 PM; Fri 9 AM\u201312 PM", note: "Practice moved to 109 W Main St (NPI record updated Sept 2025); their site's footer still shows the old 117 East Main address." }
+  ]
+},
+{
+  slug: "big-payson-dermatology", name: "Payson Dermatology", category: "medical", big: true,
+  img: "big-payson-dermatology.webp",
+  website: "https://www.paysondermatology.com/",
+  alt: "Engraving of a medieval skin-healer's study \u2014 a bespectacled scholar-healer examining a patient's forearm with a brass magnifying lens, shelves of salve jars and pressed herbs, sunlight through a leaded window",
+  intro: "The skin-healers of the Beeline \u2014 medical dermatology with a Mohs skin-cancer surgeon on staff, for moles, rashes and the sun's toll on high-country skin.",
+  locations: [
+    { hold: "Payson", address: "313 S Beeline Hwy, Payson", phone: "(928) 472-7107", hours: "Mon\u2013Fri 8 AM\u20134 PM", note: "Styles itself 'Payson Dermatology and MOHS Center'; Mohs skin-cancer surgery on site. All facts from their own site, checked live." }
+  ]
+},
+{
+  slug: "big-ponderosa-family-care", name: "Ponderosa Family Care", category: "medical", big: true,
+  img: "big-ponderosa-family-care.webp",
+  website: "https://ponderosafamilycare.com/",
+  alt: "Engraving of a cozy village doctor's cottage at dawn \u2014 a warm-hearted grey-bearded healer greeting a family at his timber door, a brass lantern glowing over the lintel, tall pines behind",
+  intro: "A multi-provider family-medicine hall on Main Street \u2014 everyday care for the whole family, where the healer learns thy name and thy story.",
+  locations: [
+    { hold: "Payson", address: "127 E Main St Ste D, Payson", phone: "(928) 468-8603", hours: "Hours not confirmed \u2014 ring ahead", note: "Address + phone per the NPI registry (active) and their own homepage." }
+  ]
+},
+{
+  slug: "big-high-country-family-care", name: "High Country Family Care", category: "medical", big: true,
+  img: "big-high-country-family-care.webp",
+  alt: "Engraving of a traveling highland healer \u2014 a kind healer in a fur-trimmed cloak arriving on horseback at a timber homestead on a mountain trail, waving to an elderly couple on the porch, pines and peaks behind",
+  intro: "From six months old to a hundred and five, with house calls and DOT physicals \u2014 the traveling-healer tradition, kept on Frontier Street.",
+  locations: [
+    { hold: "Payson", address: "200 W Frontier St Ste M, Payson", phone: "(928) 478-6280", hours: "Hours not confirmed \u2014 ring ahead", note: "Hours vary by source, and their website could not be confirmed live \u2014 call ahead. Active, 21 five-star Google reviews." }
+  ]
+}
+];
+
+    CATEGORIES = CATEGORIES.concat(BIG_CATEGORIES);
+    CATEGORIES.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    function catName(id) {
+      for (var i = 0; i < CATEGORIES.length; i++) if (CATEGORIES[i].id === id) return CATEGORIES[i].name;
+      return id;
+    }
+
+    var VENDORS = [
+      {
+        slug: "the-pinon-cafe",
+        name: "The Piñon Cafe",
+        category: "feasts",
+        town: "Payson",
+        date: "2026-09-24",
+        lastChecked: "September 30, 2026",
+        featured: "Thursday, September 24, 2026",
+        edition: "Vol. 2609, No. 24",
+        img: "pinon-cafe.jpg",
+        alt: "Engraving of the Mogollon Monster Breakfast Burger and a giant frosted cinnamon roll on a pine-log café table",
+        caption: "The Mogollon Monster burger and the giant frosted cinnamon roll, as our court engraver imagines them.",
+        teaser: "A family-run Beeline Highway diner serving breakfast, brunch, and lunch — home of the Mogollon Monster Breakfast Burger.",
+        blurb: [
+          "A locally owned, family-run diner serving breakfast, brunch, and lunch daily. Southern-style comfort food done right: giant frosted cinnamon rolls, French toast, hearty breakfast plates — and the Mogollon Monster Breakfast Burger."
+        ],
+        offerings: "Breakfast, brunch, and lunch daily — Southern-style comfort food, French toast, and hearty breakfast plates",
+        sweetroll: "No need to steal this one — the giant frosted cinnamon roll is the closest thing in Rim Country to the real thing, and it arrives at your table fair and square.",
+        signature: "The Mogollon Monster Breakfast Burger, and the giant frosted cinnamon roll",
+        address: "1001 S Beeline Hwy, Payson",
+        phone: "(928) 474-2890",
+        hours: "Open daily 6:00 AM–2:00 PM",
+        price: "Moderate prices",
+        website: null,
+        review: { text: "Our favorite mountain town diner for breakfast.", source: "a Google review", url: null },
+        goodToKnow: "Breakfast is the main event — arrive early on weekends.",
+        why: "Bold enough to name a burger after the Mogollon Monster — the Hearth sends its hungriest guests here first.",
+        heraldry: [
+          "Their own banner reads \u201CMade From Scratch, For You,\u201D and the claim under it is the boldest in the Hold: \u201Cthe best Southern style food in Rim Country.\u201D The kitchen board backs the boast — alongside the Mogollon Monster sit corned beef hash, chicken fried steak, and a steaming bowl of cowboy chili, provisions sturdy enough to tempt a Whiterun guard off his post.",
+          "The house describes itself without flourish, as a locally owned, family-run diner serving breakfast, brunch, and lunch daily — and its own invitation runs to three plain words of counsel: come sit down, \u201Cfrom breakfast to burgers we have you covered.\u201D",
+          "Two dishes get their portraits hung on the menu page itself: the French toast, and the giant cinnamon roll the Scroll has already spied beneath its glass. Travelers who tarry find the board still sturdy past the breakfast rush — chicken and waffles the kitchen swears need no sides at all, a Cowboy Burger, a green chili cheeseburger with spicy chili mayo, and homemade meatloaf with mashed potatoes and a choice of soup or salad."
+        ],
+        ifYouGo: "Come hungry and come before two — the kitchen keeps feast hours, not tavern hours, and the cinnamon roll feeds a small crew.",
+        heraldrySrc: [
+          { label: "their own kitchen pages at pinoncafe.com", url: "https://www.pinoncafe.com/" },
+          { label: "their menu page at pinoncafe.com", url: "https://www.pinoncafe.com/menu" },
+          { label: "menu as listed by Restaurant Guru", url: "https://restaurantguru.com/Pinon-Cafe-Payson-3/menu" }
+        ]
+      },
+      {
+        slug: "explore-the-attic",
+        name: "Explore the Attic",
+        category: "relics",
+        town: "Payson",
+        date: "2026-09-25",
+        lastChecked: "September 30, 2026",
+        featured: "Friday, September 25, 2026",
+        edition: "Vol. 2609, No. 25",
+        img: "explore-the-attic.jpg",
+        alt: "Engraving of a treasure-crowded Nordic antique shop — hold banners with dragon, wolf, and bear sigils on the walls — its keeper showing a glowing candelabra to two travelers",
+        caption: "Hold banners overhead, a dragon carved along the beam, and a candelabra worth the climb.",
+        teaser: "Thirty years on Highway 260: room after room of antiques, vinyl, and oddities from a small army of dealer booths.",
+        blurb: [
+          "A true treasure-hunt of an antique shop, 30 years on Highway 260 and room after room of wonders — vintage sewing machines, vinyl records, glassware, jewelry, garden décor, and the oddities of a small army of dealer booths. There is even a secret bar tucked in somewhere, and an outdoor yard of rusty garden art worth a wander all its own."
+        ],
+        offerings: "Antiques and vintage goods across many dealer booths — sewing machines, vinyl records, glassware, jewelry, and garden décor",
+        signature: "The secret bar tucked in somewhere inside, and the outdoor yard of rusty garden art",
+        address: "800 E State Highway 260, Payson",
+        phone: "(928) 474-2897",
+        hours: "Open daily 10 AM–5 PM",
+        price: "Moderate prices",
+        website: "https://exploretheattic.com/",
+        review: { text: "Nice antique shop with many rooms of interesting items. You can easily spend an hour here looking at items from the past. They have a good selection of vintage vinyl music albums.", source: "a TripAdvisor review (Jul 2026)", url: "https://www.tripadvisor.co.za/Attraction_Review-g31305-d18980201-Reviews-Explore_the_Attic-Payson_Arizona.html" },
+        goodToKnow: "Open Mondays, when many Payson shops take the day off.",
+        why: "Because the Hearth's guests deserve a proper rummage — a shop with a secret bar and thirty years of treasures is the Hold's kind of dungeon.",
+        heraldry: [
+          "Their own heraldry invites you to \u201Ctake a walk back in time\u2026 just like exploring your old family home to find hidden treasures from times past.\u201D The house answered to Granny\u2019s Attic before it took its present name, and more than forty dealers now keep booths beneath its roof — each a small, lovingly hoarded trove tended to its own era.",
+          "The keep takes its cataloguing seriously, the way a court mage sorts relics: true antiques of a hundred years and better, collectibles kept for nostalgia\u2019s sake, and gifts fit for the kin back home. Those who cannot make the climb may still plunder from afar — the attic keeps an online store, and a newsletter to herald new arrivals.",
+          "No two booths keep the same century: their own inventory names vintage sewing machines and vintage records, home décor and yard décor, jewelry, trinkets, gadgets, and glassware, each of the forty-plus dealers tending a collection cut to a different era and style. The keepers’ suggested quest is a gentle one — stop in after an active day of exploring the Rim Country, and let a rummage through somebody else’s family attic be the evening’s dungeon dive."
+        ],
+        ifYouGo: "Dealers mark wares down from time to time, and the house warns plainly: if you see something you like, do not wait — it will not keep that price for long.",
+        heraldrySrc: [
+          { label: "exploretheattic.com", url: "https://exploretheattic.com/" },
+          { label: "the online store at exploretheattic.com/shop", url: "https://exploretheattic.com/shop" }
+        ]
+      },
+      {
+        slug: "common-grounds-coffee-house",
+        name: "Common Grounds Coffee House",
+        category: "wake",
+        town: "Payson",
+        date: "2026-09-26",
+        lastChecked: "September 30, 2026",
+        featured: "Saturday, September 26, 2026",
+        edition: "Vol. 2609, No. 26",
+        img: "common-grounds.jpg",
+        alt: "Common Grounds Coffee House, as our engraver imagines it",
+        caption: "The coffee house as our engraver imagines it — pastries, pines, and plenty of mugs.",
+        teaser: "A cozy Colcord Road coffee house under the pines — Lavender Bee Lattes, homemade bakes, and a pine-shaded back patio.",
+        blurb: [
+          "A cozy neighborhood coffee house on Colcord Road, tucked under the pines. The signature Lavender Bee Latte — made with lavender sugar from a Pine farm and local Boyd's honey — shares the menu with homemade cranberry bread, chocolate chip muffins, and fresh-baked treats. Indoor and patio seating, takeout, and prices that keep it an everyday stop."
+        ],
+        offerings: "Coffee and café drinks, homemade cranberry bread, chocolate chip muffins and fresh-baked treats, and shelves of local products from neighboring makers; indoor and patio seating, takeout",
+        sweetroll: "No stolen sweetroll here — Common Grounds answers with homemade cranberry bread, chocolate chip muffins, and fresh-baked treats beside the Lavender Bee Latte.",
+        signature: "The Lavender Bee Latte — lavender sugar from a Pine farm and local Boyd's honey",
+        address: "219 S Colcord Rd, Payson",
+        phone: "(928) 970-2540",
+        hours: "Open daily 6:30 AM–4 PM",
+        price: "Inexpensive",
+        website: "https://www.commongroundspayson.com/",
+        review: { text: "Regulars on Google call it their favorite coffee shop in Payson — cozy inside, a patio right under the pines, and shelves of local products from neighboring makers.", source: "a Google review", url: null },
+        goodToKnow: "The back patio sits right under the pines — the finest seat in the house on a sunny morning.",
+        why: "The Hearth sends its guests here for the coziest cup in the Hold — honest baking, a pine-shaded patio, and honey from just down the road.",
+        heraldry: [
+          "Their full style and title is Common Ground Neighborhood Coffee House, and their declared quest is a gentle one: \u201Cexceptional coffee in an environment of meaningful community\u201D — a place to win \u201Ca sense of belonging and rest from the hustle and bustle,\u201D and, they say, the best cup of coffee in Rim Country.",
+          "Beyond the Lavender Bee, the posted board runs to lavender lemonade for warm afternoons, a pumpkin pie latte when the season turns, an Adult Grilled Cheese Pesto for travelers who missed breakfast, and brownies striped like a zebra for sweet teeth that wake before their eyes do.",
+          "The house shops like a good neighbor, and guests in the listings tell that tale best: lavender sugar from the Pine Lavender Farm in the neighboring hold of Pine, honey from Boyd\u2019s farm \u2014 jams and honey from Boyd\u2019s farm stand ride home from the counter \u2014 and baked goods from local bakers. Regulars commend two more customs to newcomers: the Local Bee taken iced, and buying a mug to keep at the shop until your next visit, like a tankard hung over your home hearth."
+        ],
+        ifYouGo: "Free Wi-Fi and the pine-shaded patio make this the Hold\u2019s unofficial scribes\u2019 corner — bring a journal, leave with a chapter.",
+        heraldrySrc: [
+          { label: "their own house at commongroundspayson.com", url: "https://www.commongroundspayson.com/" },
+          { label: "the house\u2019s own story, as listed", url: "https://mapquest.com//us/arizona/common-grounds-378536309" },
+          { label: "menu as listed by Restaurantji", url: "https://www.restaurantji.com/az/payson/common-grounds-coffee-house-/menu/" }
+        ],
+        confession: "The \u201CWi-Fi\u201D remains beyond our scholars \u2014 some manner of household spirit that carries letters through the air to a scribe\u2019s tablet. We cannot explain it; we can only report that it is free, the patio is shaded, and the coffee is entirely real."
+      },
+      {
+        slug: "rim-country-recreation-rentals",
+        name: "Rim Country Recreation Rentals",
+        category: "outfitters",
+        town: "Payson",
+        date: "2026-09-27",
+        lastChecked: "September 30, 2026",
+        featured: "Sunday, September 27, 2026",
+        edition: "Vol. 2609, No. 27",
+        img: "rim-country-rentals.jpg",
+        alt: "A traveler in tunic and cloak choosing a timber canoe at a pine-ringed lake",
+        caption: "Choosing a 'longship' at the water's edge — the outfitter's fleet awaits.",
+        teaser: "Payson's friendly outfitter for everything that floats or rolls — kayaks, paddleboards, bikes, and gear, every rental a full 24 hours.",
+        blurb: [
+          "Rim Country Recreation Rentals is Payson's friendly outfitter for everything that floats, rolls, or gets you to the water: single and double kayaks, paddleboards, canoes, pedal boats, mountain bikes, and camping and fishing gear. Every rental runs a full 24 hours — not a stingy few — and pickup in Payson is easy, so you can be skimming across Willow Springs Lake or Blue Ridge Reservoir by midday. Family-owned and run by Michelle, whom reviewers praise by name for her kindness, her local water wisdom, and her last-minute rescues — and her pup Meg greets the customers."
+        ],
+        offerings: "Single and double kayaks, paddleboards, canoes, pedal boats, mountain bikes, and camping and fishing gear — every rental runs a full 24 hours",
+        signature: "Full 24-hour rentals, and Michelle's local water wisdom (pup Meg greets the customers)",
+        address: "1400 W Red Baron Rd, Payson, AZ 85541",
+        phone: "(928) 978-2050",
+        hours: "Open daily 6:00 AM–9:00 PM",
+        price: "Fair prices, say the reviewers",
+        website: "https://rimcountryrentals.com/",
+        review: { text: "The entire rental process was simple, fast, and stress-free… This is definitely the go-to spot for kayak rentals near Payson. I'll absolutely be renting from her again for future Arizona trips.", source: "a TripAdvisor review", url: "https://www.TripAdvisor.ca/Attraction_Review-g31305-d7007052-Reviews-Rim_Country_Recreation_Kayaking_Canoeing_Stand_Up_Paddleboard_Rentals-Payson_Arizo.html" },
+        goodToKnow: "Reserve by text or call — directions to their location come with the booking — and gear rents for a full 24 hours; veteran- and women-owned.",
+        why: "The Rim's high lakes are the Hearth's true waterfront, and no one fits a traveler with a longship like Michelle does — paddle out, wayfarer!",
+        heraldry: [
+          "Their own heraldry is plain-spoken: \u201CWe are your one stop for lake rentals,\u201D and the muster is simple as a skald\u2019s verse — text or call to reserve, pick up in Payson, and make for the water. The guild names its own hunting grounds: Willow Springs Lake, Blue Ridge Reservoir, Bear Canyon, and Knoll Lake — \u201Cor anywhere you\u2019d like.\u201D",
+          "They fly a title worth embroidering, too: rated number one on TripAdvisor and Yelp, say the keepers, and their own customers add that the whole war-band fares cheaper for it — a group discount rides with the fleet.",
+          "It is a family holding, raised in Payson \u201Cto make outdoor adventures on the lake easy for you,\u201D and the keepers trade in local counsel as much as in boats \u2014 years on these waters, and word of where the quiet water lies. Valley Dwellers, take note: the shop reckons the run from the Phoenix heat at ninety minutes, close enough that a dawn decision can end with a paddle in hand before the morning is old."
+        ],
+        ifYouGo: "Reserve by text or call ahead of a fair weekend; every craft is yours a full 24 hours, so a sunset paddle costs no more than a morning one.",
+        heraldrySrc: [
+          { label: "rimcountryrentals.com", url: "https://rimcountryrentals.com/" }
+        ],
+        confession: "Our engravers have studied these kayaks and paddle boards most carefully and remain unsure whether they be boats, shields, or some manner of flat river-fish — yet Michelle swears they float, and every traveler who hires one comes back grinning and damp. So the Scroll faithfully prints her words exactly as given: single and double kayaks, paddle boards, canoes, pedal boats, and mountain bikes, each yours for a full 24 hours."
+      },
+      {
+        slug: "pauls-ace-hardware",
+        name: "Paul's Ace Hardware & Hearth Shoppe",
+        category: "smiths",
+        town: "Payson",
+        date: "2026-09-28",
+        lastChecked: "September 30, 2026",
+        featured: "Monday, September 28, 2026",
+        edition: "Vol. 2609, No. 28",
+        img: "pauls-ace.jpg",
+        alt: "Engraving of a hardware store workshop with tools, lanterns, rope, and a busy counter",
+        caption: "The workshop counter at Paul's, where every tool has a tale.",
+        teaser: "Payson's locally owned hardware haven — STIHL service, cuts to size, honest repair advice, plus a Hearth Shoppe and nursery.",
+        blurb: [
+          "Payson's locally owned hardware haven — the closest thing to a blacksmith's forge in the holds. STIHL power equipment sales and service, small-engine repair, key cutting, glass and lumber cut to size, paint matching, lock servicing, and screen repair, plus a Hearth Shoppe and seasonal nursery out back. The signature move: the staff talk you through the repair instead of just selling you the part."
+        ],
+        offerings: "STIHL power equipment sales and service, small-engine repair, key cutting, glass and lumber cut to size, paint matching, lock servicing, and screen repair — plus a Hearth Shoppe and seasonal nursery out back",
+        signature: "The staff talk you through the repair instead of just selling you the part",
+        address: "507 N Beeline Hwy, Payson",
+        phone: "(928) 474-5238",
+        hours: "Mon–Sat 7 AM–7 PM, Sun 9 AM–5 PM",
+        price: "Moderate prices",
+        website: "http://www.paulsacehardware.com/",
+        review: { text: "Love this place. They have a great selection of items and the staff is very friendly and helpful.", source: "a Loc8NearMe review", url: "https://www.loc8nearme.com/arizona/payson/pauls-ace-hardware-and-nursery-payson/2951710/" },
+        goodToKnow: "Senior & military discounts, and they're open Sundays.",
+        why: "Because when a Hearth project needs a bolt, a blade, or a bit of honest advice, this is where the Hearth sends you.",
+        heraldry: [
+          "Their house words are an oath any smith would sign: \u201Ccommitted to being the Helpful Place\u2026 offering knowledgeable advice, helpful service and quality products.\u201D And the forge keeps a second trade under the same roof — the Hearth Shoppe — for travelers whose thoughts run to firesides rather than fences.",
+          "Should your wagon not wait for a browse, the smiths will meet you at the curb: order ahead through acehardware.com and they will gather your goods for pickup or curbside delivery. The guild also posts monthly bargains under a banner even a dragon would respect: Red Hot Buys.",
+          "The forge also flies fresh honors: for 2025 the house was named Arizona\u2019s entry among STIHL\u2019s Hardware Store All Stars \u2014 fifty stores, one from each state, honored for performance, customer care, and standing in their communities. And under the same roof the quieter trades thrive: paint matched to a chip of the old color, small engines coaxed back to life, and a nursery court out back where even garden furniture waits for inspection \u2014 proofs that \u2018the Helpful Place\u2019 is a working oath, not a painted sign."
+        ],
+        ifYouGo: "Hunt the clearance bin and the seasonal shelves — sleds, gloves, and other quiet treasures turn up there between the great campaigns of spring.",
+        heraldrySrc: [
+          { label: "paulsacehardware.com", url: "http://www.paulsacehardware.com/" },
+          { label: "STIHL\u2019s 2025 Hardware Store All Stars at hbsdealer.com", url: "https://hbsdealer.com/meet-2025-stihl-hardware-store-all-stars" },
+          { label: "the nursery court, per Garden Center Guide", url: "https://www.gardencenterguide.com/ace-hardware-nursery-payson/garden-furniture" },
+          { label: "visitor tips at Giftly", url: "https://www.giftly.com/gift-card/pauls-ace-hardware-and-hearth-shoppe-payson" }
+        ]
+      },
+      {
+        slug: "that-brewery-and-pub",
+        name: "THAT Brewery & Pub",
+        category: "meadhalls",
+        town: "Pine",
+        date: "2026-09-29",
+        lastChecked: "September 30, 2026",
+        featured: "Tuesday, September 29, 2026",
+        edition: "Vol. 2609, No. 29",
+        img: "that-brewery.jpg",
+        alt: "Vintage engraving of THAT Brewery & Pub's roadside frontage on AZ-87 in Pine",
+        caption: "The drive-by view on AZ-87, as the engraver saw it — the painted sign and truck mural out front.",
+        teaser: "Pine's own craft brewery on AZ-87: house ales, hearty pub fare, the legendary elk burger, and a dog-friendly patio.",
+        blurb: [
+          "Pine's own craft brewery and pub sits right on AZ-87, pouring a lineup of house ales — the light Backwoods Blonde, the Strawberry Blonde, the fruity Clearly That's Hazy IPA, the grapefruity Roadrash IPA, and a crisp Mexican Lager — alongside hearty pub fare. The elk burger is the legend of the house, and a frost-rune keeps the casks at cellar-cold even in the September heat, so every pint lands at the table impossibly cold."
+        ],
+        offerings: "House ales — Backwoods Blonde, Strawberry Blonde, Clearly That's Hazy IPA, Roadrash IPA, and a Mexican Lager — alongside hearty pub fare; dog-friendly patio with live music",
+        signature: "The elk burger — the legend of the house",
+        address: "3270 Hwy 87, Pine, AZ 85544",
+        phone: "(928) 476-3349",
+        hours: "Mon/Tue/Fri/Sat 11 AM–8 PM, Sun 11 AM–7 PM, closed Wed & Thu",
+        price: "$$ (~$10–25/person)",
+        website: "http://thatbrewery.com/",
+        review: { text: "Great food, interesting beers, and a friendly vibe. Would recommend for anyone visiting Pine and looking to relax with a good brew!", source: "a TripAdvisor review", url: "https://www.tripadvisor.in/Restaurant_Review-g31313-d3587381-Reviews-THAT_Brewery_Pub-Pine_Arizona.html" },
+        goodToKnow: "Dog-friendly patio with live music; the porch tables go fast on fair afternoons.",
+        why: "The Hearth sends its guests to THAT Brewery — a brewhouse with the true mead-hall spirit, and ale cold enough to make a Frost Atronach shiver.",
+        heraldry: [
+          "Their own heraldry is sung at full voice: \u201Ca place for people who like beer! We like beer — like to drink it, brew it, tip it and sing songs about it.\u201D The hall has stood just off the Arizona Trail since June of 2012, a trail-side mead hall for hikers coming down from the Rim — and, their keepers add, good people who put their shoulders to local charity drives.",
+          "The brewer\u2019s board holds a curiosity for alchemists: a Nut Brown Ale brewed with locally sourced pinecones, where sarsaparilla and nuts say hello first and roasted cr\u00e8me br\u00fbl\u00e9e finishes — the very forest, tapped. Beside it pours a Mexican lager that takes lime and Taj\u00edn for riders coming in from the heat.",
+          "Their own tasting notes read like a skald\u2019s set list: the house IPA pours grapefruit and citrus zest over a bold hop finish that does not linger; the flagship ale tastes of fresh-baked whole wheat bread, giving way to stone fruit, rosehips, and black tea; and the strawberry blonde is defended by its own brewers in capital letters \u2014 \u201Ca beer with flavor, NOT a flavored beer.\u201D",
+          "The pub board, from their own menu cards, keeps pace with the taps: elk and buffalo chili ladled over nachos, soft pretzels with THAT Beer cheese or beer mustard, mac and cheese tossed in that same beer cheese, and a burger answering to the name Mogollon Monster \u2014 two patties buried under Swiss, cheddar, beer cheese, bacon, jalape\u00f1os, and chili. The Hearth notes the Monster\u2019s manners improve considerably with a pint beside it."
+        ],
+        ifYouGo: "Volleyball and horseshoes wait on the grounds, and travelers advise taking a growler back to the cabin for the evening watch.",
+        heraldrySrc: [
+          { label: "thatbrewery.com", url: "http://thatbrewery.com/" },
+          { label: "the pub\u2019s own menu card (PDF) at thatbrewery.com", url: "http://thatbrewery.com/wp-content/uploads/2019/05/that-brewery-menu-may-2019.pdf" }
+        ]
+      },
+      {
+        slug: "bosa-donuts",
+        name: "BoSa Donuts",
+        category: "sweetrolls",
+        town: "Payson",
+        date: "2026-09-30",
+        lastChecked: "September 30, 2026",
+        featured: "Wednesday, September 30, 2026",
+        edition: "Vol. 2609, No. 30",
+        img: "bosa-donuts.jpg",
+        alt: "The baker presents a platter of golden sweet rolls",
+        caption: "Sweet rolls, fresh daily — the Hold's answer to the guards' favorite.",
+        teaser: "A walk-in donut shop on the Beeline where everything is made fresh daily from scratch — and the apple fritter reigns.",
+        blurb: [
+          "BoSa Donuts is a walk-in donut shop and bakery where the donuts are made fresh daily from scratch. The case holds the classics — glazed, chocolate iced, maple long johns, apple fritters, cinnamon twists, bear claws, and donut holes — plus breakfast sandwiches like sausage, egg & cheese on a croissant, coffee, cappuccino, and smoothies. Quick service with dine-in or drive-through, and the apple fritter is the thing the regulars swear by."
+        ],
+        offerings: "Donuts made fresh daily from scratch — glazed, chocolate iced, maple long johns, apple fritters, cinnamon twists, bear claws, and donut holes — plus breakfast sandwiches, coffee, cappuccino, and smoothies; dine-in or drive-through",
+        sweetroll: "The apple fritter is this shop's pride — crisp, crunchy glaze outside, perfectly cooked apples within; the Hold's own sweet roll, with no guard in sight to confiscate it.",
+        signature: "The apple fritter — the thing the regulars swear by",
+        address: "303 S Beeline Hwy, Payson, AZ 85541",
+        phone: "(928) 474-8889",
+        hours: "Open daily from 5 AM",
+        price: "$ inexpensive",
+        website: "http://bosadonutsaz.com/",
+        review: { text: "Excellent donuts. The Apple Fritter was my absolute favorite. Crispy, crunchy glaze on the outside with perfectly cooked apples inside.", source: "a TripAdvisor review", url: "https://www.TripAdvisor.ca/Restaurant_Review-g31305-d13738026-Reviews-BoSa_Donuts-Payson_Arizona.html" },
+        goodToKnow: "Drive-through, and the case is fullest in the morning.",
+        why: "BoSa's apple fritter is the Hold's own sweet roll — and these come fresh daily with no guard in sight to confiscate them. A cheap, cheerful morning break along the Beeline, right as the Valley Dwellers roll into town for fair week.",
+        heraldry: [
+          "Their own heraldry is disarmingly honest: \u201CBoSa doesn\u2019t try to reinvent donut recipes or show off donut bravado with culinary skills — they just simply make the perfect donut.\u201D The Payson banner is prouder still: the first and only BoSa in Payson, serving donuts made fresh daily from scratch.",
+          "The counter\u2019s heralds commend more than the case — hot or iced coffee, cappuccino, and fresh smoothies to wash down the spoil, with boba drinks for travelers of modern tastes.",
+          "The full case, as their menu heralds list it, is a small gilded army: raised rings in glazed, chocolate, crumb, and sugar; filled pillows of raspberry, lemon, apple-crumb, and Boston cream; maple bars, chocolate bars, cinnamon twists, a cinnamon roll donut, and the celebrated apple fritter \u2014 then a second wall of cake donuts and a Devil\u2019s Food regiment drawn up behind them. Travelers who take breakfast built like a sandwich will find egg-and-cheese with bacon, sausage, or ham, and donut holes by the dozen for the road."
+        ],
+        ifYouGo: "The Payson listing keeps the ovens\u2019 hours at 5 AM to 8 PM daily; come early, for the case is fullest then and the apple fritter waits for no straggler.",
+        heraldrySrc: [
+          { label: "bosadonutsaz.com", url: "http://bosadonutsaz.com/" },
+          { label: "the BoSa menu as listed by FastFoodTime", url: "https://www.fastfoodtime.com/bosa-donuts-menu/" },
+          { label: "the Payson menu, as listed", url: "https://menuweb.menu/restaurants/payson/bosa-donuts-22" }
+        ],
+        confession: "\u201CBoba\u201D defeats our scholars entirely \u2014 small dark pearls resting at the bottom of a sweet drink, chewed with every appearance of delight. We print the word exactly as the merchant gives it, and vouch with confidence only for the donuts."
+      },
+      {
+        slug: "crosswinds-restaurant",
+        name: "Crosswinds Restaurant",
+        category: "feasts",
+        town: "Payson",
+        date: "2026-10-01",
+        lastChecked: "October 1, 2026",
+        featured: "Thursday, October 1, 2026",
+        edition: "Vol. 2610, No. 01",
+        img: "crosswinds-restaurant.jpg",
+        alt: "Engraving of the Sky-Boat Pedaler — a pedal-crank sky-boat with three travellers aboard — coming in to land at the Crosswinds Restaurant log diner beneath the Mogollon Rim",
+        caption: "",
+        teaser: "Payson's airport diner at the iron drakes' landing-meadow — all-day breakfast and homestyle plates beside the runway, where every landing ends at breakfast.",
+        blurb: [
+          "Crosswinds Restaurant keeps its tables at the edge of the iron drakes\u2019 landing-meadow \u2014 the airport, as other travelers name it \u2014 where the drake-barns stand in a patient row and a striped wind-serpent dances on its pole to tell each arriving drake which way the sky is blowing. It is a diner in the honest, homestyle sense: all-day breakfast, chicken fried steak and eggs, enormous biscuits and gravy, burgers, fish and chips \u2014 and pie the travelers will not stop praising. Little model drakes hang from the ceiling by the dozen, and every seat in the house faces the meadow, the better to take breakfast with a show."
+        ],
+        offerings: "All-day breakfast and homestyle American comfort fare — chicken fried steak and eggs, enormous biscuits and gravy, burgers, fish and chips — plus homemade pies; indoor and outdoor seating facing the runway",
+        sweetroll: "No sweetroll to steal at the landing-meadow — the house answers with homemade pie, which one traveler called amazing outright. The chocolate cream is the one the regulars swear by.",
+        signature: "The pie — chocolate cream first among equals — and breakfast with a runway view",
+        address: "800 W Airport Rd, Payson, AZ 85541",
+        phone: "(928) 474-1613",
+        hours: "Open daily 6 AM–3 PM (Fridays till 4 PM)",
+        price: "$ inexpensive",
+        website: "https://crosswindsrestaurant.com/",
+        review: { text: "The food was really good but the pie...wow. The pie was amazing.", source: "a Birdeye review", url: "https://reviews.birdeye.com/crosswinds-restaurant-992335360?page=16" },
+        goodToKnow: "Indoor and patio seats face the runway — breakfast comes with a landing show, and the room fills at peak hours.",
+        why: "The Hearth sends its guests to Crosswinds because no other table in the Hold lets you take coffee while iron drakes come home to roost — and because every landing there ends at breakfast, crowned with pie.",
+        heraldry: [
+          "The house stands at the west end of the landing-meadow, close enough to the long meadow-road that diners watch each drake trundle past the windows before it leaps. The great valley drakes lumber up from the lowlands with Valley Dwellers in their bellies, bound for Rim Country air; the smaller drakes of the neighborhood come and go all morning, practicing their landings like young heroes practicing a Shout.",
+          "For taking off, the keepers will tell you, is easy — any drake can fall upward off a meadow. Landings are the silly part: all that iron grace must be persuaded back to earth in one unbroken piece, and some arrive with more ceremony than others. At Crosswinds, happily, every landing ends the same way — at breakfast. The board runs from chicken fried steak and eggs and biscuits and gravy the size of a shield, through burgers and fish and chips, to a pie case holding chocolate cream and lemon meringue; travelers\u2019 word gathered at Birdeye speaks of the best bacon in town, pancakes of heroic size, and service that treats a fly-in stranger like a regular.",
+          "The travelers\u2019 tally is a proud one: four and a half stars and better across more than two thousand reviews, with families bringing their young to watch the drakes as other folk bring theirs to watch the tourney. On a fair Rim morning, with the wind-serpent streaming and the Rim standing blue beyond the pines, there is no finer gallery in the Hold for the price of a coffee."
+        ],
+        ifYouGo: "Ask for a window or patio seat facing the meadow, order pie without being asked twice, and come a touch early on fair mornings — the breakfast rush lands all at once.",
+        heraldrySrc: [
+          { label: "crosswindsrestaurant.com", url: "https://crosswindsrestaurant.com/" },
+          { label: "travelers\u2019 word gathered at Birdeye", url: "https://reviews.birdeye.com/crosswinds-restaurant-992335360?page=16" }
+        ],
+        confession: "Our engravers have studied the \u201Cairplane\u201D most carefully and report an iron drake with no fire in it at all, which the Hearth counts a mercy. We print the keepers\u2019 word for the striped oracle on the pole exactly as given \u2014 \u201Cwindsock\u201D \u2014 and vouch with confidence only for the pie."
+      }
+    ];
+
+    var JEST_LABEL = "Pure jest \u2014 no such shop trades in the Holds; order by raven, dream, or imagination only.";
+
+    var FICTION = [
+      {
+        slug: "swiftwing-raven-post",
+        name: "Swiftwing Post & Parcel",
+        trade: "Couriers, Raven Post & Sweetroll Freight",
+        img: "mail-order-raven-post.jpg",
+        alt: "Engraving of a stone raven-post tower in a Nordic village, ravens carrying scrolls and one frosted sweetroll while a hooded courier ties a ribbon to a raven's leg",
+        caption: "The morning post leaving the Swiftwing tower \u2014 one raven bears a sweetroll of some importance.",
+        teaser: "Letters, love notes, and frosted sweetrolls delivered by raven \u2014 always before the guards hear of them.",
+        blurb: [
+          "Swiftwing Post & Parcel keeps the finest-trained ravens in the Holds, each bird sworn to the post and compensated in crumbs. Contracts, courtship poems, and annotated treasure maps cross the mountains in a morning; a frosted sweetroll rides in the talons of their steadiest flyer, and the house guarantees it arrives un-snatched, un-pecked, and un-sat-upon.",
+          "Apology notes to giants are a house specialty, delivered from a respectful altitude. No letter has ever been lost \u2014 one was delayed three days by a hawk with opinions, and the hawk has since been hired."
+        ],
+        wares: "Letters and contracts flown anywhere in the Holds; sweetroll freight, guaranteed un-snatched; annotated treasure maps (annotations extra); apologies to giants, delivered from altitude",
+        signature: "The sweetroll flight \u2014 frosted, sealed, and there by breakfast",
+        where: "No storefront in the Holds \u2014 that is rather the meaning of \u201Cmail order\u201D",
+        hours: "Dawn to dusk, weather and hawks permitting",
+        coin: "Septims, and sweetrolls in trade \u2014 one per raven, no haggling",
+        order: "Write your letter fair, tie it with the blue ribbon on your fence post, and leave one septim under a sweetroll. The ravens handle the rest.",
+        whyWish: "Because Hearth guests keep asking whether Payson has a post office with wings, and the honest answer \u2014 \u201Cnot yet\u201D \u2014 breaks our hearts a little."
+      },
+      {
+        slug: "fus-ro-doors",
+        name: "Fus Ro Doors & Timberworks",
+        trade: "Doors, Gates & Repairs After Shouts",
+        img: "mail-order-door-repair.jpg",
+        alt: "Engraving of a carpenter re-hanging a splintered cottage door while a sheepish warrior in fur-trimmed armor holds a coil of rope",
+        caption: "The Timberworks at their morning\u2019s usual labor \u2014 the gentleman on the right has already apologized.",
+        teaser: "Splintered a door with an over-enthusiastic Shout? They will re-hang it, plane it true, and never once ask what you were shouting at.",
+        blurb: [
+          "Every Hold has a door that leans, a gate that sings in the wind, and one household hero who tested a new Shout indoors. Fus Ro Doors & Timberworks answers for all of them \u2014 re-hanging, re-pegging, and quietly reinforcing the woodwork of the North without a single embarrassing question.",
+          "Master carpenter Borkul and sons also straighten dragon-head gables bent by clumsy landings, and offer a much-requested service of standing nearby, nodding, and saying \u201Cit happens to the best of heroes.\u201D"
+        ],
+        wares: "Door and gate re-hanging after Unrelenting mishaps; iron-bound reinforcement for oft-shouted doors; dragon-head gable straightening; tactful, judgment-free consultations",
+        signature: "The noon call \u2014 hear a door break anywhere in the Hold, and they arrive by midday",
+        where: "Wherever a door has recently been shouted at",
+        hours: "From first hammer-blow to last light",
+        coin: "Septims; apologies accepted as deposit",
+        order: "Simply step outside and Shout. They will hear the door break anywhere in the Hold and arrive by noon \u2014 it is how most of their work finds them.",
+        whyWish: "The Hearth\u2019s great door has met one enthusiastic guest too many, and a carpenter who makes house calls by sound alone is worth his weight in septims."
+      },
+      {
+        slug: "warm-sock-mammoth-cheese",
+        name: "The Warm Sock & Mammoth Cheese Co.",
+        trade: "Self-Warming Hosiery & Provisions of Great Age",
+        img: "mail-order-warm-sock.jpg",
+        alt: "Engraving of a market stall stacked with folded knitted socks and a huge wheel of mammoth cheese, a mammoth ambling past the pines behind",
+        caption: "The company stall at market \u2014 the cheese arrives by mammoth, as is proper.",
+        teaser: "Self-warming socks, knit by a hedge-witch of excellent character, and mammoth cheese aged beside the giant camps \u2014 obtained by negotiation, never theft.",
+        blurb: [
+          "The Company\u2019s socks are knit thick, charmed warmer, and enchanted with a mild sense of loyalty, that they may refuse to be lost in any wash, river, or dragon\u2019s lair. The warm hum they give off at dawn has been mistaken for purring; the Company neither confirms nor denies employing cats.",
+          "Their mammoth cheese is aged hard by the giant camps and obtained strictly by negotiation, the giants being paid in salt, songs, and being left politely alone. A wedge keeps a traveler fed from Whiterun to Winterhold, and doubles as a doorstop in lean times."
+        ],
+        wares: "Self-warming socks, one size warms all; scarf-and-mitten sets that hum softly; mammoth cheese by the brave wedge; toe-warmers for the northward road",
+        signature: "The dawn socks \u2014 folded, humming, and faintly smug about it",
+        where: "A stall that appears at market wherever the mammoths have wandered",
+        hours: "Market days, and any day your feet complain",
+        coin: "Septims; trade in old socks considered, then politely declined",
+        order: "Leave two septims and one (1) cold, ordinary sock in a basket by your door at dusk. By dawn: upgraded, folded, and faintly smug.",
+        whyWish: "Payson winters are mild, but a Valley guest in January will swear the Rim is the far north \u2014 and a sock that warms itself settles the argument forever."
+      },
+      {
+        slug: "gable-and-soot",
+        name: "Gable & Soot Chimney Sweeps",
+        trade: "Chimneys, Dragon-Head Gables & High Places",
+        img: "mail-order-chimney-sweep.jpg",
+        alt: "Engraving of a chimney sweep on a ladder tipping his cap to the carved dragon head on a lodge gable, a chicken watching from the porch",
+        caption: "Gable greets the householder, as is customary \u2014 the chimney comes after the introductions.",
+        teaser: "Chimney sweeping for dragon-head gables, by a sweep who tips his cap to the dragon first and disturbs no naps, draconic or otherwise.",
+        blurb: [
+          "Gable & Soot are the only sweeps the dragons\u2019 landlords trust, being the only ones who ask the gable\u2019s permission before setting a ladder. Master Gable sweeps the flue, polishes the carved dragon head to a parade gloss, and inspects the roost \u2014 relocating any chickens gently, and only after fair warning.",
+          "The firm guarantees a clean climb, a tidy hearth, and no questions asked about whatever the brush brings down. Some households burn strange things; Gable has seen all of them, and says nothing, for a consideration."
+        ],
+        wares: "Chimney and flue sweeping; dragon-head gable polishing; roost inspection, chickens gently relocated; soot removal with no questions asked",
+        signature: "The gable greeting \u2014 cap tipped, introductions made, ladder last",
+        where: "Rooftops across the Holds; look for the taller ladder",
+        hours: "Early, while the roost still argues about it",
+        coin: "Septims, and one hot meal per dragon polished",
+        order: "Set a broom upside-down beside your hearth and whistle twice before breakfast. Gable will know \u2014 Gable always knows.",
+        whyWish: "Mogollon\u2019s Hearth wears dragon-head gables of its own, and every last one deserves a sweep who greets them properly."
+      }
+    ];
+
+    function fictionBySlug(slug) {
+      for (var i = 0; i < FICTION.length; i++) if (FICTION[i].slug === slug) return FICTION[i];
+      return null;
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function vendorBySlug(slug) {
+      for (var i = 0; i < VENDORS.length; i++) if (VENDORS[i].slug === slug) return VENDORS[i];
+      return null;
+    }
+    function editionHash(v) { return "#edition-" + v.date; }
+    function editionURL(v) { return ARCHIVE_URL + editionHash(v); }
+    function scrollCite(v) { return "Featured in The Payson Morning Scroll \u2014 " + v.edition + " \u00B7 " + v.featured; }
+    function mapsURL(addr) { return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(addr); }
+    function addrLink(addr) { return '<a href="' + mapsURL(addr) + '" target="_blank" rel="noopener">' + esc(addr) + '</a>'; }
+
+    var app = document.getElementById("app");
+
+
+    function telLink(s) {
+      return String(s).replace(/\(\d{3}\) \d{3}-\d{4}/g, function (m) {
+        var d = m.replace(/\D/g, "");
+        return '<a href="tel:+1' + d + '">' + m + "</a>";
+      });
+    }
+    function bigCard(v, c) {
+      var h = "";
+      h += '<article class="card big">';
+      h += '<a href="#/big/' + v.slug + '" aria-label="Open the full listing for ' + esc(v.name) + '"><img class="thumb" src="' + v.img + '" alt="' + esc(v.alt) + '" loading="lazy" /></a>';
+      h += '<div class="card-body">';
+      h += '<p class="meta">' + esc(c.name) + " \u00B7 Directory entry \u00B7 " + v.locations.length + (v.locations.length === 1 ? " location" : " locations") + "</p>";
+      h += '<h3><a href="#/big/' + v.slug + '">' + esc(v.name) + "</a></h3>";
+      h += '<p class="teaser">' + esc(v.intro) + "</p>";
+      h += '<p class="featured-line">' + v.locations.map(function (L) { return esc(L.hold); }).join(" \u00B7 ") + "</p>";
+      h += '<div class="card-foot"><a class="open-link" href="#/big/' + v.slug + '">Open its page \u2192</a></div>';
+      h += '<p class="checked-line"><span class="cl-label">Last Courier\u2019s Scroll on</span> October 3, 2026</p>';
+      h += "</div></article>";
+      return h;
+    }
+    function bigBySlug(slug) {
+      for (var i = 0; i < BIG_VENDORS.length; i++) if (BIG_VENDORS[i].slug === slug) return BIG_VENDORS[i];
+      return null;
+    }
+    function renderBig(v) {
+      document.title = v.name + " \u2014 The Gilded Pages of the Holds";
+      var cat = catName(v.category);
+      var h = "";
+      h += '<header class="vendor-head">';
+      h += '<nav class="crumbs" aria-label="Directory path">';
+      h += '<a href="#/">The Gilded Pages</a><span class="sep">\u203A</span>';
+      h += '<a href="#cat-' + v.category + '">' + esc(cat) + '</a><span class="sep">\u203A</span>';
+      h += '<span aria-current="page">' + esc(v.name) + "</span></nav>";
+      h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 A Directory for the Guests of Mogollon\u2019s Hearth</p>';
+      if (v.website) h += '<h1 class="fell"><a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.name) + "</a></h1>";
+      else {
+        h += '<h1 class="fell">' + esc(v.name) + "</h1>";
+        h += '<p class="no-web">This house keeps no webpage to visit — but the directory remembers the way. <a href="#cat-' + v.category + '">\u2190 Back to the summary</a></p>';
+      }
+      h += '<p class="meta-line">' + esc(cat) + " \u00B7 Directory entry \u00B7 " + v.locations.length + (v.locations.length === 1 ? " location" : " locations") + "</p>";
+      h += "</header>";
+      h += "<main>";
+      h += '<figure class="engraving"><img src="' + v.img + '" alt="' + esc(v.alt) + '" /></figure>';
+      h += '<p class="lede">' + esc(v.intro) + "</p>";
+      var byHold = {};
+      v.locations.forEach(function (L) {
+        (byHold[L.hold] = byHold[L.hold] || []).push(L);
+      });
+      Object.keys(byHold).forEach(function (hold) {
+        h += '<h2 class="sec-label">' + esc(hold) + "</h2>";
+        h += '<dl class="facts hold-facts">';
+        byHold[hold].forEach(function (L) {
+          h += factRow("Address", addrLink(L.address));
+          h += factRow("Phone", telLink(L.phone));
+          h += factRow("Hours", esc(L.hours));
+          if (L.note) h += factRow("Good to know", telLink(esc(L.note)));
+        });
+        h += "</dl>";
+      });
+      h += '<dl class="facts">';
+      if (v.website) h += factRow("Website", '<a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + "</a>");
+      h += factRow("Last Courier\u2019s Scroll on", "October 3, 2026", "wide");
+      h += "</dl>";
+      h += "</main>";
+      h += '<footer class="trailer">';
+      h += '<a class="back-top" href="#cat-' + v.category + '">More ' + esc(cat) + "</a>";
+      h += '<div class="back-page1-wrap"><a class="back-page1-btn" href="#/">\u21A9 Return to the First Page</a></div>';
+      h += '<p class="colophon">The Gilded Pages of the Holds \u00B7 Kept for the guests of Mogollon\u2019s Hearth</p>';
+      h += "</footer>";
+      app.innerHTML = h;
+    }
+    function renderIndex() {
+      document.title = "The Gilded Pages of the Holds";
+      var h = "";
+      h += '<header class="masthead"><div class="rule-top"></div>';
+      h += '<h1 class="dir-title fell-sc">The Gilded Pages of the Holds</h1>';
+      h += '<div class="masthead-grid"><div>';
+      h += '<p class="dir-sub">A directory of the merchants featured in The Payson Morning Scroll — plus the great provisioning halls, inns, and road services of the Holds — gathered in one ledger and sorted by trade, so a guest of Mogollon\u2019s Hearth can find a feast, a forge, or a fine sweetroll without asking a single guard (because you know they’re just waiting to tell you how they used to be an adventurer too, until they took an arrow to the knee!).</p>';
+      h += '<p class="featured-line">New merchants are entered in this ledger as The Payson Morning Scroll commends them, week by week. Should any word here have grown stale \u2014 a door moved, an hour changed, a price gone astray \u2014 send word to the Hearth and we shall set the record straight.</p>';
+      h += '</div>';
+      h += '</div>';
+      h += '<ul class="tabs" aria-label="Jump to a trade">';
+      CATEGORIES.forEach(function (c) {
+        h += '<li><a href="#cat-' + c.id + '">' + esc(c.name) + '</a></li>';
+      });
+      h += '</ul></header>';
+
+      h += '<main>';
+      CATEGORIES.forEach(function (c) {
+        var list = VENDORS.filter(function (v) { return v.category === c.id; })
+          .concat(BIG_VENDORS.filter(function (v) { return v.category === c.id; }));
+        if (!list.length) return;
+        h += '<section class="cat-section" id="cat-' + c.id + '">';
+        h += '<div class="cat-head"><h2>' + esc(c.name) + '</h2><span class="cat-gloss">' + esc(c.gloss) + '</span></div>';
+        h += '<div class="vendor-list">';
+        list.forEach(function (v) {
+          if (v.big) { h += bigCard(v, c); return; }
+          h += '<article class="card">';
+          h += '<a href="#/vendor/' + v.slug + '" aria-label="Open the full page for ' + esc(v.name) + '"><img class="thumb" src="' + v.img + '" alt="' + esc(v.alt) + '" loading="lazy" /></a>';
+          h += '<div class="card-body">';
+          h += '<p class="meta">' + esc(c.name) + ' \u00B7 ' + esc(v.town) + '</p>';
+          h += '<h3><a href="#/vendor/' + v.slug + '">' + esc(v.name) + '</a></h3>';
+          h += '<p class="teaser">' + esc(v.teaser) + '</p>';
+          if (v.sweetroll) h += '<p class="sw-line"><span class="sw-label">Sweetroll Watch \u2014 </span>' + esc(v.sweetroll) + '</p>';
+          h += '<p class="featured-line"><a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a></p>';
+          h += '<p class="checked-line"><span class="cl-label">Last Courier\u2019s Scroll on</span> ' + esc(v.lastChecked || LAST_CHECKED) + '</p>';
+          h += '<div class="card-foot"><span class="featured-line">' + addrLink(v.address) + ' \u00B7 ' + esc(v.phone) + '</span>';
+          h += '<a class="open-link" href="#/vendor/' + v.slug + '">Open its page \u2192</a></div>';
+          h += '</div></article>';
+        });
+        h += '</div><div class="back-page1-wrap"><a class="back-page1-btn" href="#/">↩ Return to the First Page</a></div></section>';
+      });
+      h += '</main>';
+
+
+      /* ---- Mail Order Skyrim: the afterword of pure jest, filed at the very back ---- */
+      h += '<section class="fiction-section" id="mail-order-skyrim">';
+      h += '<div class="fiction-head">';
+      h += '<span class="fiction-kicker">An afterword, tucked at the back of the ledger</span>';
+      h += '<h2>Mail Order Skyrim</h2>';
+      h += '<p class="jest-label">' + esc(JEST_LABEL) + '</p>';
+      h += '<p class="fiction-intro">Here the directory ends and the jest begins. The four worthies below are <strong>invented merchants of Tamriel</strong>, enrolled by nobody: they appear in no edition of the Scroll, hold no shop in Payson or anywhere else, and cannot be visited, telephoned, mapped, or reviewed. They keep no ledgers of address or hour \u2014 only of ravens, septims, and good intentions \u2014 and they are filed here, past every true entry, so no guest mistakes a daydream for a directory.</p>';
+      h += '</div>';
+      h += '<div class="vendor-list">';
+      FICTION.forEach(function (f) {
+        h += '<article class="card jest">';
+        h += '<span class="jest-ribbon">Pure Jest</span>';
+        h += '<a href="#/fiction/' + f.slug + '" aria-label="Open the jest page for ' + esc(f.name) + ' (pure fiction)"><img class="thumb" src="' + f.img + '" alt="' + esc(f.alt) + '" loading="lazy" /></a>';
+        h += '<div class="card-body">';
+        h += '<p class="meta">Mail Order Skyrim \u00B7 ' + esc(f.trade) + '</p>';
+        h += '<h3><a href="#/fiction/' + f.slug + '">' + esc(f.name) + '</a></h3>';
+        h += '<p class="teaser">' + esc(f.teaser) + '</p>';
+        h += '<p class="featured-line">' + esc(JEST_LABEL) + '</p>';
+        h += '<div class="card-foot"><span class="featured-line">No door to find \u2014 by raven only</span>';
+        h += '<a class="open-link" href="#/fiction/' + f.slug + '">Read the jest \u2192</a></div>';
+        h += '</div></article>';
+      });
+      h += '</div>';
+      h += '<p class="fiction-note">The ravens accept no complaints, the septims are imaginary, and the socks \u2014 the Scroll is told \u2014 are magnificent.</p>';
+      h += '<div class="back-page1-wrap"><a class="back-page1-btn" href="#/">↩ Return to the First Page</a></div>';
+      h += '</section>';
+
+      h += '<footer class="trailer">';
+      h += '<h3 class="tr-title">How to use these Pages</h3>';
+      h += '<div class="trailer-grid">';
+      h += '<div><h4>Finding a merchant</h4><p>Merchants are enrolled by trade, not by name — feast-halls with feast-halls, smiths with smiths. Use the trade tabs at the top of this page to jump straight to a section, then open any merchant\u2019s own page for the full entry.</p></div>';
+      h += '<div><h4>On each merchant\u2019s page</h4><p>The full write-up exactly as The Payson Morning Scroll printed it, the engraver\u2019s likeness, a traveler\u2019s review in their own words, and the practical ledger: address, phone, hours, prices, website, and one good thing to know before you set out.</p></div>';
+      h += '<div><h4>Kept current</h4><p>Each time The Payson Morning Scroll features a new merchant, that merchant is enrolled here under its trade. Hours and prices are as printed on the day featured; when in doubt, call ahead — even the finest ledger cannot chase a changed closing time.</p></div>';
+      h += '</div>';
+      h += '<p>The full editions live in <a href="' + ARCHIVE_URL + '">The Payson Morning Scroll archive</a> — every merchant\u2019s page links back to the very edition that honored them.</p>';
+      h += '<p class="colophon">The Gilded Pages of the Holds \u00B7 Kept for the guests of Mogollon\u2019s Hearth \u00B7 Cured in pine smoke and copperleaf, against moth and mildew alike</p>';
+      h += '</footer>';
+
+      app.innerHTML = h;
+    }
+
+    function factRow(label, valueHtml, cls) {
+      return '<div class="row' + (cls ? " " + cls : "") + '"><dt>' + esc(label) + '</dt><dd>' + valueHtml + '</dd></div>';
+    }
+
+    function renderVendor(v) {
+      document.title = v.name + " — The Gilded Pages of the Holds";
+      var cat = catName(v.category);
+      var h = "";
+
+      h += '<header class="vendor-head">';
+      h += '<nav class="crumbs" aria-label="Directory path">';
+      h += '<a href="#/">The Gilded Pages</a><span class="sep">\u203A</span>';
+      h += '<a href="#cat-' + v.category + '">' + esc(cat) + '</a><span class="sep">\u203A</span>';
+      h += '<span aria-current="page">' + esc(v.name) + '</span></nav>';
+      h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 A Merchant Directory for the Guests of Mogollon\u2019s Hearth</p>';
+      if (v.website) h += '<h1 class="fell"><a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.name) + '</a></h1>';
+      else {
+        h += '<h1 class="fell">' + esc(v.name) + '</h1>';
+        h += '<p class="no-web">This house keeps no webpage to visit — but the directory remembers the way. <a href="#cat-' + v.category + '">\u2190 Back to the summary</a></p>';
+      }
+      h += '<p class="meta-line">' + esc(cat) + ' \u00B7 ' + esc(v.town) + ' \u00B7 <a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a></p>';
+      h += '</header>';
+
+      h += '<main>';
+      h += '<figure class="engraving"><img src="' + v.img + '" alt="' + esc(v.alt) + '" />' + (v.caption ? '<figcaption>' + esc(v.caption) + '</figcaption>' : '') + '</figure>';
+      h += '<div class="vendor-grid">';
+      h += '<div>';
+      h += '<blockquote class="review"><p class="rq">\u201C' + esc(v.review.text) + '\u201D</p>';
+      h += '<p class="rs">— ' + esc(v.review.source);
+      if (v.review.url) h += ' \u00B7 <a href="' + v.review.url + '" target="_blank" rel="noopener">read it at the source</a>';
+      h += '</p></blockquote>';
+      h += '</div>';
+
+      h += '<div>';
+      h += '<h2 class="sec-label">As the Scroll told it</h2>';
+      h += '<p class="sec-cite">' + esc(scrollCite(v)) + ' — <a href="' + editionURL(v) + '">read that edition in the archive</a></p>';
+      h += '<div class="blurb">';
+      v.blurb.forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+      h += '</div>';
+      h += '<div class="why-box"><span class="wb-title">Why the Hearth sends you</span><p>' + esc(v.why) + '</p></div>';
+      if (v.sweetroll) {
+        h += '<div class="sweetroll-watch"><span class="sw-label">Sweetroll Watch</span><p>' + esc(v.sweetroll) + '</p></div>';
+      }
+      if (v.heraldry) {
+        h += '<div class="heraldry"><span class="hb-title">The fuller tale</span><span class="hb-sub">More from their own heraldry — drawn from the shop\u2019s own advertising and listings, every source named below.</span>';
+        v.heraldry.forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+        if (v.ifYouGo) h += '<p class="if-you-go"><span class="iyg-label">If you go \u2014 </span>' + esc(v.ifYouGo) + '</p>';
+        if (v.heraldrySrc && v.heraldrySrc.length) {
+          h += '<p class="src">As heralded by ' + v.heraldrySrc.map(function (s) {
+            return '<a href="' + s.url + '" target="_blank" rel="noopener">' + esc(s.label) + '</a>';
+          }).join(' \u00B7 ') + '</p>';
+        }
+        h += '</div>';
+      }
+      if (v.confession) {
+        h += '<div class="confession"><span class="cf-label">The Scroll confesses \u2014 </span>' + esc(v.confession) + '</div>';
+      }
+      h += '<dl class="facts">';
+      h += factRow("Trade", esc(cat) + " \u2014 " + esc(v.town));
+      h += factRow("Address", addrLink(v.address));
+      h += factRow("Phone", '<a href="tel:+1' + v.phone.replace(/[^0-9]/g, "") + '">' + esc(v.phone) + '</a>');
+      h += factRow("Hours", esc(v.hours));
+      h += factRow("Prices", esc(v.price));
+      h += factRow("They offer", esc(v.offerings));
+      h += factRow("Signature", esc(v.signature));
+      h += factRow("Good to know", esc(v.goodToKnow));
+      if (v.website) h += factRow("Website", '<a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + '</a>');
+      h += factRow("Last Courier\u2019s Scroll on", esc(v.lastChecked || LAST_CHECKED), "wide");
+      h += factRow("In the Scroll", '<a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a>');
+      h += '</dl>';
+      h += '</div>';
+      h += '</div></main>';
+
+      h += '<footer class="trailer">';
+      h += '<h3 class="tr-title">' + esc(v.name) + ' \u2014 the short of it, for the road</h3>';
+      h += '<div class="trailer-grid">';
+      h += '<div><h4>Find them</h4><ul>';
+      h += '<li>' + esc(cat) + ' \u00B7 ' + esc(v.town) + '</li>';
+      h += '<li>' + addrLink(v.address) + '</li>';
+      h += '<li><a href="tel:+1' + v.phone.replace(/[^0-9]/g, "") + '">' + esc(v.phone) + '</a></li>';
+      h += '<li>' + esc(v.hours) + '</li>';
+      h += '<li>' + esc(v.price) + '</li>';
+      h += '</ul></div>';
+      h += '<div><h4>Word &amp; web</h4><ul>';
+      if (v.website) h += '<li>Website: <a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + '</a></li>';
+      h += '<li>Travelers\u2019 word: ' + esc(v.review.source) + (v.review.url ? ' \u00B7 <a href="' + v.review.url + '" target="_blank" rel="noopener">read the review</a>' : '') + '</li>';
+      h += '<li>Signature: ' + esc(v.signature) + '</li>';
+      h += '</ul></div>';
+      h += '<div><h4>In the Scroll</h4><ul>';
+      h += '<li><a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a></li>';
+      h += '<li><a href="' + ARCHIVE_URL + '">The Payson Morning Scroll archive</a></li>';
+      h += '</ul></div>';
+      h += '</div>';
+      h += '<a class="back-top" href="#cat-' + v.category + '">More ' + esc(cat) + '</a>';
+      h += '<div class="back-page1-wrap"><a class="back-page1-btn" href="#/">\u21A9 Return to the First Page</a></div>';
+      h += '<p class="colophon">The Gilded Pages of the Holds \u00B7 Kept for the guests of Mogollon\u2019s Hearth \u00B7 Hours and prices as printed in the Scroll on the day featured \u2014 call ahead if your road depends on them</p>';
+      h += '</footer>';
+
+      app.innerHTML = h;
+    }
+
+    function renderFiction(f) {
+      document.title = f.name + " \u2014 Mail Order Skyrim (Pure Jest) \u00B7 The Gilded Pages";
+      var h = "";
+
+      h += '<header class="vendor-head">';
+      h += '<nav class="crumbs" aria-label="Directory path">';
+      h += '<a href="#/">The Gilded Pages</a><span class="sep">\u203A</span>';
+      h += '<a href="#mail-order-skyrim">Mail Order Skyrim</a><span class="sep">\u203A</span>';
+      h += '<span aria-current="page">' + esc(f.name) + '</span></nav>';
+      h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 The Afterword of Pure Jest, Filed at the Very Back</p>';
+      h += '<h1 class="fell">' + esc(f.name) + '</h1>';
+      h += '<p class="meta-line">Mail Order Skyrim \u00B7 ' + esc(f.trade) + ' \u00B7 Never featured in The Payson Morning Scroll</p>';
+      h += '</header>';
+
+      h += '<main>';
+      h += '<div class="jest-banner"><span class="jb-title">Mail Order Skyrim \u2014 Pure Jest</span>' + esc(JEST_LABEL) + '</div>';
+      h += '<figure class="engraving"><img src="' + f.img + '" alt="' + esc(f.alt) + '" /><figcaption>' + esc(f.caption) + '</figcaption></figure>';
+      h += '<div class="vendor-grid">';
+      h += '<div>';
+      h += '<div class="why-box"><span class="wb-title">How to order</span><p>' + esc(f.order) + '</p></div>';
+      h += '<div class="why-box"><span class="wb-title">Why the Hearth wishes it were real</span><p>' + esc(f.whyWish) + '</p></div>';
+      h += '</div>';
+
+      h += '<div>';
+      h += '<div class="blurb">';
+      f.blurb.forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+      h += '</div>';
+      h += '<div class="heraldry"><span class="hb-title">The wares on offer</span>';
+      h += '<p>' + esc(f.wares) + '</p>';
+      h += '<p class="src">House specialty: ' + esc(f.signature) + '</p></div>';
+      h += '<dl class="facts">';
+      h += factRow("Trade", esc(f.trade) + " \u2014 by mail order only");
+      h += factRow("Where to find them", esc(f.where));
+      h += factRow("Hours", esc(f.hours));
+      h += factRow("Coin accepted", esc(f.coin));
+      h += factRow("Standing in the Scroll", "Never featured in The Payson Morning Scroll \u2014 a figment filed under jest, kept far from the true ledger");
+      h += '</dl>';
+      h += '</div>';
+      h += '</div></main>';
+
+      h += '<footer class="trailer">';
+      h += '<h3 class="tr-title">' + esc(f.name) + ' \u2014 the short of it, for the road (there is no road)</h3>';
+      h += '<div class="trailer-grid">';
+      h += '<div><h4>Particulars of a figment</h4><ul>';
+      h += '<li>' + esc(f.trade) + '</li>';
+      h += '<li>' + esc(f.where) + '</li>';
+      h += '<li>' + esc(f.hours) + '</li>';
+      h += '<li>' + esc(f.coin) + '</li>';
+      h += '</ul></div>';
+      h += '<div><h4>The ordering of it</h4><ul>';
+      h += '<li>' + esc(f.order) + '</li>';
+      h += '<li>House specialty: ' + esc(f.signature) + '</li>';
+      h += '</ul></div>';
+      h += '<div><h4>In the Scroll</h4><ul>';
+      h += '<li>Never enrolled \u2014 and the Scroll has checked twice</li>';
+      h += '<li>The true Merchants of the Hold, enrolled in earnest, wait in <a href="#/">the full directory</a></li>';
+      h += '</ul></div>';
+      h += '</div>';
+      h += '<a class="back-top" href="#mail-order-skyrim">More Mail Order Skyrim \u2191</a>';
+      h += '<div class="back-page1-wrap"><a class="back-page1-btn" href="#/">\u21A9 Return to the First Page</a></div>';
+      h += '<p class="colophon">The Gilded Pages of the Holds \u00B7 The back pages of pure jest \u00B7 Filed under Mail Order Skyrim, where the moths can\u2019t read and the ravens can</p>';
+      h += '</footer>';
+
+      app.innerHTML = h;
+    }
+
+    function route() {
+      var hash = window.location.hash || "#/";
+      var fm = hash.match(/^#\/fiction\/([a-z0-9-]+)/);
+      if (fm) {
+        var f = fictionBySlug(fm[1]);
+        if (f) { renderFiction(f); window.scrollTo(0, 0); return; }
+      }
+      if (hash === "#mail-order-skyrim") {
+        renderIndex();
+        var fel = document.getElementById("mail-order-skyrim");
+        if (fel) { fel.scrollIntoView(); return; }
+        window.scrollTo(0, 0);
+        return;
+      }
+      var bm = hash.match(/^#\/big\/([a-z0-9-]+)/);
+      if (bm) {
+        var bv = bigBySlug(bm[1]);
+        if (bv) { renderBig(bv); window.scrollTo(0, 0); return; }
+      }
+      var m = hash.match(/^#\/vendor\/([a-z0-9-]+)/);
+      if (m) {
+        var v = vendorBySlug(m[1]);
+        if (v) { renderVendor(v); window.scrollTo(0, 0); return; }
+      }
+      if (hash.indexOf("#cat-") === 0) {
+        renderIndex();
+        var el = document.getElementById(hash.slice(1));
+        if (el) { el.scrollIntoView(); return; }
+        window.scrollTo(0, 0);
+        return;
+      }
+      renderIndex();
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("hashchange", route);
+    route();
+
+    /* The “Return to the First Page” buttons are plain #/ links, but a tap on
+       one must always work — even when the address already ends in #/, where
+       the click changes nothing and no hashchange fires. Catch the tap
+       directly: go back to the directory and scroll to its very top. */
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      while (t && t !== document) {
+        if (t.classList && t.classList.contains("back-page1-btn")) {
+          e.preventDefault();
+          renderIndex();
+          window.scrollTo(0, 0);
+          return;
+        }
+        t = t.parentNode;
+      }
+    });
+    </script>
+</body>
+</html>
