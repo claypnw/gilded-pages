@@ -622,7 +622,9 @@ var BIG_CATEGORIES = [
   { id: "mental",   name: "Mental Health & Recovery", gloss: "Counselors, mind-healers & recovery halls" },
   { id: "hospice",  name: "Hospice", gloss: "Comfort care for life's last road" },
   { id: "medical",  name: "Medical Offices", gloss: "Doctors, surgeons & clinics of the Holds" },
-  { id: "physical", name: "Physical Therapy", gloss: "Bone-setters, stretchers & recovery halls" }
+  { id: "physical", name: "Physical Therapy", gloss: "Bone-setters, stretchers & recovery halls" },
+  { id: "home", name: "Home Health", gloss: "Healers who come to thy door" },
+  { id: "labs", name: "Laboratories", gloss: "Blood draws & testing halls" }
 ];
 
 var BIG_VENDORS = [
@@ -1336,6 +1338,26 @@ var BIG_VENDORS = [
     { hold: "Payson", address: "511 S Mud Springs Rd, Payson", phone: "(928) 472-6340", hours: "Office Mon\u2013Fri 9 AM\u20136 PM; hospice care round the clock", note: "Hospice + home health; serves Gila and Coconino counties. Phone per Medicare records and their own site." }
   ]
 },
+{
+  slug: "big-hospice-of-payson", name: "Hospice of Payson", category: "hospice", big: true,
+  img: "big-hospice-of-payson.webp",
+  website: "https://hospiceofpayson.com",
+  alt: "Engraving of a gentle Nord healer tending a warm hearth in a quiet timber house at twilight \u2014 an elder resting peacefully beneath a woven blanket, family gathered softly around the bedside, candlelight, pine hills at sunset through the window",
+  intro: "The home-grown comfort-keepers of Beeline Highway \u2014 a locally based hospice easing life's last road, Medicare-certified since 2014, keeping the family's hearth warm to the very end.",
+  locations: [
+    { hold: "Payson", address: "900 N Beeline Hwy Ste B, Payson", phone: "(928) 474-2415", hours: "Hours not confirmed \u2014 ring ahead; hospice care typically round the clock", note: "Locally based hospice; CMS NPI record active and their own site live. One third-party directory claims closed, but Medicare records disagree." }
+  ]
+},
+{
+  slug: "big-arizona-care-hospice", name: "Arizona Care Hospice", category: "hospice", big: true,
+  img: "big-arizona-care-hospice.webp",
+  website: "https://arizonacarehospice.com",
+  alt: "Engraving of a kind Nord healer wrapping a warm fur cloak around a traveler's shoulders on the porch of a timber lodge at sunset \u2014 tall pines, birds flying home across the evening sky, lanterns lit along the path",
+  intro: "The traveling comfort-bringers of Beeline Highway \u2014 hospice care for Payson families through life's last season, from the folks at Arizona Care Hospice.",
+  locations: [
+    { hold: "Payson", address: "1100 N Beeline Hwy Ste D, Payson", phone: "(928) 474-3721", hours: "Hours not confirmed \u2014 ring ahead; hospice care typically round the clock", note: "Payson office of Arizona Care Hospice; address and phone per their own site (live)." }
+  ]
+},
 /* ---------------- MEDICAL OFFICES ---------------- */
 {
   slug: "big-banner-clinic-main", name: "Banner Health Clinic \u2013 Family Medicine", category: "medical", big: true,
@@ -1456,6 +1478,24 @@ var BIG_VENDORS = [
   ]
 },
 {
+  slug: "big-waechter-obgyn", name: "Edward Waechter, OB-GYN", category: "medical", big: true,
+  img: "big-waechter-obgyn.webp",
+  alt: "Engraving of a kindly elderly Nord healer woman in fur-trimmed robes grinding herbs in a stone mortar at a wooden worktable in a warm timber healing hall \u2014 shelves of clay herb jars and folded linen, a glowing hearth, a small carved wooden cradle against the wall",
+  intro: "The women's-care hall on Main Street \u2014 obstetrics and gynecology for the mothers and daughters of the Hold, from a practice that has watched over Payson families for decades.",
+  locations: [
+    { hold: "Payson", address: "120 E Main St Ste A, Payson", phone: "(928) 474-9744", hours: "Mon\u2013Fri 8 AM\u20135 PM (directory \u2014 ring ahead)", note: "OB-GYN practice. Phone consistent across WebMD, place data and the NPI registry. YellowPages lists the same practice as 'Banner Medical Group Women's Care' with (928) 596-4700 \u2014 ring ahead to confirm." }
+  ]
+},
+{
+  slug: "big-arizona-heart-institute", name: "Arizona Heart Institute", category: "medical", big: true,
+  img: "big-arizona-heart-institute.webp",
+  alt: "Engraving of a healing hall's quiet council room \u2014 a wise Nord healer and a young apprentice studying a carved wooden model of a heart on a long oak table, scrolls and a candle beside it, tall windows over pine-topped mountains",
+  intro: "The heart-healers of Coeur d'Alene Lane \u2014 the Payson clinic of the Arizona Heart Institute, tending the chests of the Hold without the long journey down to the Valley.",
+  locations: [
+    { hold: "Payson", address: "708 S Coeur D Alene Ln Ste B, Payson", phone: "(928) 474-2175", hours: "Listings vary Mon\u2013Fri 9 AM\u20135 PM vs 9 AM\u20136 PM \u2014 ring ahead", note: "Arizona Heart Institute Ltd Payson, per the NPI registry (active). Distinct from the unrelated Phoenix AZ Heart Hospital. No working official website found (azheart.com connection refused) \u2014 site checked live." }
+  ]
+},
+{
   slug: "big-banner-physical-therapy", name: "Banner Physical Therapy", category: "physical", big: true,
   img: "big-banner-physical-therapy.webp",
   website: "https://www.bannerhealth.com/locations/payson/banner-physical-therapy-main",
@@ -1473,6 +1513,38 @@ var BIG_VENDORS = [
   intro: "The independent recovery hall on Main Street \u2014 physical therapy and rehabilitation where the healers answer to no distant lord.",
   locations: [
     { hold: "Payson", address: "405 W Main St Ste D, Payson", phone: "(928) 474-0429", hours: "Mon\u2013Fri 8 AM\u20134 PM", note: "Independent PT and rehabilitation clinic. Site checked live; hours per Google place data \u2014 call to confirm." }
+  ]
+},
+/* ---------------- HOME HEALTH ---------------- */
+{
+  slug: "big-preferred-homecare", name: "Preferred Homecare", category: "home", big: true,
+  img: "big-preferred-homecare.webp",
+  website: "https://preferredhomecare.com",
+  alt: "Engraving of a friendly Nord healer arriving at the door of a small timber cottage in the morning \u2014 carrying a woven basket of herbs and folded bandages, an elder waving welcome from the open doorway, chickens in the yard, pine trees beyond",
+  intro: "The healers who knock on thy own door \u2014 in-home care for the elders and the recovering of the Hold, from the Payson hall of Preferred Homecare.",
+  locations: [
+    { hold: "Payson", address: "119 W Aero Dr, Payson", phone: "(928) 474-6293", hours: "Listings vary Mon\u2013Fri 8:30 AM\u20135 PM vs 10 AM\u20134 PM \u2014 ring ahead", note: "Payson office of the Arizona home-health agency. Separate from their Show Low DME office (3051 S White Mountain Rd Ste B, (928) 532-1088)." }
+  ]
+},
+{
+  slug: "big-accentcare", name: "AccentCare Personal Care Services", category: "home", big: true,
+  img: "big-accentcare.webp",
+  website: "https://pcs.accentcare.com/arizona-01",
+  alt: "Engraving of a wise old Nord healer sitting beside an elder's bedside in a cozy timber home \u2014 offering a warm cup of broth, folded linens and herb bundles in a basket on the floor, a cat sleeping by the hearth, snow-dusted pines through the window",
+  intro: "The gentle hands of a nationwide healing order \u2014 AccentCare's personal-care healers come to the homes of Payson, helping elders with the day's work and the night's rest.",
+  locations: [
+    { hold: "Payson", address: "200 W Frontier St Ste G, Payson", phone: "(928) 404-8000", hours: "Hours not confirmed \u2014 ring ahead", note: "AccentCare Personal Care Services, Payson office; Active per place data. Personal (non-medical) home care: bathing, meals, housekeeping, companionship." }
+  ]
+},
+/* ---------------- LABORATORIES ---------------- */
+{
+  slug: "big-sonora-quest", name: "Sonora Quest Laboratories", category: "labs", big: true,
+  img: "big-sonora-quest.webp",
+  website: "https://www.sonoraquest.com/patients/appointments/",
+  alt: "Engraving of an alchemist's bench in a timber apothecary workroom \u2014 rows of glass flasks and vials of tinctures on wooden shelves, a scholar-healer carefully pouring liquid from one vial to another over a candle flame, parchment notes and a scale on the table",
+  intro: "The testing hall beside Banner's clinic row \u2014 blood draws and lab work for the whole Hold: schedule ahead or walk in, and read thy results from home.",
+  locations: [
+    { hold: "Payson", address: "117 E Main St Bldg C, Payson", phone: "(928) 474-6136", hours: "Mon\u2013Fri 6 AM\u20133 PM", note: "Patient Service Center. Walk-ins welcome or schedule online; hours per their own listing \u2014 ring ahead." }
   ]
 }
 ];
