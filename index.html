@@ -624,7 +624,9 @@ var BIG_CATEGORIES = [
   { id: "medical",  name: "Medical Offices", gloss: "Doctors, surgeons & clinics of the Holds" },
   { id: "physical", name: "Physical Therapy", gloss: "Bone-setters, stretchers & recovery halls" },
   { id: "home", name: "Home Health", gloss: "Healers who come to thy door" },
-  { id: "labs", name: "Laboratories", gloss: "Blood draws & testing halls" }
+  { id: "labs", name: "Laboratories", gloss: "Blood draws & testing halls" },
+  { id: "dialysis", name: "Dialysis", gloss: "Kidney-cleansing halls" },
+  { id: "equipment", name: "Medical Equipment", gloss: "Durable gear, oxygen & home medical supply" }
 ];
 
 var BIG_VENDORS = [
@@ -1890,6 +1892,76 @@ var BIG_VENDORS = [
   intro: "The elder-guides of Dry Creek Road — Aging Life Care managers who plan, arrange and watch over an elder's whole care, by appointment only.",
   locations: [
     { hold: "Sedona", address: "150 Dry Creek Rd, Sedona", phone: "(928) 639-1583", hours: "By appointment only (directory lists Mon–Fri 9 AM–4 PM — ring ahead)", note: "Geriatric care management — care assessments and long-term planning, medical advocacy, arranging in-home care, Alzheimer's support, RN medication management and fiduciary services. A second office sits in Prescott. Address and phone per the practice's own site, checked live — the site labels this number its Sedona line." }
+  ]
+},
+{
+  slug: "big-davita-cottonwood", name: "DaVita Cottonwood Dialysis", category: "dialysis", big: true,
+  img: "big-davita-cottonwood.webp",
+  website: "https://www.davita.com/locations/az/cottonwood/1699-e-cottonwood-st--6805",
+  alt: "Engraving of a kidney-cleansing healing hall in a desert valley town \u2014 an elderly thin woman patient with long silver braids resting in a wooden chair while a tall young male healer with short dark curly hair tends an alchemical glass-and-copper cleansing apparatus, cottonwood trees and distant mesas through the window",
+  intro: "The cleansing hall of Cottonwood Street \u2014 where healers run the blood through their art when the kidneys can no longer do the work alone.",
+  locations: [
+    { hold: "Cottonwood", address: "1699 E Cottonwood St Ste A200, Cottonwood", phone: "(800) 424-6589", hours: "Mon\u2013Sat 6 AM\u20137 PM (directory \u2014 hours not confirmed on official site)", note: "Outpatient dialysis \u2014 in-center hemodialysis and peritoneal dialysis for kidney failure. The phone published here is the number on DaVita's own site, checked live (fax (928) 634-9683); directory listings also show (833) 412-2367 for this center." }
+  ]
+},
+{
+  slug: "big-northern-arizona-home-health", name: "Northern Arizona Home Health", category: "home", big: true,
+  img: "big-northern-arizona-home-health.webp",
+  website: "https://lhcgroup.com/locations/northern-arizona-home-health-of-cottonwood/",
+  alt: "Engraving of a home-health healer visiting a desert cottage \u2014 a stout middle-aged man healer with a bald head and thick brown beard carrying a leather medicine satchel, greeted at the door by a young mother with a dark ponytail holding a child, cottonwood trees and mesas behind",
+  intro: "The road healers of Candy Lane \u2014 skilled nursing and therapy brought to thy own door, under a referring doctor's orders.",
+  locations: [
+    { hold: "Cottonwood", address: "115 S Candy Ln, Building A, Ste A & B, Cottonwood", phone: "(928) 639-6674", hours: "Mon\u2013Fri 8 AM\u20134:30 PM", note: "Skilled home health from LHC Group, in partnership with Northern Arizona Healthcare \u2014 skilled nursing, physical, occupational and speech therapy, home health aides, medical social work, wound care, infusion and chronic disease management. Address, phone and hours per LHC Group's own site, checked live. NOTE: older directories list this agency at 203 S Candy Ln with a different phone \u2014 that building is its sister hospice, listed separately in this directory." }
+  ]
+},
+{
+  slug: "big-northern-arizona-hospice", name: "Northern Arizona Hospice", category: "hospice", big: true,
+  img: "big-northern-arizona-hospice.webp",
+  website: "https://lhcgroup.com/locations/northern-arizona-hospice/",
+  alt: "Engraving of a gentle hospice healer at a bedside in a desert valley home \u2014 a young slender woman healer with short blonde bobbed hair holding a lantern, comforting an elderly man patient with a white mustache in bed, his adult daughter with wavy auburn hair standing nearby, warm hearth light and mesas through the window",
+  intro: "The comfort-healers of Candy Lane \u2014 hospice care at home around the clock, from LHC Group in partnership with Northern Arizona Healthcare.",
+  locations: [
+    { hold: "Cottonwood", address: "203 S Candy Ln Ste 2A, Cottonwood", phone: "(928) 639-6676", hours: "Open 24 hours, 7 days", note: "Hospice and end-of-life care at home for life-limiting illness \u2014 including cancer, ALS, liver disease and stroke \u2014 plus palliative care and grief support. Suite, phone and hours per LHC Group's own site, checked live; older listings gave Suite 10A and no phone. Distinct from the Flagstaff hall of the same name." }
+  ]
+},
+{
+  slug: "big-aviant-hospice", name: "Aviant Healthcare \u2014 Aviant Hospice", category: "hospice", big: true,
+  img: "big-aviant-hospice.webp",
+  website: "https://www.avianthospice.com/hospice-care",
+  alt: "Engraving of a hospice care team in a desert garden courtyard \u2014 an older heavyset man chaplain with gray side-parted hair and glasses playing a lute softly, a middle-aged woman nurse with long black hair in a braid bringing herbs, an elderly woman patient with curly white hair smiling in a wooden chair, desert hills behind",
+  intro: "The song-and-herb comfort-healers of Villa Drive \u2014 accredited hospice care at home, in assisted living, or in long-term care.",
+  locations: [
+    { hold: "Cottonwood", address: "1756 E Villa Dr Ste C-17, Cottonwood", phone: "(928) 634-1073", hours: "Mon\u2013Fri 8 AM\u20135 PM (directory \u2014 office hours not confirmed on official site); hospice services available 24 hours, 7 days", note: "Accredited hospice \u2014 pain and symptom management, nursing, social work, chaplain, volunteer and bereavement care. Formerly Verde Valley Community Hospice. Official site checked live. Same building as other Villa Drive care offices \u2014 Suite C-17 is Aviant's own door." }
+  ]
+},
+{
+  slug: "big-centerwell-home-health", name: "CenterWell Home Health \u2014 Cottonwood", category: "home", big: true,
+  img: "big-centerwell-home-health.webp",
+  website: "https://www.centerwell.com/find-care/home-health/location?location=CenterWell+Home+Health+-+Cottonwood&hcode=H248",
+  alt: "Engraving of a home-health therapy scene inside a desert cottage \u2014 a lean athletic woman therapist in her thirties with dark skin and hair in a top bun helping a tall elderly man with a long gray beard practice walking with a wooden staff, herb bundles on a wooden table, cottonwood valley hills through the window",
+  intro: "The recovery healers of Villa Drive \u2014 in-home nursing and therapy for those mending from illness, injury, or the surgeon's knife.",
+  locations: [
+    { hold: "Cottonwood", address: "1760 E Villa Dr Ste E & F, Cottonwood", phone: "(928) 649-9933", hours: "Mon\u2013Fri 8 AM\u20135 PM (directory \u2014 hours not confirmed on official site)", note: "In-home skilled nursing, physical, occupational and speech therapy, medical social work and home health aides, for recovery or chronic conditions. SUCCESSOR: this hall traded as Kindred at Home at the same address and phone before the CenterWell name. Suite note: one resource lists Suite E & F, another Suite F only \u2014 ring ahead to confirm the door. Official location page checked live." }
+  ]
+},
+{
+  slug: "big-nurses-network-cottonwood", name: "Nurses Network by Quality Home Health", category: "home", big: true,
+  img: "big-nurses-network-cottonwood.webp",
+  website: "https://nursesnetwork.net/",
+  alt: "Engraving of a visiting nurse on a main street in an old desert town \u2014 a petite woman nurse in her fifties with short gray-streaked bobbed hair carrying a medicine basket, walking toward a stone cottage door, a young boy with messy sandy hair waving from the porch, main street storefronts and mesas behind",
+  intro: "The nurse-network of Main Street \u2014 Medicare-certified home health and private-duty nursing across central and northern Arizona.",
+  locations: [
+    { hold: "Cottonwood", address: "280 S Main St Ste K, Cottonwood", phone: "(928) 204-2255", hours: "Mon\u2013Fri 8 AM\u20135 PM (directory \u2014 hours not confirmed on official site)", note: "Medicare-certified home health and private-duty nursing \u2014 in-home nursing, home therapy, and care for developmental disabilities. Address and phone confirmed word-for-word on the practice's own site, checked live; the Cottonwood hall is one of four locations \u2014 the others sit in Prescott Valley, Flagstaff and Phoenix." }
+  ]
+},
+{
+  slug: "big-all-med-equipment", name: "All-Med Equipment & Services", category: "equipment", big: true,
+  img: "big-all-med-equipment.webp",
+  website: "http://www.all-medaz.com/",
+  alt: "Engraving of a medical equipment craftsman's shop in a desert town \u2014 a broad-shouldered young man craftsman with red hair in a short ponytail fitting a wooden wheeled chair for an elderly woman with dark hair streaked white in a bun, shelves with crutches, canes, bellows and glass bottles, desert street through the open door",
+  intro: "The gear-crafters of Mingus Avenue \u2014 wheeled chairs, scooters and healing gear, sold, fitted and mended since 1985.",
+  locations: [
+    { hold: "Cottonwood", address: "680 E Mingus Ave, Cottonwood", phone: "(928) 634-3627", hours: "Mon\u2013Thu 9 AM\u20134 PM; Fri 9 AM\u20133 PM; Sat\u2013Sun closed", note: "HQAA-accredited, family-owned durable medical equipment \u2014 power chairs, scooters, diabetic supplies and blood pressure machines, with scooter and power-chair repair, licensed respiratory therapists on staff, and after-hours emergency service. Hours per the shop's own site, checked live; directories listing Mon\u2013Fri 8:30 AM\u20135 PM conflict with the official hours. A second hall sits in Flagstaff." }
   ]
 }
 ];
