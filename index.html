@@ -626,7 +626,8 @@ var BIG_CATEGORIES = [
   { id: "home", name: "Home Health", gloss: "Healers who come to thy door" },
   { id: "labs", name: "Laboratories", gloss: "Blood draws & testing halls" },
   { id: "dialysis", name: "Dialysis", gloss: "Kidney-cleansing halls" },
-  { id: "equipment", name: "Medical Equipment", gloss: "Durable gear, oxygen & home medical supply" }
+  { id: "equipment", name: "Medical Equipment", gloss: "Durable gear, oxygen & home medical supply" },
+  { id: "imaging", name: "Imaging", gloss: "Ultrasound & diagnostic imaging halls" }
 ];
 
 var BIG_VENDORS = [
@@ -2031,6 +2032,80 @@ var BIG_VENDORS = [
   intro: "The bone-setters of Posse Ground Road \u2014 patient, hands-on therapy that takes the time to know thee.",
   locations: [
     { hold: "Sedona", address: "100 Posse Ground Rd, Sedona", phone: "(928) 282-5050", hours: "Mon, Tue, Thu, Fri 8 AM\u20135 PM; Wed 8 AM\u2013noon (directory)", note: "Outpatient physical therapy \u2014 the practice says its therapists take the time to know each patient and what they need. Address and phone per its directory listing; its own site was checked live." }
+  ]
+}
+,
+/* ---------------- PHYSICAL THERAPY (Sedona, Day 15) ---------------- */
+{
+  slug: "big-matsuoka-mfr", name: "Matsuoka MFR Physical Therapy", category: "physical", big: true,
+  img: "big-matsuoka-mfr.webp",
+  alt: "Engraving of a physical therapy room in Sedona \u2014 a slender Japanese-American woman therapist in her sixties with silver-gray hair in a low ponytail gently working on the shoulder of a tall lean male patient in his thirties with bright red hair, freckles and a short red beard, red rock cliffs through the window",
+  intro: "The hands-on healers of Soldiers Pass \u2014 myofascial release, one patient at a time, by appointment.",
+  locations: [
+    { hold: "Sedona", address: "40 Soldiers Pass Rd Ste 5, Sedona", phone: "(928) 282-1237", hours: "Mon\u2013Fri 8 AM\u20135 PM (directory); by appointment only", note: "Physical therapy built on John F. Barnes myofascial release \u2014 individual sessions and customized intensive programs for acute or chronic pain and wellness. Address, phone and hours per its place listing. Website field omitted: the listing's site (matsuoka-mfr.info) could not be confirmed live, so no unverified link is published \u2014 ring ahead to book." }
+  ]
+},
+/* ---------------- MENTAL HEALTH & RECOVERY (Cottonwood, Day 15) ---------------- */
+{
+  slug: "big-spectrum-cottonwood", name: "Spectrum Healthcare Group \u2013 Cottonwood", category: "mental", big: true,
+  img: "big-spectrum-cottonwood.webp",
+  website: "https://www.spectrumhealthcare-group.com/",
+  alt: "Engraving of a counseling hall in Cottonwood \u2014 a heavyset Black woman counselor in her forties with short natural curly black hair sitting at a wooden desk talking with a thin elderly man patient in his seventies who is bald with white side hair and a long white mustache, a walking cane beside his chair, desert hills through a window",
+  intro: "The whole-person healers of Mingus Avenue \u2014 mind and body cared for under one roof in Cottonwood.",
+  locations: [
+    { hold: "Cottonwood", address: "651 W Mingus Ave, Cottonwood", phone: "(928) 634-2236", hours: "Mon\u2013Thu 8 AM\u20135 PM; Fri\u2013Sun closed (directory \u2014 hours not confirmed on the official site)", note: "Integrated care: primary care plus mental-health counseling, psychiatry, addiction treatment and care coordination for all ages, including walk-in and same-day help. Address and phone confirmed on the group's own location data and federal listings; its official site was checked live. Spectrum's Camp Verde listing is not published \u2014 the group's current official locations no longer include Camp Verde." }
+  ]
+},
+{
+  slug: "big-polara-cottonwood", name: "Polara Health \u2013 Cottonwood Clinic", category: "mental", big: true,
+  img: "big-polara-cottonwood.webp",
+  website: "https://www.polarahealth.com/",
+  alt: "Engraving of an outpatient counseling clinic in Cottonwood \u2014 a tall Latina woman therapist in her thirties with long wavy dark brown hair leading a small circle of seated patients, a stocky young man in his twenties with blonde hair in a topknot and an older woman in her sixties with straight black hair streaked gray, Mingus Mountain through the window",
+  intro: "The guiding-star healers of Cove Parkway \u2014 Yavapai County's long-standing mind-healers, now in Cottonwood.",
+  locations: [
+    { hold: "Cottonwood", address: "850 Cove Pkwy Ste A, Cottonwood", phone: "(928) 445-5211", hours: "Mon\u2013Fri 8 AM\u20135 PM", note: "Outpatient behavioral health \u2014 counseling and therapy, psychiatry and medication management, substance-use treatment and integrated primary care, all ages. Address, phone and hours per Polara Health's own site, checked live; the Cottonwood Clinic is listed on its homepage at this address. Same health system as the Camp Verde clinic already in these pages." }
+  ]
+},
+{
+  slug: "big-copper-mountain-counseling", name: "Copper Mountain Counseling & Consulting", category: "mental", big: true,
+  img: "big-copper-mountain-counseling.webp",
+  alt: "Engraving of a quiet evening counseling room in Cottonwood \u2014 a medium-build Native American man counselor in his fifties with black hair in a single braid, a square jaw and glasses, listening across a small wooden table to a young woman patient in her twenties with light brown skin and shoulder-length straight black hair, lamplight and desert dusk through the window",
+  intro: "The evening counselors of Villa Drive \u2014 a small, quiet practice for minds that need untangling.",
+  locations: [
+    { hold: "Cottonwood", address: "1756 E Villa Dr Ste C-1, Cottonwood", phone: "(928) 613-2093", hours: "Mon\u2013Fri 9 AM\u20135 PM (directory); evening and weekend hours by appointment", note: "Licensed professional counseling, including EMDR therapy. No official website found \u2014 directories only, so the website field is omitted rather than linking a directory. SUITE CONFLICT: some directories list Ste C-17, which other listings give as Aviant Hospice's suite in the same building \u2014 ring ahead to confirm the suite before thy first visit." }
+  ]
+},
+/* ---------------- IMAGING (Cottonwood, Day 15) ---------------- */
+{
+  slug: "big-sedona-diagnostic-ultrasound", name: "Sedona Diagnostic Ultrasound", category: "imaging", big: true,
+  img: "big-sedona-diagnostic-ultrasound.webp",
+  website: "https://www.sedonadiagnosticultrasound.com/",
+  alt: "Engraving of an imaging healer's scrying room in Cottonwood \u2014 a petite East Asian woman healer in her forties with black hair in a bob cut and a round face holding her hands over a crystal viewing orb on a wooden stand, a pregnant woman patient in her thirties with curly auburn hair sitting beside her, Verde Valley hills through the window",
+  intro: "The seeing-glass healers \u2014 ultrasound pictures of what lies within, read by a sonographer with four decades at the craft.",
+  locations: [
+    { hold: "Cottonwood", address: "868 Cove Pkwy Ste 4, Cottonwood", phone: "(928) 275-2588", hours: "Mon\u2013Fri 8 AM\u20135 PM, by appointment (official booking page); mobile in-home visits at other hours by arrangement", note: "NAME NOTE: despite the Sedona name, the office stands in Cottonwood \u2014 it also makes mobile in-home visits across Sedona and the Verde Valley. Ultrasound exams of many kinds, including obstetric, vascular and echocardiograms; a provider referral or order is needed before booking. Address, phone, hours and services per its own site, checked live." }
+  ]
+},
+/* ---------------- LABORATORIES (Cottonwood, Day 15) ---------------- */
+{
+  slug: "big-sonora-quest-cottonwood", name: "Sonora Quest Laboratories \u2013 Cottonwood", category: "labs", big: true,
+  img: "big-sonora-quest-cottonwood.webp",
+  website: "https://www.sonoraquest.com/find-a-location/",
+  alt: "Engraving of an alchemist laboratory in Cottonwood \u2014 a lanky man lab healer in his fifties with thinning salt-and-pepper hair, a long narrow face and spectacles, pouring liquid between glass vials at a wooden bench, a young woman assistant in her twenties with dark skin and hair in two braids tying parchment tags, cottonwood trees through the window",
+  intro: "The testing hall behind Verde Valley Medical Center \u2014 blood draws and lab work for the Cottonwood hold.",
+  locations: [
+    { hold: "Cottonwood", address: "203 S Candy Ln Ste 4B, Cottonwood", phone: "(928) 634-2725", hours: "Mon\u2013Fri 6 AM\u20133 PM; Sat\u2013Sun closed", note: "Patient Service Center \u2014 walk-ins welcome, scheduled appointments are seen first. Enter through Verde Valley Medical Center's main entrance and follow the signs to the Outpatient Lab. Address, phone and hours per Sonora Quest's own location listing, checked live. Kin to the Payson testing hall already in these pages, under its own entry so each hall's facts stand alone." }
+  ]
+},
+/* ---------------- MEDICAL OFFICES (Cottonwood, Day 15) ---------------- */
+{
+  slug: "big-jochim-family-practice", name: "Jochim Family Practice", category: "medical", big: true,
+  img: "big-jochim-family-practice.webp",
+  website: "https://jochimfamilypractice.com/",
+  alt: "Engraving of a family doctor's hall in Cottonwood \u2014 an older woman doctor in her sixties with short wavy white hair and a kind wrinkled face examining a young boy patient of about eight with messy brown hair, his father standing beside him, a broad-shouldered man in his forties with a dark brown crew cut and stubble, desert mountains through the window",
+  intro: "The family healers of Justin Drive \u2014 family-owned, and tending Verde Valley families for over forty years.",
+  locations: [
+    { hold: "Cottonwood", address: "218 Justin Dr, Cottonwood", phone: "(928) 634-5513", hours: "Mon\u2013Thu 8:30 AM\u2013noon, 1\u20135 PM; Fri 8:30 AM\u2013noon (directory \u2014 ring ahead)", note: "Family medicine for all ages \u2014 primary care, pediatrics, dermatology, laboratory testing and IV infusion among its services, per its own site, checked live. REBRAND ANNOUNCED on its site: the practice says it becomes Verde Community Health Care in the new year (2026), at the same hall. PHONE CONFLICT: federal provider listings also show (928) 634-2918 for this practice \u2014 the number published here is the one on its place listing and the inventory." }
   ]
 }
 
