@@ -267,7 +267,7 @@
 176. Payson Dermatology, Skin Cancer & Cosmetic Center — Payson — 313 S Beeline Hwy — (928) 472-7107 — Dermatology with Mohs skin-cancer surgery; clinical trials site.
 177. Arizona Institute of Dermatology (Peak Dermatology) — Payson — 127 E Main St Ste A — (928) 951-0395 — Medical and cosmetic dermatology; Mohs surgeon on staff.
 178. Edward Waechter, OB-GYN — Payson — 120 E Main St Ste A — (928) 474-9744 — Obstetrics and gynecology practice.
-179. Alma Medical Clinic (Amalia Pineres, MD) — Payson — 1106 N Beeline Hwy — (928) 474-8901 — Family medicine clinic. [HOLD per Clay 2026-10-10: do not list in any batch until he says otherwise; Google flags "Possibly Temporarily Closed".]
+179. Alma Medical Clinic (Amalia Pineres, MD) — Payson — 1106 N Beeline Hwy — (928) 474-8901 — Family medicine clinic. [HOLD per the admin 2026-10-10: do not list in any batch until he says otherwise; Google flags "Possibly Temporarily Closed".]
 180. Eagle Springs Family Medicine — Payson — 903 E Highway 260, Ste 4 — (928) 468-7700 — Family medicine / primary care.
 181. Biltmore Cardiology — Payson — 708 S Coeur D Alene Ln Ste A — (928) 472-7440 — Cardiology practice.
 182. Arizona Heart Institute — Payson — 708 S Coeur D Alene Ln Ste B — (928) 474-2175 — Cardiology clinic.
