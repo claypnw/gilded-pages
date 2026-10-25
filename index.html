@@ -2506,7 +2506,7 @@ var BIG_VENDORS = [
     /* Healthcare trades (the admin's ruling, 2026-10-25): gathered under one
        Healthcare section at the very end of the directory, each trade a
        subsection that keeps its own cat-<id> anchor. */
-    var HEALTHCARE_IDS = ["hospitals", "urgent", "dental", "pharmacy", "vision", "mental", "hospice", "medical", "physical", "home", "labs", "dialysis", "equipment", "imaging"];
+    var HEALTHCARE_IDS = ["hospitals", "urgent", "dental", "vision", "mental", "hospice", "medical", "physical", "home", "labs", "dialysis", "equipment", "imaging"];
     function isHealthcare(id) { return HEALTHCARE_IDS.indexOf(id) !== -1; }
     var RENDER_ORDER = CATEGORIES.filter(function (c) { return !isHealthcare(c.id); })
       .concat(CATEGORIES.filter(function (c) { return isHealthcare(c.id); }));
