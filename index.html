@@ -149,6 +149,21 @@
         margin: 0;
       }
       .cat-gloss { font-style: italic; color: var(--ink-soft); font-size: 15.5px; }
+      .subcat { margin-top: 34px; scroll-margin-top: 18px; }
+      .subcat-head {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        border-bottom: 1px solid var(--ink-soft);
+        padding-bottom: 4px;
+        flex-wrap: wrap;
+      }
+      .subcat-head h3 {
+        font-family: "Alegreya SC", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(20px, 3.2vw, 26px);
+        margin: 0;
+      }
 
       .vendor-list { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 20px; }
       @media (min-width: 760px) { .vendor-list { grid-template-columns: 1fr 1fr; } }
@@ -2488,6 +2503,13 @@ var BIG_VENDORS = [
 ];
     CATEGORIES = CATEGORIES.concat(BIG_CATEGORIES);
     CATEGORIES.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    /* Healthcare trades (the admin's ruling, 2026-10-25): gathered under one
+       Healthcare section at the very end of the directory, each trade a
+       subsection that keeps its own cat-<id> anchor. */
+    var HEALTHCARE_IDS = ["hospitals", "urgent", "dental", "pharmacy", "vision", "mental", "hospice", "medical", "physical", "home", "labs", "dialysis", "equipment", "imaging"];
+    function isHealthcare(id) { return HEALTHCARE_IDS.indexOf(id) !== -1; }
+    var RENDER_ORDER = CATEGORIES.filter(function (c) { return !isHealthcare(c.id); })
+      .concat(CATEGORIES.filter(function (c) { return isHealthcare(c.id); }));
     function catName(id) {
       for (var i = 0; i < CATEGORIES.length; i++) if (CATEGORIES[i].id === id) return CATEGORIES[i].name;
       return id;
@@ -2994,17 +3016,30 @@ var BIG_VENDORS = [
       h += '</div>';
       h += '<ul class="tabs" aria-label="Jump to a trade">';
       CATEGORIES.forEach(function (c) {
+        if (isHealthcare(c.id)) return;
         h += '<li><a href="#cat-' + c.id + '">' + esc(c.name) + '</a></li>';
       });
+      h += '<li><a href="#cat-healthcare">Healthcare</a></li>';
       h += '</ul></header>';
 
       h += '<main>';
-      CATEGORIES.forEach(function (c) {
+      var healthcareOpen = false;
+      RENDER_ORDER.forEach(function (c) {
         var list = VENDORS.filter(function (v) { return v.category === c.id; })
           .concat(BIG_VENDORS.filter(function (v) { return v.category === c.id; }));
         if (!list.length) return;
-        h += '<section class="cat-section" id="cat-' + c.id + '">';
-        h += '<div class="cat-head"><h2>' + esc(c.name) + '</h2><span class="cat-gloss">' + esc(c.gloss) + '</span></div>';
+        if (isHealthcare(c.id) && !healthcareOpen) {
+          healthcareOpen = true;
+          h += '<section class="cat-section" id="cat-healthcare">';
+          h += '<div class="cat-head"><h2>Healthcare</h2><span class="cat-gloss">Healers of the Holds \u2014 hospitals, apothecaries &amp; every hall of mending, gathered in one place</span></div>';
+        }
+        if (isHealthcare(c.id)) {
+          h += '<div class="subcat" id="cat-' + c.id + '">';
+          h += '<div class="subcat-head"><h3>' + esc(c.name) + '</h3><span class="cat-gloss">' + esc(c.gloss) + '</span></div>';
+        } else {
+          h += '<section class="cat-section" id="cat-' + c.id + '">';
+          h += '<div class="cat-head"><h2>' + esc(c.name) + '</h2><span class="cat-gloss">' + esc(c.gloss) + '</span></div>';
+        }
         h += '<div class="vendor-list">';
         list.forEach(function (v) {
           if (v.big) { h += bigCard(v, c); return; }
@@ -3021,8 +3056,10 @@ var BIG_VENDORS = [
           h += '<a class="open-link" href="#/vendor/' + v.slug + '">Open its page \u2192</a></div>';
           h += '</div></article>';
         });
-        h += '</div><div class="back-page1-wrap"><a class="back-page1-btn" href="#/">↩ Return to the First Page</a></div></section>';
+        h += '</div><div class="back-page1-wrap"><a class="back-page1-btn" href="#/">\u21A9 Return to the First Page</a></div>';
+        h += isHealthcare(c.id) ? '</div>' : '</section>';
       });
+      if (healthcareOpen) h += '</section>';
       h += '</main>';
 
 
