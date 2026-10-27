@@ -28,8 +28,11 @@ import contextlib
 import hashlib
 import http.client
 import io
+import socket
+import ssl
 import sys
 import tempfile
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime
@@ -164,7 +167,9 @@ def md5_of_file(path):
     return h.hexdigest()
 
 
-DOWNLOAD_ATTEMPTS = 5  # whole-file re-reads when a download comes up short
+DOWNLOAD_ATTEMPTS = 5  # tries down the step-down ladder (see download())
+DOWNLOAD_WAITS = (10, 20, 40, 80)  # seconds before tries 2 to 5
+DOWNLOAD_TIMEOUTS = (DOWNLOAD_TIMEOUT, DOWNLOAD_TIMEOUT, 120, 120, 120)  # per-try answer limit, seconds
 
 
 class IncompleteDownloadError(OSError):
@@ -177,43 +182,256 @@ class IncompleteDownloadError(OSError):
     cut-off file and print VERDICT: FAIL against a correct site.)"""
 
 
+def _content_range(value):
+    """'bytes 100-199/500' -> (100, 199, 500); a total of '*' -> None
+    total; 'bytes */500' (the 416 form) -> (None, None, 500)."""
+    if not value:
+        return None, None, None
+    try:
+        unit, rest = value.split(None, 1)
+        range_part, _, total_part = rest.partition("/")
+        total = None if total_part in ("", "*") else int(total_part)
+        if range_part == "*":
+            return None, None, total
+        start_s, _, end_s = range_part.partition("-")
+        return int(start_s), int(end_s), total
+    except (ValueError, AttributeError):
+        return None, None, None
+
+
+def _unfixable_transport(exc):
+    """A transport failure no later try can fix: the name cannot be
+    resolved, or the secure connection cannot be made. Those raise
+    at once with their original error, as before this change; the
+    cut, reset, refused, and timed-out kinds climb the ladder."""
+    reason = getattr(exc, "reason", exc)
+    return isinstance(reason, (socket.gaierror, ssl.SSLError))
+
+
 def download(url, dest):
     """Download url to dest (a file inside the temp dir). Returns dest.
 
-    When the server states a length (Content-Length), the bytes on
-    disk are counted against it. A download that falls short — or one
-    cut mid-transfer — is re-read from the start, up to
-    DOWNLOAD_ATTEMPTS times. Only a complete file is returned; if no
-    attempt arrives complete, IncompleteDownloadError is raised.
-    A response with no stated length is accepted as before: there is
-    no stated length to check it against.
+    The tries climb a step-down ladder (2026-10-26; before, a short
+    download was re-read FROM THE START up to DOWNLOAD_ATTEMPTS times —
+    the same whole request repeated):
+      Try 1: the whole read, as before, at the standing 60-second
+      limit (DOWNLOAD_TIMEOUT).
+      Tries 2 to 5: RESUME — the bytes already on disk are kept, and
+      the request asks only for the missing tail (a Range request
+      from the byte reached), so each try asks for less than the one
+      before. The waits between tries step up (10, 20, 40, 80
+      seconds) and the allowed answer time steps up to 120 seconds
+      from try 3 (DOWNLOAD_TIMEOUTS).
+
+    How a resumed answer is judged (second form, after the fresh-eyes
+    review proved the first form could return wrong bytes as a
+    complete file):
+      - A 206 (part) answer is checked BEFORE a byte of it is
+        appended: its Content-Range must start exactly at the byte
+        asked for, its stated total must match any total already
+        learned, and its stated length must match its stated range.
+        Anything else — the partial is cleared and the next try
+        starts the file over; pieces are never joined on a server's
+        say-so alone, and pieces of two versions are never joined
+        at all (a total that changes mid-download clears and
+        restarts the same way). A part is also judged AFTER it is
+        read against its own stated range: more bytes than the
+        range clears and restarts; FEWER bytes than the range —
+        even ending cleanly, even when no total was ever stated —
+        is a cut try, never a complete file (the bytes stay and
+        the next try resumes from them). A fully delivered part
+        whose size was never stated is also not proof of
+        completeness: a server may answer an open-ended ask with
+        a bounded piece, so the part's own end — and likewise the
+        end reckoned from the part's stated length — proves
+        nothing about the file's size. Completeness is proven
+        only by a stated total being reached, a whole-file 200
+        answer, or a 416 whose stated total equals the bytes on
+        disk.
+      - Only a 200 is a whole-file answer to a resume request, and
+        it is written from the start. Any other status (a bodyless
+        204, an odd success) is a failed try and the bytes on disk
+        are not touched.
+      - A 416 ("no such range") is judged by the total its own
+        Content-Range states, against the bytes on disk: equal
+        (and the bytes are the file's) — the file is complete;
+        anything else — the file changed under the download (it
+        shrank, or was replaced) — the partial is cleared and the
+        next try starts over. A 416 never proves completeness by
+        itself.
+      - An HTTP answer no retry can fix (a missing file, a refused
+        request) is raised at once, as before; a busy (408/429) or
+        server-error answer joins the ladder. A transport failure
+        no retry can fix (the name does not resolve, the secure
+        connection cannot be made) is raised at once with its
+        original error; cuts, resets, refusals, and time-outs join
+        the ladder, the bytes on disk kept for the resume.
+    Only a complete file is returned; if no try arrives complete,
+    IncompleteDownloadError is raised. A response with no stated
+    length is accepted as before: there is no stated length to
+    check it against.
     """
     last_short = None
-    for _attempt in range(DOWNLOAD_ATTEMPTS):
-        expected = None
-        got = 0
+    expected = None
+
+    def on_disk():
+        return dest.stat().st_size if dest.exists() else 0
+
+    for attempt in range(DOWNLOAD_ATTEMPTS):
+        if attempt:
+            time.sleep(DOWNLOAD_WAITS[attempt - 1])
+        start = on_disk() if attempt else 0
+        headers = {"User-Agent": USER_AGENT}
+        if start:
+            headers["Range"] = f"bytes={start}-"
+        req = urllib.request.Request(url, headers=headers)
+        got = start
         cut = False
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-            with urllib.request.urlopen(req, timeout=DOWNLOAD_TIMEOUT) as resp:
-                length = resp.headers.get("Content-Length")
-                if length is not None:
-                    try:
-                        expected = int(length)
-                    except ValueError:
+            with urllib.request.urlopen(
+                    req, timeout=DOWNLOAD_TIMEOUTS[attempt]) as resp:
+                status = getattr(resp, "status", 200)
+                if start and status not in (200, 206):
+                    # Not a whole file and not the tail: a failed
+                    # try; the bytes on disk are not touched.
+                    cut = True
+                    last_short = (f"answer {status} to a resume request "
+                                  f"(got {got} bytes)")
+                elif status == 206:
+                    p_start, p_end, p_total = _content_range(
+                        resp.headers.get("Content-Range"))
+                    length = resp.headers.get("Content-Length")
+                    length_n = None
+                    if length is not None:
+                        try:
+                            length_n = int(length)
+                        except ValueError:
+                            length_n = None
+                    span = None
+                    if p_start is not None and p_end is not None:
+                        span = p_end - p_start + 1
+                    problem = None
+                    if p_start != start:
+                        problem = (f"a part began at byte {p_start}; "
+                                   f"byte {start} was asked for")
+                    elif p_total is not None and expected is not None \
+                            and p_total != expected:
+                        problem = ("the file changed size during the "
+                                   "download")
+                    elif length_n is not None and span is not None \
+                            and length_n != span:
+                        problem = ("a part's stated length does not "
+                                   "match its stated range")
+                    if problem is not None:
+                        # Never append: clear the partial and let
+                        # the next try start the file over.
+                        dest.write_bytes(b"")
                         expected = None
-                with open(dest, "wb") as out:
-                    while True:
-                        chunk = resp.read(1024 * 1024)
-                        if not chunk:
-                            break
-                        out.write(chunk)
-                        got += len(chunk)
-        except (http.client.IncompleteRead, ConnectionError) as e:
-            # Cut mid-transfer: retry from the start, whatever the
-            # stated length — a cut transfer is never a complete file.
+                        got = 0
+                        cut = True
+                        last_short = f"{problem} (partial cleared; will start over)"
+                    else:
+                        if p_total is not None:
+                            expected = p_total
+                        with open(dest, "ab") as out:
+                            while True:
+                                chunk = resp.read(1024 * 1024)
+                                if not chunk:
+                                    break
+                                out.write(chunk)
+                                got += len(chunk)
+                        if span is not None and got - start > span:
+                            dest.write_bytes(b"")
+                            expected = None
+                            cut = True
+                            last_short = ("a part carried more bytes than "
+                                          "its stated range (partial "
+                                          "cleared; will start over)")
+                            got = 0
+                        elif span is not None and got - start < span:
+                            # The part delivered fewer bytes than
+                            # its own stated range and ended
+                            # cleanly. The bytes stay (they are in
+                            # order) and the next try resumes from
+                            # them, but the try counts as a cut: a
+                            # short part is never a complete file,
+                            # even when no total was ever stated.
+                            cut = True
+                            last_short = (f"a part delivered "
+                                          f"{got - start} of its stated "
+                                          f"{span} bytes (got {got} bytes)")
+                        elif expected is None:
+                            # The part was delivered in full, but
+                            # no answer has ever stated the file's
+                            # size, and a part's own end is not
+                            # proof of it: a server may answer an
+                            # open-ended ask with a bounded piece
+                            # (the range standard says the client
+                            # must check whether more is needed).
+                            # The bytes stay and the next try
+                            # resumes from them; completeness is
+                            # proven only by a stated total being
+                            # reached, a whole-file 200 answer, or
+                            # a 416 whose stated total equals the
+                            # bytes on disk.
+                            cut = True
+                            last_short = (f"a part was delivered in "
+                                          f"full, but no answer has "
+                                          f"stated the file's size "
+                                          f"(got {got} bytes)")
+                else:
+                    # A whole-file answer: written from the start and
+                    # judged on its own stated length.
+                    length = resp.headers.get("Content-Length")
+                    if length is not None:
+                        try:
+                            expected = int(length)
+                        except ValueError:
+                            pass  # keep any length learned on an earlier try
+                    got = 0
+                    with open(dest, "wb") as out:
+                        while True:
+                            chunk = resp.read(1024 * 1024)
+                            if not chunk:
+                                break
+                            out.write(chunk)
+                            got += len(chunk)
+        except urllib.error.HTTPError as e:
+            if start and e.code == 416:
+                _, _, stated_total = _content_range(
+                    e.headers.get("Content-Range") if e.headers else None)
+                have = on_disk()
+                if have > 0 and (stated_total == have or expected == have):
+                    # The bytes on disk are the whole file: the
+                    # range was refused because nothing is missing.
+                    return dest
+                # Not proven complete — the file changed under the
+                # download. Clear the partial; the next try starts
+                # the file over.
+                dest.write_bytes(b"")
+                expected = None
+                cut = True
+                got = 0
+                last_short = f"{e} (partial cleared; will start over)"
+            elif not (e.code in (408, 429) or 500 <= e.code <= 599):
+                raise
+            else:
+                cut = True
+                got = on_disk()
+                last_short = f"{e} (got {got} bytes)"
+        except (http.client.IncompleteRead, ConnectionError,
+                TimeoutError) as e:
+            # Cut mid-transfer: the bytes on disk stay; the next try
+            # resumes from them — a cut transfer is never a complete
+            # file, and it is never started over either.
             cut = True
-            got = dest.stat().st_size if dest.exists() else 0
+            got = on_disk()
+            last_short = f"{e} (got {got} bytes)"
+        except urllib.error.URLError as e:
+            if _unfixable_transport(e):
+                raise
+            cut = True
+            got = on_disk()
             last_short = f"{e} (got {got} bytes)"
         if not cut and (expected is None or got >= expected):
             return dest
