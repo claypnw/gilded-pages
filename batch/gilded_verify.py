@@ -24,16 +24,19 @@ Python 3 standard library only.
 """
 
 import argparse
+import base64
 import contextlib
 import hashlib
 import http.client
 import io
+import os
 import socket
 import ssl
 import sys
 import tempfile
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -208,6 +211,77 @@ def _unfixable_transport(exc):
     return isinstance(reason, (socket.gaierror, ssl.SSLError))
 
 
+class _EngineResponse:
+    """A response read through the connection engine (http.client)
+    directly, wearing the shape download() already judges: status,
+    headers, read(n), and the with-statement. An error answer raises
+    urllib.error.HTTPError, exactly as the urllib road raised, so
+    the judging in download() does not change by one word.
+
+    Why the engine directly (2026-10-27; the same record as the
+    Scroll verify fix of 2026-10-26): the urllib layer over this
+    engine was cut on fetch after fetch from the live sites, while
+    the engine driven directly brought the same files down whole.
+    The ladder, the judging, and the verdicts are unchanged; only
+    the road under them moved."""
+
+    def __init__(self, url, headers, timeout):
+        parts = urllib.parse.urlsplit(url)
+        host = parts.hostname
+        port = parts.port or 443
+        path = parts.path or "/"
+        if parts.query:
+            path += "?" + parts.query
+        proxy = os.environ.get("https_proxy") or os.environ.get(
+            "HTTPS_PROXY")
+        ctx = ssl.create_default_context()
+        if proxy:
+            pp = urllib.parse.urlsplit(
+                proxy if "//" in proxy else "//" + proxy)
+            self._conn = http.client.HTTPSConnection(
+                pp.hostname, pp.port or 3128, timeout=timeout,
+                context=ctx)
+            tunnel_headers = {}
+            if pp.username:
+                raw = (f"{urllib.parse.unquote(pp.username)}:"
+                       f"{urllib.parse.unquote(pp.password or '')}")
+                tunnel_headers["Proxy-Authorization"] = (
+                    "Basic " + base64.b64encode(raw.encode()).decode())
+            self._conn.set_tunnel(host, port, headers=tunnel_headers)
+        else:
+            self._conn = http.client.HTTPSConnection(
+                host, port, timeout=timeout, context=ctx)
+        self._conn.request("GET", path, headers=headers)
+        self._resp = self._conn.getresponse()
+        self.status = self._resp.status
+        self.headers = self._resp.headers
+        if self.status >= 400:
+            hdrs = self._resp.headers
+            self.close()
+            raise urllib.error.HTTPError(
+                url, self.status, f"HTTP {self.status}", hdrs, None)
+
+    def read(self, n=-1):
+        return self._resp.read(n)
+
+    def close(self):
+        try:
+            self._conn.close()
+        except Exception:
+            pass
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.close()
+        return False
+
+
+def _open_engine(url, headers, timeout):
+    return _EngineResponse(url, headers, timeout)
+
+
 def download(url, dest):
     """Download url to dest (a file inside the temp dir). Returns dest.
 
@@ -284,12 +358,11 @@ def download(url, dest):
         headers = {"User-Agent": USER_AGENT}
         if start:
             headers["Range"] = f"bytes={start}-"
-        req = urllib.request.Request(url, headers=headers)
         got = start
         cut = False
         try:
-            with urllib.request.urlopen(
-                    req, timeout=DOWNLOAD_TIMEOUTS[attempt]) as resp:
+            with _open_engine(
+                    url, headers, DOWNLOAD_TIMEOUTS[attempt]) as resp:
                 status = getattr(resp, "status", 200)
                 if start and status not in (200, 206):
                     # Not a whole file and not the tail: a failed
@@ -429,6 +502,17 @@ def download(url, dest):
             last_short = f"{e} (got {got} bytes)"
         except urllib.error.URLError as e:
             if _unfixable_transport(e):
+                raise
+            cut = True
+            got = on_disk()
+            last_short = f"{e} (got {got} bytes)"
+        except OSError as e:
+            # The engine road raises its transport failures bare,
+            # with no URLError wrap: the unfixable kinds (the name
+            # does not resolve, the secure connection cannot be
+            # made) raise at once, as on the old road; the rest join
+            # the ladder with the bytes on disk kept.
+            if isinstance(e, (socket.gaierror, ssl.SSLError)):
                 raise
             cut = True
             got = on_disk()
