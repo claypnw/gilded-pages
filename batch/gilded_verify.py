@@ -8,6 +8,14 @@ Checks, after a daily healthcare rollout batch has been published:
   2. Per slug: (a) the slug string appears in the LIVE index text, and
      (b) the live big-<slug>.webp md5 vs the local images file md5.
 
+Zero-publish nights (rule change, the admin's order, 2026-11-06): a
+night that published zero entries is verified by the index check
+alone. An empty page-names list on such a night is a finished night,
+not a failure; it stamped FAIL on 2026-11-04, 2026-11-05 and
+2026-11-06 while the index matched, and that false stamp is removed.
+A page-names file that is MISSING entirely is still a failure — that
+means the batch step never ran, which is a different thing.
+
 Prints the full output to stdout AND writes the same output to a dated log:
   ~/workspace/batch-logs/gilded-pages-healthcare-rollout/YYYY-MM-DD.log
 (America/Phoenix date, unless --date is given.)
@@ -643,6 +651,7 @@ def _main(argv=None):
 
     # --- Read the slug list -------------------------------------------------
     slugs = []
+    zero_publish = False  # set when the list file stands empty (see below)
     slugs_path = Path(args.slugs)
     if not slugs_path.is_file():
         out(f"Slugs file: NOT FOUND — {slugs_path}")
@@ -658,13 +667,21 @@ def _main(argv=None):
         for slug in slugs:
             out(f"  - {slug}")
         if not slugs:
-            failures.append("no slugs in slugs file")
+            # Zero-publish night (rule change, the admin's order,
+            # 2026-11-06): the list stands empty because nothing was
+            # published, not because anything failed. No failure is
+            # recorded; the verdict rests on the index check alone.
+            zero_publish = True
+            out("  Zero entries published this run — the page-names list")
+            out("  stands empty, and the night counts as finished on the")
+            out("  index check alone (rule change, 2026-11-06).")
     out("")
 
     if not slugs_path.is_file():
         _rl("FAIL", 1, f"slugs file not found: {slugs_path}")
     elif not slugs:
-        _rl("FAIL", 1, f"no slugs in slugs file: {slugs_path}")
+        _rl("OK", 1, f"page-names list empty at {slugs_path} — zero entries "
+                     "published; the verdict rests on the index check")
     else:
         _rl("OK", 1, f"{len(slugs)} slugs read from {slugs_path}")
     _rl("START", 2)
@@ -727,7 +744,10 @@ def _main(argv=None):
         # --- 2. Per-slug checks ---------------------------------------------
         out("Per-slug checks:")
         if not slugs:
-            out("  (no slugs to check)")
+            if zero_publish:
+                out("  (none — zero entries published this run)")
+            else:
+                out("  (no slugs to check)")
         for slug in slugs:
             in_live = None
             if live_index_text is not None:
@@ -780,7 +800,10 @@ def _main(argv=None):
         out("")
 
         slug_failures = failures[slug_failures_before:]
-        if not slugs:
+        if not slugs and zero_publish:
+            _rl("OK", 3, "no new entries published — no per-page checks "
+                         "owed; the index check carries the verdict")
+        elif not slugs:
             _rl("FAIL", 3, "no slugs to check (see step 1)")
         elif slug_failures:
             _rl("FAIL", 3, "; ".join(slug_failures))
