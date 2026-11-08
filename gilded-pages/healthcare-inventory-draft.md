@@ -356,3 +356,54 @@
 - Excluded per scope: hospitals, urgent care, pharmacies (already listed in Gilded Pages Day 1 batch)
 - Verify-before-publishing: Valley Hospice of Arizona (Payson, #123), Fresenius Kidney Care Cottonwood (#136), Nationwide Vision Prescott (#83)
 - Star Valley: zero healthcare businesses found. Pine: 1 dental + 1 medical office. Strawberry: none (served by Pine/Payson). Camp Verde: thin (no hospital, no Cat 6 office).
+
+---
+
+## NEW FINDS — 2026-11-07 (step-14 new-names check, Day 35)
+Marked as new finds with today's date; to be worked in the normal daily batches in town order like any other name. Full check report: ~/workspace/goals/gilded-pages-healthcare-rollout/hidden_files/day35-new-names-check.md. Inventory total is now 224 + 39 = 263 entries.
+### Payson (7)
+- Genoa Healthcare — Payson — 404 W Aero Dr — behavioral-health pharmacy inside the Southwest Behavioral building. [NEW FIND 2026-11-07]
+- Gabbert Medical — Payson — 120 E Main St Ste B — chiropractic & primary care clinic. [NEW FIND 2026-11-07]
+- Payson Christian Clinic — Payson — 701 S Ponderosa St — free volunteer-run primary care clinic. [NEW FIND 2026-11-07]
+- Fitz Ilias — Payson — 600 AZ-260 #2 — counseling / mental health practice. [NEW FIND 2026-11-07]
+- Comfort Keepers Home Care — Payson — 200 W Frontier St Ste K — in-home care office. [NEW FIND 2026-11-07]
+- SYNERGY HomeCare of Payson — Payson — in-home care franchise location for Payson (distinct from the published Prescott Valley office). [NEW FIND 2026-11-07]
+- Banner Home Care — Payson — 708 E Route 260 Ste A1 — Banner home health office. [NEW FIND 2026-11-07]
+### Camp Verde (3)
+- Black Canyon Community Health Center — Camp Verde — 385 S Main St — nonprofit FQHC primary care clinic, opening soon per its official site. [NEW FIND 2026-11-07]
+- Walgreens — Camp Verde — 475 W Finnie Flat Rd — pharmacy. [NEW FIND 2026-11-07]
+- CVS Pharmacy — Camp Verde — 522 W Finnie Flat Rd — pharmacy. [NEW FIND 2026-11-07]
+### Sedona (3)
+- Arizona Biological Dentistry — Sedona — 105 Roadrunner Dr — holistic/biological dental practice. [NEW FIND 2026-11-07]
+- Smith Dental LLC — Sedona — 1785 W State Rte 89A — dental / dental-sleep practice of Dr. William P. Smith Jr. [NEW FIND 2026-11-07]
+- CVS Pharmacy — Sedona — 20 Airport Rd — pharmacy. [NEW FIND 2026-11-07]
+### Cottonwood (6)
+- Community Health Center of Yavapai (Yavapai County Community Health Services) — Cottonwood — 51 Brian Mickelsen Pkwy — county FQHC: primary care, dental, mental health, substance-use care. [NEW FIND 2026-11-07]
+- VIP Dentistry AZ — Cottonwood — 830 S Main St — family/cosmetic/implant dental practice. [NEW FIND 2026-11-07]
+- Alpha Medical — Cottonwood — 699 N 10th St — medical clinic. [NEW FIND 2026-11-07]
+- NAH Cottonwood Pulmonary Clinic — Cottonwood — 340 S Willard St — Northern Arizona Healthcare specialty clinic, newly opened. [NEW FIND 2026-11-07]
+- NAH Cottonwood ENT Clinic — Cottonwood — 340 S Willard St — Northern Arizona Healthcare ear, nose and throat clinic, newly opened. [NEW FIND 2026-11-07]
+- Safeway Pharmacy — Cottonwood — 1635 E Cottonwood St — pharmacy. [NEW FIND 2026-11-07]
+### Show Low (2)
+- Genoa Pharmacy — Show Low — 1500 S White Mountain Rd — pharmacy. [NEW FIND 2026-11-07]
+- CVS — Show Low — 60 E Deuce of Clubs — pharmacy. [NEW FIND 2026-11-07]
+### Prescott (12)
+- Tony Dalton, DDS — Prescott — 1055 Ruth St Ste 7 — dental practice. [NEW FIND 2026-11-07]
+- Prescott Sleep Solutions — Prescott — 122 N Cortez St — dental sleep-apnea / TMJ clinic. [NEW FIND 2026-11-07]
+- Grand Canyon Dental — Prescott — 172 Merritt Ave — general/cosmetic dental practice. [NEW FIND 2026-11-07]
+- Pineview Family Dental — Prescott — 680 Gail Gardner Way — dental practice (Dr. Kenneth Glass). [NEW FIND 2026-11-07]
+- Mile High Family Dentistry — Prescott — 715 W Hillside Ave — dental practice. [NEW FIND 2026-11-07]
+- Stillwater Dental — Prescott — 3773 Crossings Dr Ste C — dental practice. [NEW FIND 2026-11-07]
+- Distinctive Dental Care — Prescott — 3140 Stillwater Dr Ste B — dental practice (Drs. Paul & Aaron Wulff). [NEW FIND 2026-11-07]
+- Prescott Periodontics and Implant Dentistry — Prescott — 3124 Stillwater Dr — periodontics practice. [NEW FIND 2026-11-07]
+- Tri-City Men's Health — Prescott — 215 N McCormick St — men's health medical clinic. [NEW FIND 2026-11-07]
+- Altius Healthcare — Prescott — 1151 W Iron Springs Rd — home health care service. [NEW FIND 2026-11-07]
+- Innovative Healthcare Metabolic Clinic — Prescott — 3625 Crossings Dr Ste C — metabolic clinic, grand opening Oct 8, 2026. [NEW FIND 2026-11-07]
+- Prescott Medical Aesthetics and Wellness — Prescott — Willow Creek Rd (new facility opened 2026) — naturopathic physician's medical/wellness practice. [NEW FIND 2026-11-07]
+### Prescott Valley (6)
+- The Little Clinic — Prescott Valley — 3100 N Glassford Hill Rd (inside Fry's) — walk-in medical clinic. [NEW FIND 2026-11-07]
+- Horizon Dental Group — Prescott Valley — 7890 E Florentine Rd — dental practice. [NEW FIND 2026-11-07]
+- Modify Health Systems — Prescott Valley — 8600 E Valley Rd Ste B — holistic medical clinic. [NEW FIND 2026-11-07]
+- Morris Health — Prescott Valley — 3196 N Windsong Dr — family medicine practice. [NEW FIND 2026-11-07]
+- Stillwater Dental — Prescott Valley — 3253 N Windsong Dr — dental practice. [NEW FIND 2026-11-07]
+- Sleep Better Southwest — Prescott Valley — 8841 E Florentine Rd — dental sleep clinic (Dr. Jonathan Held), standalone storefront. [NEW FIND 2026-11-07]
