@@ -407,3 +407,67 @@ Marked as new finds with today's date; to be worked in the normal daily batches 
 - Morris Health — Prescott Valley — 3196 N Windsong Dr — family medicine practice. [NEW FIND 2026-11-07]
 - Stillwater Dental — Prescott Valley — 3253 N Windsong Dr — dental practice. [NEW FIND 2026-11-07]
 - Sleep Better Southwest — Prescott Valley — 8841 E Florentine Rd — dental sleep clinic (Dr. Jonathan Held), standalone storefront. [NEW FIND 2026-11-07]
+
+---
+
+## NEW FINDS — 2026-11-08 (step-14 new-names check, Day 36)
+Marked as new finds with today's date; to be worked in the normal daily batches in town order like any other name. Full check report: ~/workspace/goals/gilded-pages-healthcare-rollout/hidden_files/day36-new-names-check.md. Inventory total is now 263 + 52 = 315 entries.
+### Payson (6)
+- Caring Connections For Special Needs (CCSN) — Payson — 708 E AZ-260 — mental health (children's behavioral health). [NEW FIND 2026-11-08]
+- Rotech — Payson — 600 N Beeline Hwy Ste 1 — medical equipment (oxygen/respiratory). [NEW FIND 2026-11-08]
+- Lincare — Payson — 804A N Beeline Hwy — medical equipment (respiratory). [NEW FIND 2026-11-08]
+- Arizona Respiratory & Medical Supply Services — Payson — 1107 N Beeline Hwy A — medical equipment. [NEW FIND 2026-11-08]
+- Miracle-Ear Hearing Aid Center — Payson — 1107 S Beeline Hwy Ste 3 — hearing care. [NEW FIND 2026-11-08]
+- Apple Valley Vision — Payson — vision / optometry (street address not captured in the check). [NEW FIND 2026-11-08]
+### Camp Verde (3)
+- EntireCare Rehab and Sports Medicine — Camp Verde — 1298 Finnie Flat Rd — physical therapy. [NEW FIND 2026-11-08]
+- Williams Family Medical Supply — Camp Verde — 2295 S Squaw Peak Rd — medical equipment. [NEW FIND 2026-11-08]
+- Haven of Camp Verde (Haven Health Camp Verde) — Camp Verde — 86 W Salt Mine Rd — skilled nursing & rehabilitation facility. [NEW FIND 2026-11-08]
+### Sedona (6)
+- Walgreens — Sedona — 1995 AZ-89A — pharmacy. [NEW FIND 2026-11-08]
+- Safeway Pharmacy — Sedona — 2300 W Hwy 89A — pharmacy. [NEW FIND 2026-11-08]
+- Alternative to Meds Center (ATMC) — Sedona — 185 Roadrunner Dr — mental health / recovery (inpatient). [NEW FIND 2026-11-08]
+- EntireCare Rehab & Sports Medicine — Sedona — 35 Dry Creek Rd #4 and Village of Oak Creek, 61 Bell Rock Plaza #B (one entry, two locations) — physical therapy. [NEW FIND 2026-11-08]
+- Sedona Physical Therapy (Jody Hendryx, PT) — Sedona — 55 Manzanita Dr — physical therapy (distinct from the published Sedona PT / Lebec). [NEW FIND 2026-11-08]
+- PrayPT (Prayerful Physical Therapy & Epigenetics) — Sedona — 1184 SR 179 — physical therapy. [NEW FIND 2026-11-08]
+### Cottonwood (6)
+- Walgreens — Cottonwood — 550 S Main St — pharmacy. [NEW FIND 2026-11-08]
+- Verde Valley Physical Therapy — Cottonwood — 544 S 6th St — physical therapy. [NEW FIND 2026-11-08]
+- P3 Physical Therapy & Performance — Cottonwood — 960 S Main St H — physical therapy. [NEW FIND 2026-11-08]
+- Tribe Wellness Group — Cottonwood — 549 S Main St — mental health (its phone also stands on the inventory's Oak Creek Psychiatric listing — check for a moved/renamed practice before publishing). [NEW FIND 2026-11-08]
+- Mingus Center Adult Behavioral — Cottonwood — 636 N Main St — mental health. [NEW FIND 2026-11-08]
+- NAZCARE – Serenity Circle Wellness Center — Cottonwood — 1229 E Cherry St — mental health / recovery. [NEW FIND 2026-11-08]
+### Show Low (6)
+- Walgreens — Show Low — 5160 S White Mountain Rd — pharmacy. [NEW FIND 2026-11-08]
+- Safeway Pharmacy — Show Low — 900 W Deuce of Clubs — pharmacy. [NEW FIND 2026-11-08]
+- Accord Hospice of the White Mountains — Show Low — 5300 S Sutter Dr — hospice. [NEW FIND 2026-11-08]
+- Savior Hospice and Palliative Care — Show Low — 1801 W Deuce of Clubs #310 — hospice. [NEW FIND 2026-11-08]
+- AccentCare — Show Low — 60 S White Mountain Rd Ste B — home health. [NEW FIND 2026-11-08]
+- Marigold Counseling Co. — Show Low — 145 N White Mountain Rd #H — mental health. [NEW FIND 2026-11-08]
+### Prescott (17)
+- Prickly Pear Family Dental — Prescott — 1316 W Gurley St — dental. [NEW FIND 2026-11-08]
+- AzOPT (Arizona Orthopedic Physical Therapy) — Prescott — 3180 Stillwater Dr B — physical therapy. [NEW FIND 2026-11-08]
+- Peterson Physical Therapy — Prescott — 1320 W Iron Springs Rd — physical therapy. [NEW FIND 2026-11-08]
+- Chain Reaction Physical Therapy — Prescott — 621 Miller Valley Rd Ste A — physical therapy. [NEW FIND 2026-11-08]
+- Walgreens — Prescott — 178 E Sheldon St (a second store at 1310 Willow Creek Rd stands in listings; one entry) — pharmacy. [NEW FIND 2026-11-08]
+- CVS Pharmacy — Prescott — 901 Willow Lake Rd — pharmacy. [NEW FIND 2026-11-08]
+- Good Samaritan Hospice — Prescott — 1065 Ruth St — hospice. [NEW FIND 2026-11-08]
+- Maggie's Hospice — Prescott — 801 Miller Valley Rd — hospice. [NEW FIND 2026-11-08]
+- Angels Care Hospice — Prescott — 1000 Willow Creek Rd — hospice (distinct from the Sedona hall). [NEW FIND 2026-11-08]
+- Arizona Elder Care — Prescott — 115 S McCormick St Ste 3 — home care / geriatric care management (distinct from the Sedona office). [NEW FIND 2026-11-08]
+- Prileo Home Care — Prescott — 450 W Goodwin St — home care. [NEW FIND 2026-11-08]
+- Visiting Angels Senior Home Care — Prescott — 3615 Crossings Dr #A — home care. [NEW FIND 2026-11-08]
+- Ponderosa Counseling — Prescott — 240 S Montezuma St Ste 201-B — mental health. [NEW FIND 2026-11-08]
+- Colibri Counseling & Consulting — Prescott — 315 W Goodwin St — mental health. [NEW FIND 2026-11-08]
+- Regency Recovery — Prescott — 1301 E Gurley St Ste A — recovery / addiction treatment. [NEW FIND 2026-11-08]
+- Embark Recovery — Prescott — 3727 Karicio Ln — recovery / addiction treatment. [NEW FIND 2026-11-08]
+- NAZCARE – New Hope Wellness Center — Prescott — 599 White Spar Rd — mental health / recovery. [NEW FIND 2026-11-08]
+### Prescott Valley (8)
+- Windsong Physical Therapy — Prescott Valley — 3221 N Windsong Dr — physical therapy. [NEW FIND 2026-11-08]
+- Tipton Physical Therapy and Aquatic Center — Prescott Valley — 8400 E Florentine Rd — physical therapy. [NEW FIND 2026-11-08]
+- Dignity Health Physical Rehabilitation Services — Prescott Valley — 3262 N Windsong Dr — physical therapy / rehab. [NEW FIND 2026-11-08]
+- Angels On Duty — Prescott Valley — 2852 N Navajo Dr — home care. [NEW FIND 2026-11-08]
+- Preferred Homecare — Prescott Valley — 8067 Florentine Rd — medical equipment / home care (distinct location). [NEW FIND 2026-11-08]
+- CVS Pharmacy — Prescott Valley — 3025 N Windsong Dr — pharmacy. [NEW FIND 2026-11-08]
+- Walgreens — Prescott Valley — 2880 N Centre Ct — pharmacy. [NEW FIND 2026-11-08]
+- Fry's Pharmacy — Prescott Valley — 3100 N Glassford Hill Rd — pharmacy. [NEW FIND 2026-11-08]
