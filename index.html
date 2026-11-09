@@ -642,7 +642,9 @@ var BIG_CATEGORIES = [
   { id: "labs", name: "Laboratories", gloss: "Blood draws & testing halls" },
   { id: "dialysis", name: "Dialysis", gloss: "Kidney-cleansing halls" },
   { id: "equipment", name: "Medical Equipment", gloss: "Durable gear, oxygen & home medical supply" },
-  { id: "imaging", name: "Imaging", gloss: "Ultrasound & diagnostic imaging halls" }
+  { id: "imaging", name: "Imaging", gloss: "Ultrasound & diagnostic imaging halls" },
+  { id: "hearing", name: "Hearing", gloss: "Ear-healers & hearing aids" },
+  { id: "nursing", name: "Nursing & Rehabilitation", gloss: "Skilled nursing & rehabilitation halls" }
 ];
 
 var BIG_VENDORS = [
@@ -3222,7 +3224,77 @@ var BIG_VENDORS = [
   locations: [
     { hold: "Camp Verde", address: "522 W Finnie Flat Rd Ste A, Camp Verde", phone: "(928) 567-2274", hours: "Store daily 8 AM-10 PM; pharmacy Mon-Fri 8 AM-7 PM, Sat 9 AM-6 PM, Sun 10 AM-6 PM, pharmacy closed for lunch 1:30-2 PM daily (official)", note: "CVS Pharmacy store 9266, per its official store page at cvs.com, checked live: pharmacy, flu shots, photo counter and a UPS drop-off point inside. Suite A of a shared building - Verde Dental Care stands in Suite J of the same building (big-verde-dental-care) and is a different business. The CVS locator spells the road Finney Flat; every other local source, and this directory, spells it Finnie Flat." }
   ]
+},
+{
+  slug: "big-rotech", name: "Rotech - Payson", category: "equipment", big: true, lastChecked: "November 9, 2026",
+  img: "big-rotech.webp",
+  website: "https://www.rotech.com/",
+  alt: "Engraving of a home oxygen and medical equipment hall in Payson with pine hills behind - a woman keeper in her sixties with a round face, light skin, silver-grey hair in a low bun and a short stout build, handing a wrapped bundle of breathing tubes to a hooded traveler, shelves of clay pots and wooden boxes behind her",
+  intro: "The breathing-gear hall on the Beeline - oxygen and sleep gear for the home, kept by a national company with a Payson counter.",
+  locations: [
+    { hold: "Payson", address: "600 N Beeline Hwy Ste 1, Payson", phone: "(928) 474-4202", hours: "Mon-Fri 9 AM-12 PM and 1 PM-4 PM (closed 12-1 PM for lunch)", note: "Home medical equipment per its official site and place listing, checked this run: home oxygen concentrators and tanks, CPAP and PAP therapy for sleep apnea, home ventilators, wound care supplies and diabetic supplies including continuous glucose monitors. Parent brand of the published Sentry Home Health hall in Show Low - this Payson hall is a distinct location." }
+  ]
+},
+{
+  slug: "big-lincare", name: "Lincare - Payson", category: "equipment", big: true, lastChecked: "November 9, 2026",
+  img: "big-lincare.webp",
+  website: "https://www.lincare.com/",
+  alt: "Engraving of a respiratory healer's hall in Payson with desert pines behind - a tall thin man healer in his thirties with a narrow angular face, medium brown skin, short black curly hair and a clean-shaven face, showing a bellows breathing device to an elderly man traveler, wooden shelves with glass bottles and herbs behind him",
+  intro: "The respiratory healers of the Beeline - oxygen and breathing care delivered to thy home.",
+  locations: [
+    { hold: "Payson", address: "804A N Beeline Hwy, Payson", phone: "(928) 474-0885", hours: "Mon-Fri 8:30 AM-5 PM", note: "Respiratory therapy products and services for patients in the home, per its place listing, checked this run: home oxygen equipment, nebulizers, sleep apnea and CPAP products, ventilator products and enteral therapy. Lincare is a national company with hundreds of locations; address, phone and hours rest on its Payson place listing." }
+  ]
+},
+{
+  slug: "big-arizona-respiratory", name: "Arizona Respiratory & Medical Supply Services", category: "equipment", big: true, lastChecked: "November 9, 2026",
+  img: "big-arizona-respiratory.webp",
+  alt: "Engraving of a medical supply hall in Payson with pine hills behind - a young woman keeper in her twenties with a diamond-shaped face, deep brown skin, black hair in two braids and a slim build, stacking wooden crates of breathing supplies on shelves, a middle-aged bearded man traveler watching",
+  intro: "A small breathing-supply hall on the north Beeline - respiratory and medical supplies for the home.",
+  locations: [
+    { hold: "Payson", address: "1107 N Beeline Hwy A, Payson", phone: "(928) 474-6684", hours: "Hours not confirmed - ring ahead", note: "Directory-only entry: name, address and phone rest on its place record, checked this run, and a state medical equipment list also places a business of this name in Payson. No official website was found, so no website is listed, and no hours were found in any source checked. Distinct from Rotech and Lincare, the other breathing-supply halls on the same road." }
+  ]
+},
+{
+  slug: "big-miracle-ear", name: "Miracle-Ear Hearing Aid Center - Payson", category: "hearing", big: true, lastChecked: "November 9, 2026",
+  img: "big-miracle-ear.webp",
+  website: "https://www.miracle-ear.com/stores-near-me/hearing-aids-payson-az/miracle-ear-hearing-aid-center-s-beeline-hwy-s10442",
+  alt: "Engraving of a hearing healer's small hall in Payson - a man hearing specialist in his fifties with a square jaw, fair skin, short reddish-brown hair, wire-and-crystal glasses and a broad sturdy build, fitting a carved wooden ear trumpet for a young woman traveler with an oval face and long dark hair, stone walls and a wooden table with small carved hearing horns",
+  intro: "The ear-healers of the south Beeline - hearing tests and hearing aids, fitted and kept up for life.",
+  locations: [
+    { hold: "Payson", address: "1107 S Beeline Hwy Ste 3, Payson", phone: "(928) 474-5158", hours: "Mon-Fri 8 AM-4:30 PM", note: "Free hearing evaluations, hearing aids, free lifetime aftercare, repairs, tinnitus management and custom hearing protection, per its official store page, checked live this run, which names Karl Watts, board certified in hearing instrument sciences, and Kimberly Thornhill, office manager. PHONE NOTE: the number published here is the official store page number; directories give two other numbers, (928) 471-8803 and (928) 366-5535 - the official number stands." }
+  ]
+},
+{
+  slug: "big-walgreens-camp-verde", name: "Walgreens - Camp Verde", category: "pharmacy", big: true, lastChecked: "November 9, 2026",
+  img: "big-walgreens-camp-verde.webp",
+  website: "https://www.walgreens.com/locator/walgreens-475+w+finnie+flat+rd-camp+verde-az-86322/id=12385",
+  alt: "Engraving of an apothecary shop in Camp Verde with red desert cliffs behind - a woman apothecary in her forties with a heart-shaped face, olive skin, long wavy black hair tied back and a medium athletic build, grinding herbs with a mortar and pestle behind a wooden counter, shelves of jars and dried plants behind her, a hooded traveler waiting",
+  intro: "The apothecaries of Finnie Flat Road - Camp Verde's Walgreens, for prescriptions, shots and daily needs.",
+  locations: [
+    { hold: "Camp Verde", address: "475 W Finnie Flat Rd, Camp Verde", phone: "(928) 239-3187", hours: "Store Mon-Fri 7 AM-8 PM; Sat-Sun 8 AM-8 PM (official); pharmacy hours not confirmed - ring ahead", note: "Walgreens store 12385, at the southeast corner of Cliffs Pkwy and Finnie Flat Rd, per its official store page, checked live this run: pharmacy, vaccinations, health and wellness goods and photo services. Store hours above are the official page's own week; its pharmacy hours could not be settled from that page (it showed a Monday 9 AM pharmacy opening, and directories conflict on Sunday), so no pharmacy hours are printed here - ring ahead for the pharmacy counter." }
+  ]
+},
+{
+  slug: "big-entirecare-camp-verde", name: "EntireCare Rehab & Sports Medicine - Camp Verde", category: "physical", big: true, lastChecked: "November 9, 2026",
+  img: "big-entirecare-camp-verde.webp",
+  website: "https://nahealth.com/entirecare-rehab-sports-medicine",
+  alt: "Engraving of a physical therapy hall in Camp Verde with red desert hills behind - a woman therapist in her thirties with a long oval face, light brown skin, dark brown hair in a single long braid and a tall athletic build, guiding an older man traveler with a cane through stretching exercises on a wooden bench",
+  intro: "The bone-setters of the Camp Verde campus - therapy for body, hand and speech under the Northern Arizona healers.",
+  locations: [
+    { hold: "Camp Verde", address: "1298 W Finnie Flat Rd, Camp Verde", phone: "(928) 639-5562", hours: "Mon-Fri 7 AM-5:30 PM", note: "Northern Arizona Healthcare's EntireCare hall on its Camp Verde campus, per its official page, checked live this run: physical, occupational, speech and hand therapy, with aquatic therapy, sports medicine, dry needling and Parkinson's programs. This number is EntireCare's own; the primary care hall on the same campus answers on (928) 639-5555 - a different desk." }
+  ]
+},
+{
+  slug: "big-haven-camp-verde", name: "Haven of Camp Verde", category: "nursing", big: true, lastChecked: "November 9, 2026",
+  img: "big-haven-camp-verde.webp",
+  website: "https://www.havenhealthaz.com/locations/camp-verde/",
+  alt: "Engraving of a skilled nursing and rehabilitation hall in Camp Verde with a desert valley behind - a man nurse in his forties with a round face, fair skin, sandy blond hair and beard and a stocky build, helping an elderly woman in a wooden wheeled chair, a stone hall with beds and wooden screens behind them",
+  intro: "A nursing and mending hall on Salt Mine Road - round-the-clock skilled care and therapy to get thee back on thy feet.",
+  locations: [
+    { hold: "Camp Verde", address: "86 W Salt Mine Rd, Camp Verde", phone: "(928) 567-5253", hours: "Open 24 hours", note: "Skilled nursing and rehabilitation facility, per its official location page, checked live this run, and federal care records: physical, occupational and speech therapy and complex wound care, Medicare and Medicaid certified with 58 beds. Its official page also lists a second number, (928) 567-3794, with no label. The assisted living hall at this same address is a separate service with its own number and is not this entry." }
+  ]
 }
+
 
 
 ];
@@ -3231,7 +3303,7 @@ var BIG_VENDORS = [
     /* Healthcare trades (the admin's ruling, 2026-10-25): gathered under one
        Healthcare section at the very end of the directory, each trade a
        subsection that keeps its own cat-<id> anchor. */
-    var HEALTHCARE_IDS = ["hospitals", "urgent", "dental", "vision", "mental", "hospice", "medical", "physical", "home", "labs", "dialysis", "equipment", "imaging"];
+    var HEALTHCARE_IDS = ["hospitals", "urgent", "dental", "vision", "mental", "hospice", "medical", "physical", "home", "labs", "dialysis", "equipment", "imaging", "hearing", "nursing"];
     function isHealthcare(id) { return HEALTHCARE_IDS.indexOf(id) !== -1; }
     var RENDER_ORDER = CATEGORIES.filter(function (c) { return !isHealthcare(c.id); })
       .concat(CATEGORIES.filter(function (c) { return isHealthcare(c.id); }));
