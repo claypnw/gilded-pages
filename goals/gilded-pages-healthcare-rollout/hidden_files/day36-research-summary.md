@@ -1,0 +1,14 @@
+# Day 36 research summary — 2026-11-08 (full reports in subagent handoffs)
+## Payson new finds (7 from 2026-11-07)
+- Genoa Healthcare Payson: 404 W Aero Dr, Payson AZ 85541, (928) 238-3024, Mon-Fri 8-5 lunch 12-1, closed weekends, genoahealthcare.com, pharmacy, ex-Qol Meds number confirmed. PUBLISHABLE.
+- Gabbert Medical: 120 E Main St Ste B, (928) 472-2225, Mon-Thu 9-6 lunch 1-2:30, Fri-Sun closed, by appt, gabbertmedical.com, medical, Dr Brian Gabbert. PUBLISHABLE.
+- Payson Christian Clinic: 701 S Ponderosa St, (928) 468-2209, Mon 5-7pm (+Mon 10-12 twice-monthly OB), Tue 5-7 1st/3rd only, Thu 3-5, Fri 9-11, paysonchristianclinic.org (.org current, .com older), medical, free volunteer clinic, $25 donation asked / free if unable. PUBLISHABLE (no suite - Suite D single-source, omitted).
+- Fitz Ilias (FitzIlias / Fitz Ilias Health and Technology): 600 AZ-260 #2 / Ste 1&2 conflict, (480) 788-6070, fitzilias.com. HELD - own site says it does NOT provide services directly to the public; B2B telepsychiatry integration for partner clinics/hospitals, not a walk-in counseling practice. Publishing as public counseling would mislead. Needs phone call: is Payson site patient-seen or HQ/admin, public intake?
+- Comfort Keepers Payson: 200 W Frontier St Ste K / Unit K, (480) 919-1100, 24h care line, comfortkeepers.com/offices/arizona/payson, home, non-medical in-home senior care. PUBLISHABLE. Flagstaff office also claims Payson service area - overlap noted, do not use (928) 474-0888 stray number.
+- SYNERGY HomeCare of Payson: 21D Milky Way, Payson 85541, (928) 515-3318 (same number as PV office, same owners Alan & Liz Wikman), synergyhomecare.com/az-payson-85541/, home, non-medical, available 24/7, no office hours posted. PUBLISHABLE as distinct Payson entry.
+- Banner Home Care Payson: 708 E Route 260 Ste A1, (928) 596-4777, bannerhealth.com/locations/payson/banner-home-care, home, skilled home health. Official hours 24h; directory conflict Mon-Fri 8-5 (likely office vs service line) - note conflict. Successor to Payson Home Health at same address, old phone (928) 472-5245 do not use. PUBLISHABLE.
+
+## Camp Verde substitutes (checked 2026-11-08)
+- Black Canyon Community Health Center, Camp Verde: 385 S Main St, (928) 222-2218, blackcanyonhealth.com/locations/camp-verde. HELD - official site says Opening Soon, no hours, not yet seeing patients in Camp Verde.
+- Walgreens Camp Verde #12385: 475 W Finnie Flat Rd, (928) 239-3187, walgreens.com locator id=12385, store Mon-Fri 7-8, Sat-Sun 8-8 official week. ROLLED to next batch - pharmacy hours conflict across sources (official Sun closed vs HoursMap Sun 10-6), needs settling.
+- CVS Pharmacy Camp Verde #9266: 522 W Finnie Flat Rd Ste A, (928) 567-2274, cvs.com storeid=9266, store daily 8 AM-10 PM, pharmacy Mon-Fri 8-7, Sat 9-6, Sun 10-6, lunch 1:30-2 daily. PUBLISHABLE - fills 7th slot today. CVS locator spells Finney Flat; published spelling Finnie Flat per all other local sources.
