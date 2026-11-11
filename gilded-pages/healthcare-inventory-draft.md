@@ -577,3 +577,32 @@ Marked as new finds with today's date; to be worked in the normal daily batches 
 - Granite Mountain Behavioral Healthcare — Prescott Valley (town to confirm; other sources say Prescott) — street address not captured — mental health / recovery — (844) 878-3221. [NEW FIND 2026-11-09]
 - AZ MediQuip – Prescott Valley — Prescott Valley — 7800 E State Route 69 Ste B3 — medical equipment — (928) 800-5950. [NEW FIND 2026-11-09]
 - Mountain Valley Regional Rehabilitation Hospital — Prescott Valley — 3700 N Windsong Dr — hospital / rehabilitation — (928) 759-8800. [NEW FIND 2026-11-09]
+
+## NEW FINDS — 2026-11-10 (step-14 new-names check, Day 38)
+Marked as new finds with today's date; to be worked in the normal daily batches in town order like any other name. Full check report: ~/workspace/goals/gilded-pages-healthcare-rollout/hidden_files/day38-new-names-check.md. Inventory total is now 409 + 20 = 429 entries.
+### Payson (1)
+- Hospice Rta Operations — Payson — 107 E Frontier St — hospice — (928) 472-6460 — FLAG: place-record only; name reads like a back-office entity, verify at batch time whether it is a public-facing hospice office distinct from the published Hospice of Payson. [NEW FIND 2026-11-10]
+### Camp Verde (1)
+- Angels On Duty – Camp Verde location — Camp Verde — 155 S Montezuma Castle Hwy #9 — home care (non-medical) — (928) 567-8883 — new location of the 2026-11-08 Prescott Valley find. [NEW FIND 2026-11-10]
+### Sedona (1)
+- Myofascial Release Treatment — Sedona — 676 N State Rte 89A — physical therapy — (928) 282-3002 — distinct from the published Matsuoka MFR and Sedona PT. [NEW FIND 2026-11-10]
+### Show Low (3)
+- PROHEALTH Chiropractic & Rehab Center — Show Low — 161 N White Mountain Rd — rehabilitation / physical therapy — (928) 251-1477. [NEW FIND 2026-11-10]
+- Miracle-Ear Hearing Aid Center – Show Low location — Show Low — 5401 S White Mountain Rd Ste B — hearing — (928) 366-5381 — new location of the published Payson name. [NEW FIND 2026-11-10]
+- Audiology (Audiology Inc) — Show Low — 2600 S White Mountain Rd — hearing — (928) 358-5604 — FLAG: place record's name is the generic word "Audiology" (site audiologyinc.net); confirm the storefront trading name at batch time. [NEW FIND 2026-11-10]
+### Prescott (11)
+- Az Crown Center – Prescott — Prescott — 919 12th Pl — dental — (928) 899-0974. [NEW FIND 2026-11-10]
+- McKinney Physical Therapy — Prescott — 250 S McCormick St — physical therapy — (928) 777-8050 — FLAG: co-located inside the published Backway's Physical Therapy hall and sharing its phone; separate-entry status to settle at verification (same question as the Encompass find). [NEW FIND 2026-11-10]
+- Horizons Healing Center — Prescott — 240 S Montezuma St #205 — mental health — (928) 249-8659. [NEW FIND 2026-11-10]
+- Northern Arizona Trauma Institute — Prescott — 141 S McCormick St #212 — mental health — (928) 458-1227. [NEW FIND 2026-11-10]
+- Circle of Life Alzheimer Homes — Prescott — 377 N Montezuma St Ste 102 — home health / senior care — (928) 237-4795. [NEW FIND 2026-11-10]
+- Medical Loan Closet (Catholic Charities) – Prescott — Prescott — 434 W Gurley St — medical equipment (loan closet) — (928) 778-2531. [NEW FIND 2026-11-10]
+- NextCare Urgent Care – Prescott location — Prescott — 2062 Willow Creek Rd — urgent care — (928) 443-5103 — new location of the published NextCare name. [NEW FIND 2026-11-10]
+- Prescott Complete Care — Prescott — 1947 Commerce Center Cir Ste A — clinic / urgent care — (928) 458-5723. [NEW FIND 2026-11-10]
+- NowPrimary.Care — Prescott — 404 S Montezuma St A — medical clinic — (928) 756-0070. [NEW FIND 2026-11-10]
+- Southwestern Eye Center – Prescott location — Prescott — 1600 Willow Creek Rd — vision — (928) 776-7477 — new location of the published Cottonwood name. [NEW FIND 2026-11-10]
+- Walmart Vision & Glasses – Prescott location — Prescott — 1280 Gail Gardner Way — vision — (928) 541-7767 — new location; the Payson, Cottonwood and Show Low counters are already listed. [NEW FIND 2026-11-10]
+### Prescott Valley (3)
+- Billet Health – Prescott — Prescott Valley — 8508 E State Rte 69 — home health — (833) 224-5538 — listed at a Prescott Valley address under a Prescott name. [NEW FIND 2026-11-10]
+- Quality Hospice Care, Inc. — Prescott Valley — 3085 N Windsong Dr — hospice — phone not in listing — FLAG: thin record, place listing only, verify at batch time. [NEW FIND 2026-11-10]
+- AccentCare Personal Care – Prescott Valley location — Prescott Valley — 3050 N Navajo Dr #100 — home health — (928) 632-5219 — new location of the published Payson name. [NEW FIND 2026-11-10]
