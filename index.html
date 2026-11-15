@@ -4137,6 +4137,10 @@ var BIG_VENDORS = [
     function esc(s) {
       return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
+    function webUrl(u) {
+      u = String(u == null ? "" : u);
+      return /^https?:\/\//i.test(u) ? esc(u) : "";
+    }
     function vendorBySlug(slug) {
       for (var i = 0; i < VENDORS.length; i++) if (VENDORS[i].slug === slug) return VENDORS[i];
       return null;
@@ -4151,7 +4155,7 @@ var BIG_VENDORS = [
 
 
     function telLink(s) {
-      return String(s).replace(/\(\d{3}\) \d{3}-\d{4}/g, function (m) {
+      return esc(s).replace(/\(\d{3}\) \d{3}-\d{4}/g, function (m) {
         var d = m.replace(/\D/g, "");
         return '<a href="tel:+1' + d + '">' + m + "</a>";
       });
@@ -4184,7 +4188,7 @@ var BIG_VENDORS = [
       h += '<a href="#cat-' + v.category + '">' + esc(cat) + '</a><span class="sep">\u203A</span>';
       h += '<span aria-current="page">' + esc(v.name) + "</span></nav>";
       h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 A Directory for the Guests of Mogollon\u2019s Hearth</p>';
-      if (v.website) h += '<h1 class="fell"><a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.name) + "</a></h1>";
+      if (webUrl(v.website)) h += '<h1 class="fell"><a href="' + webUrl(v.website) + '" target="_blank" rel="noopener">' + esc(v.name) + "</a></h1>";
       else {
         h += '<h1 class="fell">' + esc(v.name) + "</h1>";
         h += '<p class="no-web">This house keeps no webpage to visit — but the directory remembers the way. <a href="#cat-' + v.category + '">\u2190 Back to the summary</a></p>';
@@ -4205,12 +4209,12 @@ var BIG_VENDORS = [
           h += factRow("Address", addrLink(L.address));
           h += factRow("Phone", telLink(L.phone));
           h += factRow("Hours", esc(L.hours));
-          if (L.note) h += factRow("Good to know", telLink(esc(L.note)));
+          if (L.note) h += factRow("Good to know", telLink(L.note));
         });
         h += "</dl>";
       });
       h += '<dl class="facts">';
-      if (v.website) h += factRow("Website", '<a href="' + esc(v.website) + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + "</a>");
+      if (webUrl(v.website)) h += factRow("Website", '<a href="' + webUrl(v.website) + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + "</a>");
       h += factRow("Last Courier\u2019s Scroll on", esc(v.lastChecked || "October 3, 2026"), "wide");
       h += "</dl>";
       h += "</main>";
@@ -4336,7 +4340,7 @@ var BIG_VENDORS = [
       h += '<a href="#cat-' + v.category + '">' + esc(cat) + '</a><span class="sep">\u203A</span>';
       h += '<span aria-current="page">' + esc(v.name) + '</span></nav>';
       h += '<p class="dir-small">The Gilded Pages of the Holds \u00B7 A Merchant Directory for the Guests of Mogollon\u2019s Hearth</p>';
-      if (v.website) h += '<h1 class="fell"><a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.name) + '</a></h1>';
+      if (webUrl(v.website)) h += '<h1 class="fell"><a href="' + webUrl(v.website) + '" target="_blank" rel="noopener">' + esc(v.name) + '</a></h1>';
       else {
         h += '<h1 class="fell">' + esc(v.name) + '</h1>';
         h += '<p class="no-web">This house keeps no webpage to visit — but the directory remembers the way. <a href="#cat-' + v.category + '">\u2190 Back to the summary</a></p>';
@@ -4350,7 +4354,7 @@ var BIG_VENDORS = [
       h += '<div>';
       h += '<blockquote class="review"><p class="rq">\u201C' + esc(v.review.text) + '\u201D</p>';
       h += '<p class="rs">— ' + esc(v.review.source);
-      if (v.review.url) h += ' \u00B7 <a href="' + v.review.url + '" target="_blank" rel="noopener">read it at the source</a>';
+      if (webUrl(v.review.url)) h += ' \u00B7 <a href="' + webUrl(v.review.url) + '" target="_blank" rel="noopener">read it at the source</a>';
       h += '</p></blockquote>';
       h += '</div>';
 
@@ -4370,7 +4374,7 @@ var BIG_VENDORS = [
         if (v.ifYouGo) h += '<p class="if-you-go"><span class="iyg-label">If you go \u2014 </span>' + esc(v.ifYouGo) + '</p>';
         if (v.heraldrySrc && v.heraldrySrc.length) {
           h += '<p class="src">As heralded by ' + v.heraldrySrc.map(function (s) {
-            return '<a href="' + s.url + '" target="_blank" rel="noopener">' + esc(s.label) + '</a>';
+            return webUrl(s.url) ? '<a href="' + webUrl(s.url) + '" target="_blank" rel="noopener">' + esc(s.label) + '</a>' : esc(s.label);
           }).join(' \u00B7 ') + '</p>';
         }
         h += '</div>';
@@ -4387,7 +4391,7 @@ var BIG_VENDORS = [
       h += factRow("They offer", esc(v.offerings));
       h += factRow("Signature", esc(v.signature));
       h += factRow("Good to know", esc(v.goodToKnow));
-      if (v.website) h += factRow("Website", '<a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + '</a>');
+      if (webUrl(v.website)) h += factRow("Website", '<a href="' + webUrl(v.website) + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + '</a>');
       h += factRow("Last Courier\u2019s Scroll on", esc(v.lastChecked || LAST_CHECKED), "wide");
       h += factRow("In the Scroll", '<a href="' + editionURL(v) + '">' + esc(scrollCite(v)) + '</a>');
       h += '</dl>';
@@ -4405,8 +4409,8 @@ var BIG_VENDORS = [
       h += '<li>' + esc(v.price) + '</li>';
       h += '</ul></div>';
       h += '<div><h4>Word &amp; web</h4><ul>';
-      if (v.website) h += '<li>Website: <a href="' + v.website + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + '</a></li>';
-      h += '<li>Travelers\u2019 word: ' + esc(v.review.source) + (v.review.url ? ' \u00B7 <a href="' + v.review.url + '" target="_blank" rel="noopener">read the review</a>' : '') + '</li>';
+      if (webUrl(v.website)) h += '<li>Website: <a href="' + webUrl(v.website) + '" target="_blank" rel="noopener">' + esc(v.website.replace(/^https?:\/\//, "").replace(/\/$/, "")) + '</a></li>';
+      h += '<li>Travelers\u2019 word: ' + esc(v.review.source) + (webUrl(v.review.url) ? ' \u00B7 <a href="' + webUrl(v.review.url) + '" target="_blank" rel="noopener">read the review</a>' : '') + '</li>';
       h += '<li>Signature: ' + esc(v.signature) + '</li>';
       h += '</ul></div>';
       h += '<div><h4>In the Scroll</h4><ul>';
