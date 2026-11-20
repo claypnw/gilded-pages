@@ -51,7 +51,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 JOB_DIR = "gilded-pages-healthcare-rollout"
-LIVE_BASE = "https://claypnw.github.io/gilded-pages"
+LIVE_BASE = "https://gilded-pages.pages.dev"
 LIVE_INDEX_URL = LIVE_BASE + "/index.html"
 WORKING_INDEX = Path.home() / "workspace" / "BACKUP-github-websites-only" / "gilded-pages" / "index.html"
 LOCAL_IMAGES_DIR = Path.home() / "workspace" / "gilded-pages" / "images"
